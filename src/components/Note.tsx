@@ -2,17 +2,19 @@ import { BsFillTrashFill } from 'react-icons/bs';
 import INote from '../interfaces/INote';
 
 
-const Note = (note : {author: string, title: string, body: string }) => {
-    let newNote = new INote(note.author, note.title, note.body);
+
+
+const Note = (obj : {note: INote}) => {
+    let {note} = obj
     return (
         <div className='note'>
             <div className='title'>
-                 <span> {newNote.title} </span>
+                 <span> {note.title} </span>
             </div>
            
-            <span> {newNote.body} </span>
+            <span> {note.body} </span>
             <div className='note-footer'>
-                <span>{newNote.date}</span>
+                <span>{note.date}</span>
 				<BsFillTrashFill
 					//onClick={() => handleDeleteNote(note. id)}
 					className='delete-icon'

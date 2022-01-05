@@ -2,15 +2,15 @@ import Note from './Note'
 import INote from '../interfaces/INote';
 
 
-const NotesList = (obj :{note : INote}) => {
+const NotesList = (obj :{notes : INote[]}) => {
+    let { notes } = obj;
     return (
         <div className='notes-list'>
-
-                <Note       
-                author = {obj.note.author}
-                title = {obj.note.title}
-                body = {obj.note.body}
-                />
+                {notes.map((note: INote) => (
+                    <Note 
+                        note = {note}
+                    />
+                ))}
 
 
         </div>
