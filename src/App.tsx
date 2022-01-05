@@ -1,26 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NotesList from './components/NotesList';
+import INote from './interfaces/INote';
 
-function App() {
+
+const App = () => {
+
+  let note = new INote('me', 'title', 'body\n\n\n\n\n\nbody')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container' >
+
+      <NotesList
+      note={note}
+      />
+        
     </div>
   );
-}
+};
 
 export default App;
