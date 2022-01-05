@@ -12,7 +12,7 @@ const Note = (note : {author: string, title: string, body: string }) => {
            
             <span> {newNote.body} </span>
             <div className='note-footer'>
-                <small>04/20/69</small>
+                <span>{newNote.date}</span>
 				<BsFillTrashFill
 					//onClick={() => handleDeleteNote(note. id)}
 					className='delete-icon'

@@ -1,3 +1,6 @@
+import { nanoid } from 'nanoid';
+
+
 export default class Note {
     id: string;
     author: string;
@@ -9,8 +12,8 @@ export default class Note {
         this.author = author;
         this.title = title;
         this.body = body;
-        this.id = '1';
-        this.date = 'now';
-        
+        this.id = "000"+nanoid();
+        this.date = new Date().toLocaleDateString();
+
     }
 }
