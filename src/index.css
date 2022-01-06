@@ -1,5 +1,7 @@
 .note {
 	background-color: #fcf484;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-bottom: 10px;
 	border-radius: 15px;
 	padding: 1rem;
@@ -10,10 +12,57 @@
 	white-space: pre-line;
 }
 
-.title {
+.note.new {
+	background-color: #7bb1ee;
+}
+
+textarea {
+	border: none;
+	resize: none;
+	background-color: #7bb1ee;
+  float: left;
+  width: 100%;
+  height: auto;
+  
+}
+
+textarea.title {
   text-align: center;
-  font-size: 150%;
+  font-size: 175%;
   font-weight: bold;
+}
+
+textarea.body {
+  font-size: 125%;
+}
+textarea:focus {
+	outline: none;
+}
+
+.save {
+	background-color: #e1e1e1;
+	border: 1px;
+	border-radius: 15px;
+	padding: 5px 10px 5px 10px;
+}
+
+.save:hover {
+	background-color: #ededed;
+	cursor: pointer;
+}
+
+.note-title {
+  text-align: center;
+  font-size: 175%;
+  font-weight: bold;
+}
+
+.note-body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 125%;
 }
 
 .note-footer {
@@ -25,9 +74,9 @@
 
 .notes-list {
 	display: grid;
-	grid-gap: 1rem;
+	grid-row-gap: 1rem;
 	grid-template-columns: repeat(
 		auto-fill,
-		minmax(250px, 1fr)
+		minmax(340px, 1fr)
 	);
 }

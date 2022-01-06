@@ -1,5 +1,6 @@
 import Note from './Note'
 import INote from '../interfaces/INote';
+import AddNote from './AddNote';
 
 
 const NotesList = (obj :{notes : INote[]}) => {
@@ -11,7 +12,7 @@ const NotesList = (obj :{notes : INote[]}) => {
                         note = {note}
                     />
                 ))}
-
+            <AddNote/>
 
         </div>
             

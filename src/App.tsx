@@ -6,9 +6,9 @@ import React, { useEffect, useState } from 'react';
 
 const App = () => {
 
-  let note = new INote('me', 'title', 'body\n\n\n\n\n\nbody')
+  let note = new INote('me', 'title', 'body\n\n\nbody\n\n\nbody\nbody\n\n\nbody\n\n\nbody')
 
-  const [notes, setNotes] = useState([note, note, note, note]);
+  const [notes, setNotes] = useState([note, note, note]);
 
   return (
     <div className='container' >

@@ -8,11 +8,12 @@ const Note = (obj : {note: INote}) => {
     let {note} = obj
     return (
         <div className='note'>
-            <div className='title'>
+            <div className='note-title'>
                  <span> {note.title} </span>
             </div>
-           
-            <span> {note.body} </span>
+            <div className='note-body'>
+                <span> {note.body} </span>
+            </div>
             <div className='note-footer'>
                 <span>{note.date}</span>
 				<BsFillTrashFill
