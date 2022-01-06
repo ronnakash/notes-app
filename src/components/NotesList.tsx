@@ -3,16 +3,21 @@ import INote from '../interfaces/INote';
 import AddNote from './AddNote';
 
 
-const NotesList = (obj :{notes : INote[]}) => {
-    let { notes } = obj;
+const NotesList = (obj :{notes : INote[], handleAddNote : Function, handleDeleteNote : Function}) => {
+    let { notes, handleAddNote, handleDeleteNote } = obj;
+
+
     return (
         <div className='notes-list'>
                 {notes.map((note: INote) => (
                     <Note 
                         note = {note}
+                        handleDeleteNote = {handleDeleteNote}
                     />
                 ))}
-            <AddNote/>
+            <AddNote
+            handleAddNote = {handleAddNote}
+            />
 
         </div>
             

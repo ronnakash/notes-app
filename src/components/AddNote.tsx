@@ -3,7 +3,9 @@ import { useState } from 'react';
 
 
 
-const AddNote = (handleAddNote: any) => {
+const AddNote = (obj : {handleAddNote: Function} ) => {
+	let { handleAddNote} = obj
+
 
     const [noteTitle , setNoteTitle] = useState('');
     const characterLimit = 500;
@@ -23,10 +25,10 @@ const AddNote = (handleAddNote: any) => {
     };
 
 
-
+	
 
 	const handleSaveClick = () => {
-		if (noteTitle.trim().length > 0) {
+		if (noteTitle.trim().length > 0 || noteBody.trim().length > 0) {
 			handleAddNote(noteTitle, noteBody);
 			setNoteTitle('');
             setNoteBody('');

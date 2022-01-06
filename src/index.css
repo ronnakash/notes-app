@@ -1,11 +1,11 @@
 .note {
 	background-color: #fcf484;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 	border-radius: 15px;
 	padding: 1rem;
-	min-height: 10px;
+	min-height: 294px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -20,20 +20,20 @@ textarea {
 	border: none;
 	resize: none;
 	background-color: #7bb1ee;
-  float: left;
-  width: 100%;
-  height: auto;
+	float: left;
+	width: 100%;
+	height: auto;
   
 }
 
 textarea.title {
-  text-align: center;
-  font-size: 175%;
-  font-weight: bold;
+	text-align: center;
+	font-size: 175%;
+	font-weight: bold;
 }
 
 textarea.body {
-  font-size: 125%;
+	font-size: 125%;
 }
 textarea:focus {
 	outline: none;
@@ -52,21 +52,21 @@ textarea:focus {
 }
 
 .note-title {
-  text-align: center;
-  font-size: 175%;
-  font-weight: bold;
+	text-align: center;
+	font-size: 175%;
+	font-weight: bold;
 }
 
 .note-body {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-size: 125%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 125%;
 }
 
 .note-footer {
-  margin-top: 10px;
+	margin-top: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

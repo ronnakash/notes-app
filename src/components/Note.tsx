@@ -4,8 +4,8 @@ import INote from '../interfaces/INote';
 
 
 
-const Note = (obj : {note: INote}) => {
-    let {note} = obj
+const Note = (obj : {note: INote, handleDeleteNote: Function}) => {
+    let { note, handleDeleteNote } = obj
     return (
         <div className='note'>
             <div className='note-title'>
@@ -20,6 +20,7 @@ const Note = (obj : {note: INote}) => {
 					//onClick={() => handleDeleteNote(note. id)}
 					className='delete-icon'
 					size='1.2em'
+                    onClick={()=>handleDeleteNote(note.id)}
 				/>
 
 
