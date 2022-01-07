@@ -11,6 +11,7 @@ const NotesList = (obj :{notes : INote[], handleAddNote : Function, handleDelete
         <div className='notes-list'>
                 {notes.map((note: INote) => (
                     <Note 
+                        key={note.id}
                         note = {note}
                         handleDeleteNote = {handleDeleteNote}
                     />
