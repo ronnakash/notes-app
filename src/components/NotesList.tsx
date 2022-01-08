@@ -42,7 +42,6 @@ const NotesList = () => {
       };
 
     const changeNote = async (changedNote : INote, saved : boolean) => {
-
         const newNotes =  await Promise.all(
             notes.map( async (note : INote) => {
                 if (note.id == changedNote.id){
@@ -70,26 +69,16 @@ const NotesList = () => {
     return (
         <div className='notes-list'>
                 {notes.map((note: INote) => {
-                    if (note.editing){
-                        return (
-                            <EditNote 
-                            key={note.id}
-                            note = {note}
-                            handleChangeNote = {changeNote}
+                    return (
+                        <Note
+                        note={note}
+                        handleDeleteNote={deleteNote}
+                        handleEditNote={editNote}
+                        handleChangeNote={changeNote}
                         />
-                        )
-                    }
-                    else {
-                        return (
-                            <SavedNote 
-                                key={note.id}
-                                note = {note}
-                                handleDeleteNote = {deleteNote}
-                                handleEditNote = {editNote}
-                            />
-                        )
-                    }
-                    })}
+                    )
+
+                })}
             <AddNote
             handleAddNote = {addNote}
             />

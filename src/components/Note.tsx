@@ -1,30 +1,36 @@
 import { BsFillTrashFill } from 'react-icons/bs';
 import INote from '../interfaces/INote';
+import SavedNote from './SavedNote';
+import EditNote from './EditNote';
 
 
 
+const Note = (obj : {note: INote,
+    handleDeleteNote: Function,
+    handleEditNote : Function,
+    handleChangeNote : Function }) => {
+    let { note, handleDeleteNote, handleEditNote, handleChangeNote } = obj;
 
-const Note = (obj : {note: INote, handleDeleteNote: Function}) => {
-    let { note, handleDeleteNote } = obj
+    const savedNote = (
+        <SavedNote 
+        note = {note}
+        handleDeleteNote = {handleDeleteNote}
+        handleEditNote = {handleEditNote}
+    />
+    )
+    
+    const editNote = (
+        <EditNote 
+        note = {note}
+        handleChangeNote = {handleChangeNote}
+    />
+    )
+
+    const thisNote = note.editing? editNote : savedNote
+
     return (
-        <div className='note'>
-            <div className='note-title'>
-                 <span> {note.title} </span>
-            </div>
-            <div className='note-body'>
-                <span> {note.body} </span>
-            </div>
-            <div className='note-footer'>
-                <span>{note.date}</span>
-				<BsFillTrashFill
-					//onClick={() => handleDeleteNote(note. id)}
-					className='delete-icon'
-					size='1.2em'
-                    onClick={()=>handleDeleteNote(note.id)}
-				/>
-
-
-            </div>
+        <div className='notes-container'>
+            {thisNote}
         </div >
     );
 }
