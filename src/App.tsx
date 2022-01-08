@@ -92,10 +92,6 @@ const App = () => {
       handleAddNote={addNote}
       handleDeleteNote={deleteNote}
       />
-        
-      <button className='fetch' onClick={handleFetch}>
-        fetch from db
-      </button>
     </div>
   );
 };
