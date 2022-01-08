@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 const AddNote = (obj : {handleAddNote: Function} ) => {
-	let { handleAddNote} = obj
+	let { handleAddNote } = obj
 
 
     const [noteTitle , setNoteTitle] = useState('');

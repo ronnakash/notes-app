@@ -1,65 +1,80 @@
-import logo from './logo.svg';
 import './App.css';
 import NotesList from './components/NotesList';
 import INote from './interfaces/INote';
 import React, { useEffect, useState } from 'react';
-import axios, {AxiosResponse} from 'axios'
-import requestParser from './utils/requests/requestParser'
 import requests from './utils/requests/requests'
+import axios, {AxiosResponse}from 'axios';
+import API from './utils/requests/API'
+
 
 const App = () => {
 
-
   let startNote = new INote('me', 'Note', 'Default note that is shown on app startup');
-
-
-
-
-
   const emptyNotes : INote[] = [startNote]
 
-  const handleFetch = async () => {
 
-    /** Get notes from server */
-    
-    await requests.getAllNotesRequest.get('')
-      .then((response : any) => {
+  const [notes, setNotes] = useState(emptyNotes);
+
+
+  const handleFetch = async () => {
+    /*
+    await requests.
+      getAllNotesRequest
+      .get('')
+      .then((response : AxiosResponse) => {
         let newNotes = response.data;
         setNotes(newNotes)
       })
       .catch((error: Error) => console.log(error));
-    /*
-    let gotDocs = ((result)? result.data.result.docs : [] )
-    console.log(result? result.data : 'error');
-    let gotNewNotes : INote[] = [];
-    gotDocs.forEach((el: any) => {
-      console.log(el);
-      let { author, title, body, _id, date } = el;
-      let newNote = new INote(author, title, body, _id, date);
-      console.log(newNote);
-      gotNewNotes.push(newNote);
-    });
-    if (gotNewNotes === [])
-      gotNewNotes = [errorNote];
     */
-    
-    
+    let newNotes = await API.getAllNotes()
+    console.log("fetch")
+    console.log(newNotes)
+    setNotes(newNotes);
+
   }
-
-
-
-
-
-  const [notes, setNotes] = useState(emptyNotes);
 
   const deleteNote = (id: string) => {
 		const newNotes = notes.filter((note) => note.id !== id);
 		setNotes(newNotes);
 	};
 
-  const addNote = (title : string, body : string) => {
-    let newNote = new INote('Admin5', title, body);
-    const newNotes = [...notes, newNote];
+  const addNote = async (title : string, body : string) => {
+    /*await requests
+      .postNoteRequest(newNote)
+      .post('')
+      .then((response : AxiosResponse) => {
+        if (response.status === 200)
+          console.log('posted note');
+        else
+          throw new Error("post note request failed");
+      })
+      .catch((error: Error) => console.log(error));
+      
+
+
+      let newNote;
+      axios.post('http://localhost:4000/Admin/notes/post/note',{
+        
+        author: 'Admin5',
+        title: title,
+        body: body
+    }, {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQzNzhmY2ZlMzIxOTA2ZGQxOTZmZmQiLCJ1c2VybmFtZSI6IkFkbWluNSIsInBlcm1pc3Npb25zIjoiQWRtaW4iLCJpYXQiOjE2NDEyNjA0MzcsImV4cCI6MTY0Mzg1MjQzNywiaXNzIjoiQWRtaW5pc3RyYXRvciJ9.2jlZAppyQNJroovGxo9p0LrJMNDIadHERvcFg-z42RU'
+        }
+      }).then(res => {
+
+      }).catch
+
+    const newNotes = newNote? [...notes, newNote] : notes;
+    setNotes(newNotes);
+
+    */
+    let author = 'Admin5';
+    let newNote = await API.postNote({author, title, body});
+    const newNotes = newNote? [...notes, newNote] : notes;
     setNotes(newNotes);
   }
 

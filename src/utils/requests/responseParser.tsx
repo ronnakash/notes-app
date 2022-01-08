@@ -19,5 +19,10 @@ const parseNotesFromRequest = (body : any) => {
     return gotNewNotes;
   };
 
+  const parseNoteFromPostRequest = (res : any) : INote => {
+    let obj = JSON.parse(res);
+    let {author, title, body, _id, date} = obj.result.newNote;
+    return new INote(author, title, body, _id, date);
+  }
 
-  export default {parseNotesFromRequest};
+  export default {parseNotesFromRequest, parseNoteFromPostRequest};
