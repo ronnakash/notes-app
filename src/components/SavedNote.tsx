@@ -4,10 +4,16 @@ import INote from '../interfaces/INote';
 
 
 
-const Note = (obj : {note: INote, handleDeleteNote: Function}) => {
-    let { note, handleDeleteNote } = obj
+const SavedNote = (obj : {note: INote, handleDeleteNote: Function, handleEditNote: Function}) => {
+    let { note, handleDeleteNote, handleEditNote } = obj
+
+    const handleEdit = () => {
+        note.editing = true;
+        handleEditNote(note);
+    }
+
     return (
-        <div className='note'>
+        <div className='note saved'>
             <div className='note-title'>
                  <span> {note.title} </span>
             </div>
@@ -16,17 +22,17 @@ const Note = (obj : {note: INote, handleDeleteNote: Function}) => {
             </div>
             <div className='note-footer'>
                 <span>{note.date}</span>
+                <button className='edit' onClick={handleEdit}>
+					Edit
+				</button>
 				<BsFillTrashFill
-					//onClick={() => handleDeleteNote(note. id)}
 					className='delete-icon'
 					size='1.2em'
                     onClick={()=>handleDeleteNote(note.id)}
 				/>
-
-
             </div>
         </div >
     );
 }
 
-export default Note
+export default SavedNote

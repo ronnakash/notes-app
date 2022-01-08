@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from 'axios'
 import INote from '../../interfaces/INote';
 
 
-let errorNote = new INote('me', 'Default Note', 'This is a note that is shown incase fetching notes from api failed');
+let errorNote = new INote('me', 'Default Note', 'This is a note that is shown incase fetching notes from api failed', '1');
 
 
 const parseNotesFromRequest = (body : any) => {

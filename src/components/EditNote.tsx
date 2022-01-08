@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import INote from '../interfaces/INote';
 
+//handleAddNote -> handleChangeNote
 
+const EditNote = (obj : {note : INote, handleChangeNote: Function} ) => {
+	let { note, handleChangeNote } = obj;
+    let { title, body } = note;
 
-const AddNote = (obj : {handleAddNote: Function} ) => {
-	let { handleAddNote } = obj
-
-    const [noteTitle , setNoteTitle] = useState('');
-    const [noteBody , setNoteBody] = useState('');
+    const [noteTitle , setNoteTitle] = useState(title);
+    const [noteBody , setNoteBody] = useState(body);
 
 	const characterLimit = 499;
 
@@ -24,13 +26,17 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
 
 	const handleSaveClick = () => {
 		if (noteTitle.trim().length > 0 || noteBody.trim().length > 0) {
-			handleAddNote(noteTitle, noteBody);
-			setNoteTitle('');
-            setNoteBody('');
+            note.title = noteTitle;
+            note.body = noteBody;
+			handleChangeNote(note, true);
 		}
 	};
 
-
+    const handleCancelClick = () => {
+        note.title = title;
+        note.body = body;
+        handleChangeNote(note, false);
+    };
 
     return (
         <div className='note new'>
@@ -52,6 +58,9 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
 				<small>
 					{characterLimit+1 - noteBody.length} Remaining
 				</small>
+                <button className='cancel' onClick={handleCancelClick}>
+					Cancel
+				</button>
 				<button className='save' onClick={handleSaveClick}>
 					Save
 				</button>
@@ -64,4 +73,4 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
 
 }
 
-export default AddNote
+export default EditNote
