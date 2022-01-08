@@ -9,12 +9,15 @@ import API from './utils/requests/API'
 
 const App = () => {
 
-  let startNote = new INote('me', 'Note', 'Default note that is shown on app startup');
-  const emptyNotes : INote[] = [startNote]
+  let fetch = 'fetch'
 
+  let emptyNotes : INote[] = []
 
   const [notes, setNotes] = useState(emptyNotes);
 
+  useEffect(() => {
+    handleFetch();
+  }, [fetch])
 
   const handleFetch = async () => {
     /*
@@ -28,13 +31,15 @@ const App = () => {
       .catch((error: Error) => console.log(error));
     */
     let newNotes = await API.getAllNotes()
-    console.log("fetch")
+    console.log(fetch)
     console.log(newNotes)
     setNotes(newNotes);
-
   }
 
+  
+
   const deleteNote = (id: string) => {
+    API.deleteNote(id);
 		const newNotes = notes.filter((note) => note.id !== id);
 		setNotes(newNotes);
 	};

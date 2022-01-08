@@ -33,5 +33,13 @@ const postNote = async (noteObj : {author : string, title : string, body : strin
     return note;
 }
 
+const deleteNote = async (id: string) => {
+    await requests.deleteNoteRequest
+        .delete('', {
+            data: {_id: id}
+        })
+        .catch(error => console.log(error))
+}
 
-export default {getAllNotes ,postNote}
+
+export default {getAllNotes ,postNote, deleteNote}
