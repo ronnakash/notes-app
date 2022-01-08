@@ -41,18 +41,20 @@ const NotesList = () => {
         setNotes(newNotes);
       };
 
-    const changeNote = (changedNote : INote, saved : boolean) => {
-        const newNotes = notes.map((note : INote) => {
-            if (note.id == changedNote.id){
-                if (saved) {
+    const changeNote = async (changedNote : INote, saved : boolean) => {
+
+        const newNotes =  await Promise.all(
+            notes.map( async (note : INote) => {
+                if (note.id == changedNote.id){
                     note.body = changedNote.body;
                     note.title = changedNote.title;
-                    //update in db
+                    if (saved) {
+                        await API.editNote(note);
+                    }
+                    note.editing = false;
                 }
-                note.editing = false;
-            }
-            return note;
-        })
+                return note;
+            }));    
         setNotes(newNotes);
     };
 

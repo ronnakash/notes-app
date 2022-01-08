@@ -41,5 +41,16 @@ const deleteNote = async (id: string) => {
         .catch(error => console.log(error))
 }
 
+const editNote = async (note : INote) => {
+    let {id, title, body} = note;
+    await requests.editNoteRequest
+        .put('', {
+            _id : id,
+            title: title,
+            body: body
+        })
+        .catch(error => console.log(error))
+};
 
-export default {getAllNotes ,postNote, deleteNote}
+
+export default {getAllNotes ,postNote, deleteNote, editNote}
