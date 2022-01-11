@@ -67,23 +67,24 @@ const NotesList = () => {
     };
 
     return (
+        
         <div className='notes-list'>
-                {notes.map((note: INote) => {
-                    return (
-                        <Note
-                        note={note}
-                        handleDeleteNote={deleteNote}
-                        handleEditNote={editNote}
-                        handleChangeNote={changeNote}
-                        />
-                    )
-
+            {notes.map((note: INote) => {
+                return (
+                    <Note
+                    note={note}
+                    handleDeleteNote={deleteNote}
+                    handleEditNote={editNote}
+                    handleChangeNote={changeNote}
+                    />
+                )
                 })}
             <AddNote
-            handleAddNote = {addNote}
+                handleAddNote = {addNote}
             />
-
         </div>
+    
+
             
                 
 

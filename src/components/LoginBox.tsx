@@ -1,33 +1,37 @@
-import fbApp from '../utils/firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { GoogleAuthProvider, EmailAuthProvider, User  } from 'firebase/auth';
-
+import { onAuthStateChanged } from 'firebase/auth'
+import firebase from '../utils/firebase'
+import { useState } from 'react';
 
 const LoginBox = ({}) => {
 
-const configUI : firebaseui.auth.Config=  {
-    signInFlow: 'popupMode',
-    signInSuccessUrl: '/signedIn',
-    signInOptions: [
-        EmailAuthProvider.PROVIDER_ID,
-        GoogleAuthProvider.PROVIDER_ID
-    ],
-    callbacks: {
-        signInSuccessWithAuthResult: () : boolean=> {
-            return false;
-        },
-        signInFailure: () => {}
-    },
-}
+const [user, setUser] = useState(firebase.auth.currentUser);
 
+onAuthStateChanged(firebase.auth, (newUser) => {
+    if (user)
+        console.log('logged in');
+    else
+        console.log('no user')
+    setUser(newUser)
+});
 
-const user : (User | null) = fbApp.auth.currentUser;
-
+const signOut = async () => {
+    await firebase.auth.signOut()
+};
 
     return (
-        <div className='login-box' >
-            <StyledFirebaseAuth uiConfig={configUI} firebaseAuth={fbApp.auth}  >      
-            </StyledFirebaseAuth>
+        <div className='center' >
+            <h1>Hello {user? user.displayName : 'guest'}</h1>
+            {user ?
+                <button className='signout' onClick={signOut}>
+                    signOut
+                </button> : 
+                <StyledFirebaseAuth
+                    uiConfig={firebase.configUI}
+                    firebaseAuth={firebase.auth}  >      
+                </StyledFirebaseAuth>
+            }
         </div>
 
 

@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { GoogleAuthProvider, EmailAuthProvider, User  } from 'firebase/auth';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,17 +16,29 @@ const firebaseConfig = {
   appId: "1:888361755327:web:f40088083d23c9aa971c0a"
 };
 
+const configUI : firebaseui.auth.Config=  {
+  signInFlow: 'popupMode',
+  signInSuccessUrl: '/signedIn',
+  signInOptions: [
+      EmailAuthProvider.PROVIDER_ID,
+      GoogleAuthProvider.PROVIDER_ID
+  ],
+  callbacks: {
+      signInSuccessWithAuthResult: (authResult, redirectURL) : boolean=> {
+          console.log('logged in');
+          console.log(authResult);
+          
+          return false;
+      },
+      signInFailure: () => {}
+  },
+}
+
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-onAuthStateChanged(auth, user => {
-    if (user)
-        console.log('logged in');
-    else
-        console.log('no user')
-})
 
-
-export default { auth };
+export default { auth , configUI};
