@@ -16,6 +16,19 @@ const getAllNotes = async () : Promise<INote[]> => {
     return res;
 };
 
+const getMyNotes = async (username : string) : Promise<INote[]> => {
+    let res : INote[] = [];
+    await requests.getAllNotesRequest
+        .get('', {params: {author: username}})
+        .then((response : AxiosResponse)=> {
+            console.log(response.data)
+            res = response.data;
+        })
+        .catch(error => console.log(error))
+        //console.log(res);
+    return res;
+};
+
 
 const postNote = async (noteObj : {author : string, title : string, body : string}) : Promise<INote | undefined>=> {
     let note;
@@ -53,4 +66,4 @@ const editNote = async (note : INote) => {
 };
 
 
-export default {getAllNotes ,postNote, deleteNote, editNote}
+export default {getAllNotes, getMyNotes, postNote, deleteNote, editNote}

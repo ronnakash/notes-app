@@ -5,24 +5,34 @@ import React, { useEffect, useState } from 'react';
 import API from '../utils/requests/API'
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
+import firebase from '../utils/firebase'
+import { onAuthStateChanged } from 'firebase/auth';
 
 
 const NotesList = () => {
 
 
-    let fetch = 'fetch'
-
     let emptyNotes : INote[] = []
   
     const [notes, setNotes] = useState(emptyNotes);
-  
+    const [user, setUser] = useState(firebase.auth.currentUser);
+    
+    onAuthStateChanged(firebase.auth, (newUser) => {
+        if (user)
+            console.log('logged in');
+        else
+            console.log('no user')
+        setUser(newUser)
+    });
+
+
     useEffect(() => {
       handleFetch();
-    }, [fetch])
+    }, [user])
   
+
     const handleFetch = async () => {
-      let newNotes = await API.getAllNotes()
-      console.log(fetch)
+      let newNotes = await API.getMyNotes(user?.displayName? user.displayName : 'guest')
       console.log(newNotes)
       setNotes(newNotes);
     }
@@ -35,7 +45,7 @@ const NotesList = () => {
 
 
     const addNote = async (title : string, body : string) => {
-        let author = 'Admin5';
+        let author = user?.displayName? user.displayName : 'guest';
         let newNote = await API.postNote({author, title, body});
         const newNotes = newNote? [...notes, newNote] : notes;
         setNotes(newNotes);

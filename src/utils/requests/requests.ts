@@ -10,6 +10,7 @@ let getAllNotesURL = '/Admin/get/allNotes';
 let postNoteURL = '/post/note';
 let deleteNoteURL = '/delete/deleteNote'
 let editNoteURL = '/put/updateNote'
+let getMyNotesURL = '/get/usersNotes'
 
 let noteURL = '/Admin/notes'
 
@@ -25,6 +26,14 @@ const getAllNotesRequest = axios.create({
         transformResponse: [responseParser.parseNotesFromRequest],
         timeout: 5000
     });
+
+const getMyNotesRequest = axios.create({
+      method: 'GET',
+      baseURL: serverURL+noteURL+getMyNotesURL, 
+      headers: headers, 
+      transformResponse: [responseParser.parseNotesFromRequest],
+      timeout: 5000
+  });
 
 
 const postNoteRequest = axios.create({
@@ -53,5 +62,5 @@ const editNoteRequest = axios.create({
       });
 
 
-export default { getAllNotesRequest, postNoteRequest, deleteNoteRequest, editNoteRequest }
+export default { getAllNotesRequest, getMyNotesRequest, postNoteRequest, deleteNoteRequest, editNoteRequest }
 
