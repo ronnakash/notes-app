@@ -1,5 +1,3 @@
-import { nanoid } from 'nanoid';
-
 
 export default class Note {
     id: string;
