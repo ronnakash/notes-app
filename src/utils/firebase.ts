@@ -18,7 +18,7 @@ const firebaseConfig = {
 
 const configUI : firebaseui.auth.Config=  {
   signInFlow: 'popupMode',
-  signInSuccessUrl: '/signedIn',
+  signInSuccessUrl: '/notes',
   signInOptions: [
       EmailAuthProvider.PROVIDER_ID,
       GoogleAuthProvider.PROVIDER_ID
@@ -39,6 +39,7 @@ const configUI : firebaseui.auth.Config=  {
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
+
 
 
 export default { auth , configUI};

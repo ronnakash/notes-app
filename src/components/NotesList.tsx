@@ -6,20 +6,24 @@ import API from '../utils/requests/API'
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
 import firebase from '../utils/firebase'
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, getRedirectResult } from 'firebase/auth';
 
 
 const NotesList = () => {
 
+
+    getRedirectResult(firebase.auth)
 
     let emptyNotes : INote[] = []
   
     const [notes, setNotes] = useState(emptyNotes);
     const [user, setUser] = useState(firebase.auth.currentUser);
     
-    onAuthStateChanged(firebase.auth, (newUser) => {
-        if (user)
-            console.log('logged in');
+    onAuthStateChanged(firebase.auth, async (newUser) => {
+        if (user){
+            console.log('logged in nl');
+            const creds = await getRedirectResult(firebase.auth);
+        }
         else
             console.log('no user')
         setUser(newUser)

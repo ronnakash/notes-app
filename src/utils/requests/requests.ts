@@ -2,27 +2,41 @@ import axios, {AxiosResponse} from 'axios'
 import INote from '../../interfaces/INote';
 import responseParser from './responseParser'
 import requestParser from './requestParser';
+import firebase from '../firebase'
 
 
+let noteURL = '/Admin/notes';
 let serverURL = 'http://localhost:4000';
-let token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQzNzhmY2ZlMzIxOTA2ZGQxOTZmZmQiLCJ1c2VybmFtZSI6IkFkbWluNSIsInBlcm1pc3Npb25zIjoiQWRtaW4iLCJpYXQiOjE2NDEyNjA0MzcsImV4cCI6MTY0Mzg1MjQzNywiaXNzIjoiQWRtaW5pc3RyYXRvciJ9.2jlZAppyQNJroovGxo9p0LrJMNDIadHERvcFg-z42RU';
+let JWTtoken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQzNzhmY2ZlMzIxOTA2ZGQxOTZmZmQiLCJ1c2VybmFtZSI6IkFkbWluNSIsInBlcm1pc3Npb25zIjoiQWRtaW4iLCJpYXQiOjE2NDEyNjA0MzcsImV4cCI6MTY0Mzg1MjQzNywiaXNzIjoiQWRtaW5pc3RyYXRvciJ9.2jlZAppyQNJroovGxo9p0LrJMNDIadHERvcFg-z42RU';
 let getAllNotesURL = '/Admin/get/allNotes';
 let postNoteURL = '/post/note';
-let deleteNoteURL = '/delete/deleteNote'
-let editNoteURL = '/put/updateNote'
-let getMyNotesURL = '/get/usersNotes'
+let deleteNoteURL = '/delete/deleteNote';
+let editNoteURL = '/put/updateNote';
+let getMyNotesURL = '/get/usersNotes';
 
-let noteURL = '/Admin/notes'
+/*
+let getToken = async () => {
+  if (firebase.auth.currentUser){
+    let token = "Bearer" + (await firebase.auth.currentUser?.getIdToken(true).catch(e=> ""));
+    return token;
+  }
+  return "";
+}
 
+
+let fbToken = (await getToken()) || JWTtoken;
+*/
+
+
+/*
 let headers = {
-  Authorization: token
+  Authorization: fbToken
 };
-
+*/
 
 const getAllNotesRequest = axios.create({
         method: 'GET',
         baseURL: serverURL+noteURL+getAllNotesURL, 
-        headers: headers, 
         transformResponse: [responseParser.parseNotesFromRequest],
         timeout: 5000
     });
@@ -30,7 +44,6 @@ const getAllNotesRequest = axios.create({
 const getMyNotesRequest = axios.create({
       method: 'GET',
       baseURL: serverURL+noteURL+getMyNotesURL, 
-      headers: headers, 
       transformResponse: [responseParser.parseNotesFromRequest],
       timeout: 5000
   });
@@ -39,7 +52,6 @@ const getMyNotesRequest = axios.create({
 const postNoteRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+noteURL+postNoteURL, 
-        headers: headers,
         //transformRequest: [requestParser.noteToBody],
         transformResponse: [responseParser.parseNoteFromPostRequest],
         timeout: 5000,
@@ -49,7 +61,6 @@ const postNoteRequest = axios.create({
 const deleteNoteRequest = axios.create({
         method: 'DELETE',
         baseURL: serverURL+noteURL+deleteNoteURL,
-        headers: headers,
         timeout: 5000
     });
 
@@ -57,7 +68,6 @@ const deleteNoteRequest = axios.create({
 const editNoteRequest = axios.create({
         method: 'PUT',
         baseURL: serverURL+noteURL+editNoteURL,
-        headers: headers,
         timeout: 5000
       });
 
