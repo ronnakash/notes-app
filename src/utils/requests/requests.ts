@@ -5,14 +5,14 @@ import requestParser from './requestParser';
 import firebase from '../firebase'
 
 
-let noteURL = '/Admin/notes';
+let noteURL = '/admin/notes';
 let serverURL = 'http://localhost:4000';
 let JWTtoken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQzNzhmY2ZlMzIxOTA2ZGQxOTZmZmQiLCJ1c2VybmFtZSI6IkFkbWluNSIsInBlcm1pc3Npb25zIjoiQWRtaW4iLCJpYXQiOjE2NDEyNjA0MzcsImV4cCI6MTY0Mzg1MjQzNywiaXNzIjoiQWRtaW5pc3RyYXRvciJ9.2jlZAppyQNJroovGxo9p0LrJMNDIadHERvcFg-z42RU';
 let getAllNotesURL = '/Admin/get/allNotes';
 let postNoteURL = '/post/note';
 let deleteNoteURL = '/delete/deleteNote';
 let editNoteURL = '/put/updateNote';
-let getMyNotesURL = '/get/usersNotes';
+let getMyNotesURL = '/get/myNotes';
 
 /*
 let getToken = async () => {

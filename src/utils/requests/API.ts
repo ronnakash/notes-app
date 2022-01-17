@@ -36,7 +36,7 @@ const getAllNotes = async () : Promise<INote[]> => {
 const getMyNotes = async (username : string) : Promise<INote[]> => {
     let res : INote[] = [];
     let headers = await getHeader();
-    await requests.getAllNotesRequest
+    await requests.getMyNotesRequest
         .get('', {
             params: {author: username},
             headers: headers

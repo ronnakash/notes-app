@@ -12,8 +12,6 @@ import { onAuthStateChanged, getRedirectResult } from 'firebase/auth';
 const NotesList = () => {
 
 
-    getRedirectResult(firebase.auth)
-
     let emptyNotes : INote[] = []
   
     const [notes, setNotes] = useState(emptyNotes);
@@ -21,11 +19,8 @@ const NotesList = () => {
     
     onAuthStateChanged(firebase.auth, async (newUser) => {
         if (user){
-            console.log('logged in nl');
             const creds = await getRedirectResult(firebase.auth);
         }
-        else
-            console.log('no user')
         setUser(newUser)
     });
 

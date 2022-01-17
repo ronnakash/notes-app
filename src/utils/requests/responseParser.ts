@@ -6,8 +6,11 @@ let errorNote = new INote('me', 'Default Note', 'This is a note that is shown in
 
 
 const parseNotesFromRequest = (res : any) => {
+  console.log("res");
+  console.log(res)
     let obj = JSON.parse(res);
-    let docs = obj.result.docs;
+    console.log(obj)
+    let docs = obj.result.models;
     let gotNewNotes : INote[] = [];
     docs.forEach((el: any) => {
       let { author, title, body, _id, createdAt, updatedAt } = el;

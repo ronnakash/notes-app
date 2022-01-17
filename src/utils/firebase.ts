@@ -20,14 +20,15 @@ const configUI : firebaseui.auth.Config=  {
   signInFlow: 'popupMode',
   signInSuccessUrl: '/notes',
   signInOptions: [
-      EmailAuthProvider.PROVIDER_ID,
+      {
+        provider: EmailAuthProvider.PROVIDER_ID,
+        signInMethod : EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD
+      },
       GoogleAuthProvider.PROVIDER_ID
   ],
   callbacks: {
       signInSuccessWithAuthResult: (authResult, redirectURL) : boolean=> {
-          console.log('logged in');
           console.log(authResult);
-          
           return false;
       },
       signInFailure: () => {}

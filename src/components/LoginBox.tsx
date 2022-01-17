@@ -9,10 +9,9 @@ const LoginBox = ({}) => {
 const [user, setUser] = useState(firebase.auth.currentUser);
 
 onAuthStateChanged(firebase.auth, (newUser) => {
-    if (user)
-        console.log('logged in lb');
-    else
-        console.log('no user')
+    if (newUser)
+        console.log('logged in');
+    else console.log('logged out');
     setUser(newUser)
     console.log(newUser);
 });
