@@ -10,8 +10,9 @@ import auth from './utils/firebase'
 import  StyledFirebaseUi  from 'react-firebaseui/StyledFirebaseAuth';
 import LoginBox from './components/LoginBox';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Navbar from './components/Navbar';
-
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import logo from './logo.svg'
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 const App = () => {
@@ -19,21 +20,28 @@ const App = () => {
 
 
   return (
-    <div className="app">
+    <div className="App">
+      <Navbar bg='dark' variant='dark'>
+        <Navbar.Brand>
+          <img  src={logo} height='40px'/>
+          NotesApp
+        </Navbar.Brand>
+        <Nav>
+          <Nav.Link href='/'>Home</Nav.Link>
+          <Nav.Link href='/login'>Login</Nav.Link>
+          <Nav.Link href='/notes'>Notes</Nav.Link>
+          <NavDropdown title='Dropdown'>
+            <NavDropdown.Item href='/login'>Login</NavDropdown.Item>
+            <NavDropdown.Item href='/notes'>Notes</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      </Navbar>
       <Router>
-      <Navbar />
         <Routes>
           <Route path ='/' element={<h1>Home Page</h1>} />
           <Route path ='/login' element={<LoginBox/>} />
           <Route path ='/notes' element={<NotesList/>} />
         </Routes>
-        <div className="list">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="login">login</Link></li>
-            <li><Link to="notes">notes</Link></li>
-          </ul>
-        </div>
       </Router>
     </div>
   );
