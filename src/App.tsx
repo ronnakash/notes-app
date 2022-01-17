@@ -10,6 +10,7 @@ import auth from './utils/firebase'
 import  StyledFirebaseUi  from 'react-firebaseui/StyledFirebaseAuth';
 import LoginBox from './components/LoginBox';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 
 
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <div className="app">
       <Router>
+      <Navbar />
         <Routes>
           <Route path ='/' element={<h1>Home Page</h1>} />
           <Route path ='/login' element={<LoginBox/>} />
