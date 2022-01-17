@@ -4,7 +4,7 @@ import requests from './requests'
 import firebase from '../firebase'
 
 
-let getToken = async () => {
+const getToken = async () => {
     if (firebase.auth.currentUser){
       let token = "Bearer " + (await firebase.auth.currentUser?.getIdToken(true).catch(e=> ""));
       return token;
@@ -12,14 +12,16 @@ let getToken = async () => {
     return "";
   }
 
+  const getHeader = async () => {
+    let token = await getToken();
+    return token? {Authorization: token} : {Authorization: "Bearer"};
+  }
 
 
 
 const getAllNotes = async () : Promise<INote[]> => {
     let res : INote[] = [];
-    let headers = {
-        Authorization: await getToken()
-    }
+    let headers = await getHeader();
     await requests.getAllNotesRequest
         .get('', {headers: headers})
         .then((response : AxiosResponse)=> {
@@ -33,9 +35,7 @@ const getAllNotes = async () : Promise<INote[]> => {
 
 const getMyNotes = async (username : string) : Promise<INote[]> => {
     let res : INote[] = [];
-    let headers = {
-        Authorization: await getToken()
-    }
+    let headers = await getHeader();
     await requests.getAllNotesRequest
         .get('', {
             params: {author: username},
@@ -53,9 +53,7 @@ const getMyNotes = async (username : string) : Promise<INote[]> => {
 
 const postNote = async (noteObj : {author : string, title : string, body : string}) : Promise<INote | undefined>=> {
     let note;
-    let headers = {
-        Authorization: await getToken()
-    }
+    let headers = await getHeader();
     let {author, title, body} = noteObj;
     await requests.postNoteRequest
         .post('', {
@@ -71,9 +69,7 @@ const postNote = async (noteObj : {author : string, title : string, body : strin
 }
 
 const deleteNote = async (id: string) => {
-    let headers = {
-        Authorization: await getToken()
-    }
+    let headers = await getHeader();
     await requests.deleteNoteRequest
         .delete('', {
             data: {_id: id},
@@ -83,9 +79,7 @@ const deleteNote = async (id: string) => {
 }
 
 const editNote = async (note : INote) => {
-    let headers = {
-        Authorization: await getToken()
-    }
+    let headers = await getHeader();
     let {id, title, body} = note;
     await requests.editNoteRequest
         .put('', {
