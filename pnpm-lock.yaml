@@ -34,6 +34,7 @@ specifiers:
   react-scripts: 5.0.0
   styled-components: ^5.3.3
   typescript: ^4.4.2
+  vue-simple-password-meter: ^0.1.0
   web-vitals: ^2.1.0
   webpack: ^5.66.0
 
@@ -71,6 +72,7 @@ dependencies:
   react-scripts: 5.0.0_f21094428e954f17b762fd60628b170b
   styled-components: 5.3.3_281a4fa50a045c9112baf635f3bc27a7
   typescript: 4.5.4
+  vue-simple-password-meter: 0.1.0
   web-vitals: 2.1.2
   webpack: 5.66.0
 
@@ -12959,6 +12961,10 @@ packages:
     resolution: {integrity: sha512-LuCAHZN75H9tdrAiLFf030oW7nJV5xwNMuk1ymOZwopmuK3d2H4L1Kv4+GFHgarKiLfXXLFU+7LDABHnwOkWng==}
     engines: {node: '>=6.0'}
     hasBin: true
+    dev: false
+
+  /vue-simple-password-meter/0.1.0:
+    resolution: {integrity: sha512-5ZlI4AebAhoETMjUzdTZd8FcpUB0ecWGZ2cBggydJc70EBqEUPye6LI56anDlS+KSHQEAv7r9PdvQk8Ndt7WjQ==}
     dev: false
 
   /w3c-hr-time/1.0.2:

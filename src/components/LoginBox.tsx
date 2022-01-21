@@ -3,6 +3,8 @@ import { GoogleAuthProvider, EmailAuthProvider, User, getRedirectResult } from '
 import { onAuthStateChanged } from 'firebase/auth'
 import firebase from '../utils/firebase'
 import { useState } from 'react';
+import SignupForm from './SignupForm';
+import SigninForm from './SigninForm';
 
 const LoginBox = ({}) => {
 
@@ -20,19 +22,13 @@ const signOut = async () => {
     await firebase.auth.signOut()
 };
 
+const submitForm = () => {
+    console.log('submitted!');
+}
 
     return (
-        <div className='center' >
-            <h1>Hello {user? user.displayName : 'guest'}</h1>
-            {user ?
-                <button className='signout' onClick={signOut}>
-                    signOut
-                </button> : 
-                <StyledFirebaseAuth
-                    uiConfig={firebase.configUI}
-                    firebaseAuth={firebase.auth}  >      
-                </StyledFirebaseAuth>
-            }
+        <div className= 'form-container'>
+            <SigninForm submitForm={submitForm} />
         </div>
 
 

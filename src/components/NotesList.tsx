@@ -42,7 +42,6 @@ const NotesList = () => {
           setNotes(newNotes);
       };
 
-
     const addNote = async (title : string, body : string) => {
         let author = user?.displayName? user.displayName : 'guest';
         let newNote = await API.postNote({author, title, body});
@@ -51,7 +50,7 @@ const NotesList = () => {
       };
 
     const changeNote = async (changedNote : INote, saved : boolean) => {
-        const newNotes =  await Promise.all(
+        const newNotes = await Promise.all(
             notes.map( async (note : INote) => {
                 if (note.id == changedNote.id){
                     note.body = changedNote.body;
@@ -92,11 +91,6 @@ const NotesList = () => {
                 handleAddNote = {addNote}
             />
         </div>
-    
-
-            
-                
-
     );
 
 };
