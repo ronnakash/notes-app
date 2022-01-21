@@ -1,17 +1,15 @@
 export default class User {
     id: string;
-    author: string;
-    title: string;
-    body: string;
-    date: string;
-    editing: boolean
+    username: string;
+    email: string;
+    permissions: string;
+    token: string;
 
-    constructor (author: string, title: string, body: string, id : string, date? : string) {
-        this.author = author;
-        this.title = title;
-        this.body = body;
+    constructor (id : string, username: string, email: string, token: string, permissions?: string) {
         this.id = id;
-        this.date =  date? date : new Date().toLocaleDateString();
-        this.editing = false;
+        this.username = username;
+        this.email = email;
+        this.permissions = permissions? permissions : 'User';
+        this.token = token;
     }
 }

@@ -1,7 +1,10 @@
 import { AxiosResponse } from 'axios';
 import INote from '../../interfaces/INote';
+import IUser from '../../interfaces/IUser'
 import requests from './requests'
 import firebase from '../firebase'
+import ISignupForm from '../../interfaces/ISignupForm';
+import ISigninForm from '../../interfaces/ISigninForm';
 
 
 const getToken = async () => {
@@ -16,7 +19,6 @@ const getToken = async () => {
     let token = await getToken();
     return token? {Authorization: token} : {Authorization: "Bearer"};
   }
-
 
 
 const getAllNotes = async () : Promise<INote[]> => {
@@ -54,13 +56,8 @@ const getMyNotes = async (username : string) : Promise<INote[]> => {
 const postNote = async (noteObj : {author : string, title : string, body : string}) : Promise<INote | undefined>=> {
     let note;
     let headers = await getHeader();
-    let {author, title, body} = noteObj;
     await requests.postNoteRequest
-        .post('', {
-            author: author,
-            title: title,
-            body: body
-        }, {headers: headers})
+        .post('', noteObj, {headers: headers})
         .then((response : AxiosResponse)=> {
             note = response.data;
         })
@@ -80,15 +77,33 @@ const deleteNote = async (id: string) => {
 
 const editNote = async (note : INote) => {
     let headers = await getHeader();
-    let {id, title, body} = note;
     await requests.editNoteRequest
-        .put('', {
-            _id : id,
-            title: title,
-            body: body
-        }, {headers: headers})
+        .put('', note, {headers: headers})
         .catch(error => console.log(error))
 };
 
+const register = async (form : ISignupForm) : Promise<INote | undefined> => {
+    let user;
+    let headers = await getHeader();
+    await requests.registerUserRequest
+        .post('', form, {headers: headers})
+        .then((response : AxiosResponse)=> {
+            user = response.data;
+        })
+        .catch(error => console.log(error))
+    return user;
+};
 
-export default {getAllNotes, getMyNotes, postNote, deleteNote, editNote}
+const login = async (form : ISignupForm) : Promise<INote | undefined> => {
+    let user;
+    await requests.loginUserRequest
+        .post('', form)
+        .then((response : AxiosResponse)=> {
+            user = response.data;
+        })
+        .catch(error => console.log(error))
+    return user;
+};
+
+
+export default {getAllNotes, getMyNotes, postNote, deleteNote, editNote, register, login}
