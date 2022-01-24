@@ -1,7 +1,6 @@
 import { AxiosResponse } from 'axios';
 import INote from '../../interfaces/INote';
 import requests from './requests'
-import firebase from '../firebase'
 import ISignupForm from '../../interfaces/ISignupForm';
 import ISigninForm from '../../interfaces/ISigninForm';
 import IUser from '../../interfaces/IUser';

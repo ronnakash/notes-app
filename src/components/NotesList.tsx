@@ -5,10 +5,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import API from '../utils/requests/API'
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
-import firebase from '../utils/firebase'
-import { onAuthStateChanged, getRedirectResult } from 'firebase/auth';
 import IUser from '../interfaces/IUser';
-import { AuthContext } from '../utils/AuthContext';
+import { AuthContext } from '../utils/authContext';
 
 
 const NotesList = () => {
@@ -47,7 +45,7 @@ const NotesList = () => {
     const changeNote = async (changedNote : INote, saved : boolean) => {
         const newNotes = await Promise.all(
             notes.map( async (note : INote) => {
-                if (note.id == changedNote.id){
+                if (note.id === changedNote.id){
                     note.body = changedNote.body;
                     note.title = changedNote.title;
                     if (saved) {
@@ -62,7 +60,7 @@ const NotesList = () => {
 
     const editNote = (toEdit : INote) => {
         const newNotes = notes.map((note : INote) => {
-            if (toEdit.id == note.id)
+            if (toEdit.id === note.id)
                 note.editing = true;
             return note;
         });
@@ -74,7 +72,7 @@ const NotesList = () => {
         <div className='notes-list'>
             {notes.map((note: INote) => {
                 return (
-                    <Note
+                    <Note key={note.id}
                     note={note}
                     handleDeleteNote={deleteNote}
                     handleEditNote={editNote}

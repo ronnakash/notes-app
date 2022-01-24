@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AuthContext } from "./AuthContext"
+import { AuthContext } from "./authContext"
 import { CookiesProvider } from 'react-cookie';
 import ISigninForm from "../interfaces/ISigninForm";
 import ISignupForm from "../interfaces/ISignupForm";
@@ -10,17 +10,16 @@ import { useCookies } from "react-cookie";
 
 
 const AuthProvider = ( props: {children : any}) => {
-    
-    const [cookies, setCookie, removeCookie] = useCookies();
-
-  let cookieUser = cookies?.user;
-  let emptyUser : IUser | undefined;
-  const [user, setUser] = useState(cookieUser? cookieUser : emptyUser);
-  
 
 /** */
-const values = () =>  
-{
+const useValues = () => {
+
+    const [cookies, setCookie, removeCookie] = useCookies();
+
+    let cookieUser = cookies?.user;
+    let emptyUser : IUser | undefined;
+    const [user, setUser] = useState(cookieUser? cookieUser : emptyUser);
+  
   const cookieOptions = {
       path: '/',
       maxAge: 86400, 
@@ -54,6 +53,7 @@ const values = () =>
       setCookie('user', user, cookieOptions);
   };
 
+
   return {signIn, signOut, register, user}
 }
 //let values = {signIn, signOut, register, user};
@@ -66,7 +66,7 @@ const values = () =>
 */
 
 
-    let auth = values();
+    let auth = useValues();
     let { children } = props;
     return (
         <AuthContext.Provider value = {auth}> 

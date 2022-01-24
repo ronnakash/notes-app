@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from 'axios'
 import INote from '../../interfaces/INote';
 import responseParser from './responseParser'
 import requestParser from './requestParser';
-import firebase from '../firebase'
+
 
 
 const noteURL = '/User/notes';

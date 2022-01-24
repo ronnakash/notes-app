@@ -4,8 +4,8 @@ import ISignupFormError from '../interfaces/ISignupFormError'
 
 
 const useForm = (callback : Function) : {handleChange : (event : any) => void, handleSubmit : (event : any) => void, values : ISignupForm, errors : ISignupFormError} => {
-    
-    
+
+
     let emptyErrors : ISignupFormError = {
         username: undefined,
         email: undefined,
@@ -24,9 +24,9 @@ const useForm = (callback : Function) : {handleChange : (event : any) => void, h
         if (!values.username.trim()) {
           errors.username = 'Username required';
         }
-        // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
-        //   errors.name = 'Enter a valid name';
-        // }
+         else if (!/^[A-Za-z]+/.test(values.username.trim())) {
+           errors.username = 'Enter a valid name';
+         }
       
         if (!values.email) {
           errors.email = 'Email required';
@@ -54,8 +54,6 @@ const useForm = (callback : Function) : {handleChange : (event : any) => void, h
     password2: ''
   });
   const [errors, setErrors] = useState(emptyErrors);
-
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e : any) => {
