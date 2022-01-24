@@ -1,43 +1,26 @@
 import { AxiosResponse } from 'axios';
 import INote from '../../interfaces/INote';
-import IUser from '../../interfaces/IUser'
 import requests from './requests'
 import firebase from '../firebase'
 import ISignupForm from '../../interfaces/ISignupForm';
 import ISigninForm from '../../interfaces/ISigninForm';
+import IUser from '../../interfaces/IUser';
 
 
-const getToken = async () => {
-    if (firebase.auth.currentUser){
-      let token = "Bearer " + (await firebase.auth.currentUser?.getIdToken(true).catch(e=> ""));
-      return token;
-    }
-    return "";
-  }
 
-  const getHeader = async () => {
-    let token = await getToken();
+
+  const getHeader = async (user : IUser | undefined) => {
+    //console.log(user)
+    let token = user? user.token : null;
+    //console.log(token)
     return token? {Authorization: token} : {Authorization: "Bearer"};
-  }
+  };
 
 
-const getAllNotes = async () : Promise<INote[]> => {
+
+const getMyNotes = async (username : string, user : IUser | undefined) : Promise<INote[]> => {
     let res : INote[] = [];
-    let headers = await getHeader();
-    await requests.getAllNotesRequest
-        .get('', {headers: headers})
-        .then((response : AxiosResponse)=> {
-            console.log(response.data)
-            res = response.data;
-        })
-        .catch(error => console.log(error))
-        //console.log(res);
-    return res;
-};
-
-const getMyNotes = async (username : string) : Promise<INote[]> => {
-    let res : INote[] = [];
-    let headers = await getHeader();
+    let headers = await getHeader(user);
     await requests.getMyNotesRequest
         .get('', {
             params: {author: username},
@@ -53,9 +36,9 @@ const getMyNotes = async (username : string) : Promise<INote[]> => {
 };
 
 
-const postNote = async (noteObj : {author : string, title : string, body : string}) : Promise<INote | undefined>=> {
+const postNote = async (noteObj : {author : string, title : string, body : string}, user : IUser | undefined) : Promise<INote | undefined>=> {
     let note;
-    let headers = await getHeader();
+    let headers = await getHeader(user);
     await requests.postNoteRequest
         .post('', noteObj, {headers: headers})
         .then((response : AxiosResponse)=> {
@@ -65,8 +48,8 @@ const postNote = async (noteObj : {author : string, title : string, body : strin
     return note;
 }
 
-const deleteNote = async (id: string) => {
-    let headers = await getHeader();
+const deleteNote = async (id: string, user : IUser | undefined) => {
+    let headers = await getHeader(user);
     await requests.deleteNoteRequest
         .delete('', {
             data: {_id: id},
@@ -75,16 +58,16 @@ const deleteNote = async (id: string) => {
         .catch(error => console.log(error))
 }
 
-const editNote = async (note : INote) => {
-    let headers = await getHeader();
+const editNote = async (note : INote, user : IUser | undefined) => {
+    let headers = await getHeader(user);
     await requests.editNoteRequest
         .put('', note, {headers: headers})
         .catch(error => console.log(error))
 };
 
-const register = async (form : ISignupForm) : Promise<INote | undefined> => {
+const register = async (form : ISignupForm) : Promise<IUser | undefined> => {
     let user;
-    let headers = await getHeader();
+    let headers = await getHeader(user);
     await requests.registerUserRequest
         .post('', form, {headers: headers})
         .then((response : AxiosResponse)=> {
@@ -94,7 +77,7 @@ const register = async (form : ISignupForm) : Promise<INote | undefined> => {
     return user;
 };
 
-const login = async (form : ISignupForm) : Promise<INote | undefined> => {
+const login = async (form : ISigninForm) : Promise<IUser | undefined> => {
     let user;
     await requests.loginUserRequest
         .post('', form)
@@ -106,4 +89,4 @@ const login = async (form : ISignupForm) : Promise<INote | undefined> => {
 };
 
 
-export default {getAllNotes, getMyNotes, postNote, deleteNote, editNote, register, login}
+export default { getMyNotes, postNote, deleteNote, editNote, register, login}

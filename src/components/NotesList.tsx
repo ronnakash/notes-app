@@ -1,50 +1,45 @@
 import Note from './Note'
 import INote from '../interfaces/INote';
 import AddNote from './AddNote';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import API from '../utils/requests/API'
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
 import firebase from '../utils/firebase'
 import { onAuthStateChanged, getRedirectResult } from 'firebase/auth';
+import IUser from '../interfaces/IUser';
+import { AuthContext } from '../utils/AuthContext';
 
 
 const NotesList = () => {
 
-
+    let {user} = useContext(AuthContext);
     let emptyNotes : INote[] = []
   
     const [notes, setNotes] = useState(emptyNotes);
-    const [user, setUser] = useState(firebase.auth.currentUser);
-    
-    onAuthStateChanged(firebase.auth, async (newUser) => {
-        if (user){
-            const creds = await getRedirectResult(firebase.auth);
-        }
-        setUser(newUser)
-    });
 
 
     useEffect(() => {
       handleFetch();
-    }, [user])
+    }, [])
   
 
     const handleFetch = async () => {
-      let newNotes = await API.getMyNotes(user?.displayName? user.displayName : 'guest')
-      console.log(newNotes)
-      setNotes(newNotes);
+        console.log(user);
+        let newNotes = await API.getMyNotes(user?.username? user.username : 'guest', user)
+        console.log(newNotes)
+        setNotes(newNotes);
     }
   
     const deleteNote = (id: string) => {
-      API.deleteNote(id);
+      API.deleteNote(id, user);
           const newNotes = notes.filter((note) => note.id !== id);
           setNotes(newNotes);
       };
 
     const addNote = async (title : string, body : string) => {
-        let author = user?.displayName? user.displayName : 'guest';
-        let newNote = await API.postNote({author, title, body});
+        let author = user?.username? user.username : 'guest';
+        let newNote = await API.postNote({author, title, body}, user);
         const newNotes = newNote? [...notes, newNote] : notes;
         setNotes(newNotes);
       };
@@ -56,7 +51,7 @@ const NotesList = () => {
                     note.body = changedNote.body;
                     note.title = changedNote.title;
                     if (saved) {
-                        await API.editNote(note);
+                        await API.editNote(note, user);
                     }
                     note.editing = false;
                 }

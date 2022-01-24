@@ -5,15 +5,14 @@ import requestParser from './requestParser';
 import firebase from '../firebase'
 
 
-const noteURL = '/admin/notes';
+const noteURL = '/User/notes';
 const serverURL = 'http://localhost:4000';
-const JWTtoken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQzNzhmY2ZlMzIxOTA2ZGQxOTZmZmQiLCJ1c2VybmFtZSI6IkFkbWluNSIsInBlcm1pc3Npb25zIjoiQWRtaW4iLCJpYXQiOjE2NDEyNjA0MzcsImV4cCI6MTY0Mzg1MjQzNywiaXNzIjoiQWRtaW5pc3RyYXRvciJ9.2jlZAppyQNJroovGxo9p0LrJMNDIadHERvcFg-z42RU';
 const getAllNotesURL = '/Admin/get/allNotes';
 const postNoteURL = '/post/note';
 const deleteNoteURL = '/delete/deleteNote';
 const editNoteURL = '/put/updateNote';
-const getMyNotesURL = '/get/myNotes';
-const userURL = '/amdin/users';
+const getMyNotesURL = '/get/usersNotes';
+const userURL = '/User/users';
 const registerURL = '/registerAndLogin';
 const loginURL = '/login';
 
@@ -31,12 +30,6 @@ let getToken = async () => {
 let fbToken = (await getToken()) || JWTtoken;
 */
 
-
-/*
-let headers = {
-  Authorization: fbToken
-};
-*/
 
 const getAllNotesRequest = axios.create({
         method: 'GET',
@@ -56,7 +49,7 @@ const getMyNotesRequest = axios.create({
 const postNoteRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+noteURL+postNoteURL, 
-        transformRequest: [requestParser.noteObjToBody],
+        //transformRequest: [requestParser.noteObjToBody],
         transformResponse: [responseParser.parseNoteFromPostRequest],
         timeout: 5000,
     });
@@ -72,7 +65,7 @@ const deleteNoteRequest = axios.create({
 const editNoteRequest = axios.create({
         method: 'PUT',
         baseURL: serverURL+noteURL+editNoteURL,
-        transformRequest: [requestParser.noteToBody],
+        //transformRequest: [requestParser.noteToBody],
         timeout: 5000
       });
 

@@ -62,16 +62,8 @@ const useForm = (callback : Function) : {handleChange : (event : any) => void, h
     e.preventDefault();
     setErrors(validateInfo(values));
     setIsSubmitting(true);
+    callback(values);
   };
-
-  useEffect(
-    () => {
-      if (Object.keys(errors).length === 0 && isSubmitting) {
-        callback();
-      }
-    },
-    [isSubmitting]
-  );
 
   return { handleChange, handleSubmit, values, errors };
 };

@@ -1,38 +1,27 @@
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import { GoogleAuthProvider, EmailAuthProvider, User, getRedirectResult } from 'firebase/auth';
-import { onAuthStateChanged } from 'firebase/auth'
-import firebase from '../utils/firebase'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import SignupForm from './SignupForm';
 import SigninForm from './SigninForm';
+import INote from '../interfaces/INote';
+import IUser from '../interfaces/IUser';
+import ISignupForm from '../interfaces/ISignupForm';
+import ISigninForm from '../interfaces/ISigninForm';
+import API from '../utils/requests/API';
+import { AuthContext } from '../utils/AuthContext';
 
-const LoginBox = ({}) => {
+const LoginBox = (props : any) => {
+    
+    let {signIn, signOut, register, user} = useContext(AuthContext);
 
-const [user, setUser] = useState(firebase.auth.currentUser);
+        if (!user) {
+             return (
+                <div className= 'form-container'>
+                    <SigninForm submitForm={signIn} />
+                    <SignupForm submitForm={register} />
+                </div>
+            );
+        }
+        else return (<button onClick={signOut}> logout</button>);
 
-onAuthStateChanged(firebase.auth, (newUser) => {
-    if (newUser)
-        console.log('logged in');
-    else console.log('logged out');
-    setUser(newUser)
-    console.log(newUser);
-});
-
-const signOut = async () => {
-    await firebase.auth.signOut()
-};
-
-const submitForm = () => {
-    console.log('submitted!');
-}
-
-    return (
-        <div className= 'form-container'>
-            <SigninForm submitForm={submitForm} />
-        </div>
-
-
-    );
 }
 
 export default LoginBox;
