@@ -15,29 +15,14 @@ import ISigninForm from './interfaces/ISigninForm';
 import ISignupForm from './interfaces/ISignupForm';
 import AuthProvider from './utils/AuthProvider';
 import RegisterBox from './components/RegisterBox';
-
+import NavBar from './components/NavBar'
 
 const App = () => {
   
   return (
     <AuthProvider>
       <div className="App">
-        <Navbar bg='dark' variant='dark'>
-          <Navbar.Brand>
-            <img  src={logo} height='40px'/>
-            NotesApp
-          </Navbar.Brand>
-          <Nav>
-            <Nav.Link href='/'>Home</Nav.Link>
-            <Nav.Link href='/login'>Login</Nav.Link>
-            <Nav.Link href='/register'>Register</Nav.Link>
-            <Nav.Link href='/notes'>Notes</Nav.Link>
-            <NavDropdown title='Dropdown'>
-              <NavDropdown.Item href='/login'>Login</NavDropdown.Item>
-              <NavDropdown.Item href='/notes'>Notes</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar>
+        <NavBar></NavBar>
         <Router>
           <Routes>
             <Route path ='/' element={<h1>Home Page</h1>} />
