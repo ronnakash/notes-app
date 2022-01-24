@@ -10,7 +10,7 @@ import { AuthContext } from '../utils/authContext';
 
 const LoginBox = (props : any) => {
     
-    let {signIn, signOut, register, user} = useContext(AuthContext);
+    let {signIn, signOut, user} = useContext(AuthContext);
 
         if (!user) {
              return (

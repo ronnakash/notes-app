@@ -55,7 +55,7 @@ const SigninForm = (props : { submitForm : (event : any) => void }) => {
           Sign in
         </button>
         <span className='form-input-login'>
-            Already have an account? Login <a href='#'>here</a>
+            Don't have an account? Register <a href='/register'>here</a>
           </span>
       </form>
     </div>

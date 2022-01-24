@@ -14,6 +14,7 @@ import { useCookies } from "react-cookie";
 import ISigninForm from './interfaces/ISigninForm';
 import ISignupForm from './interfaces/ISignupForm';
 import AuthProvider from './utils/AuthProvider';
+import RegisterBox from './components/RegisterBox';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           <Nav>
             <Nav.Link href='/'>Home</Nav.Link>
             <Nav.Link href='/login'>Login</Nav.Link>
+            <Nav.Link href='/register'>Register</Nav.Link>
             <Nav.Link href='/notes'>Notes</Nav.Link>
             <NavDropdown title='Dropdown'>
               <NavDropdown.Item href='/login'>Login</NavDropdown.Item>
@@ -40,6 +42,7 @@ const App = () => {
           <Routes>
             <Route path ='/' element={<h1>Home Page</h1>} />
             <Route path ='/login' element={<LoginBox />} />
+            <Route path ='/register' element={<RegisterBox />} />
             <Route path ='/notes' element={<NotesList />} />
           </Routes>
         </Router>
