@@ -42,14 +42,14 @@ const EditNote = (obj : {note : INote, handleChangeNote: Function} ) => {
         <div className='note new'>
                 <textarea className='title'
 				rows={1}
-				cols={10}
+				cols={1}
 				placeholder='Title'
 				value={noteTitle}
 				onChange={handleTitleChange}
 			></textarea>
             <textarea className='body'
-				rows={12}
-				cols={10}
+				rows={8}
+				cols={1}
 				placeholder={'Type to add a body...'}
 				value={noteBody}
 				onChange={handleBodyChange}

@@ -3,12 +3,9 @@
 
 .note {
 	background-color: #fcf484;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 10px;
 	border-radius: 15px;
 	padding: 1rem;
-	min-height: 294px;
+	min-height: 400px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -93,25 +90,27 @@ textarea:focus {
 }
 
 .notes-list {
+	margin: 1rem;
 	display: grid;
-	grid-row-gap: 1rem;
+	grid-gap: 1rem;
 	grid-template-columns: repeat(
 		auto-fill,
-		minmax(340px, 1fr)
+		minmax(400px, 1fr)
 	);
 }
+
 
 /* signup form */
   
 .form-container {
-	margin: 100px auto;
-	width: 1000px;
+	margin: 200px auto;
+	width: 500px;
 	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
 	position: relative;
 	border-radius: 10px;
 	height: 600px;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
   }
   
   .close-btn {

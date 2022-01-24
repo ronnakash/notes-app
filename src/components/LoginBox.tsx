@@ -16,11 +16,16 @@ const LoginBox = (props : any) => {
              return (
                 <div className= 'form-container'>
                     <SigninForm submitForm={signIn} />
-                    <SignupForm submitForm={register} />
                 </div>
             );
         }
-        else return (<button onClick={signOut}> logout</button>);
+        else return (
+            <div >
+            <h1>Hello {user.username}!</h1>
+            <button onClick={signOut}> logout</button>
+        </div>
+        
+        );
 
 }
 

@@ -42,7 +42,7 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
 				onChange={handleTitleChange}
 			></textarea>
             <textarea className='body'
-				rows={12}
+				rows={8}
 				cols={10}
 				placeholder={'Type to add a body...'}
 				value={noteBody}

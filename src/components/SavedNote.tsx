@@ -22,7 +22,7 @@ const SavedNote = (obj : {note: INote, handleDeleteNote: Function, handleEditNot
             </div>
             <div className='note-footer'>
                 <span>{note.date}</span>
-                <button className='edit' onClick={handleEdit}>
+                <button className='save' onClick={handleEdit}>
 					Edit
 				</button>
 				<BsFillTrashFill
