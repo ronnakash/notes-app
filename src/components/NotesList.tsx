@@ -11,7 +11,7 @@ import { AuthContext } from '../utils/authContext';
 
 const NotesList = () => {
 
-    let {user} = useContext(AuthContext);
+    let {user, signIn} = useContext(AuthContext);
     let emptyNotes : INote[] = []
   
     const [notes, setNotes] = useState(emptyNotes);
@@ -23,6 +23,9 @@ const NotesList = () => {
   
 
     const handleFetch = async () => {
+        if (!user) {
+
+        }
         console.log(user);
         let newNotes = await API.getMyNotes(user?.username? user.username : 'guest', user)
         console.log(newNotes)

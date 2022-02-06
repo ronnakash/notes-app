@@ -257,3 +257,21 @@ textarea:focus {
 	color: #27cdff;
 	font-weight: 600;
   }
+
+  .navContainer {
+	display: flex;
+	background: #212529;
+	justify-content: space-between;
+  }
+
+  .userButton {
+	  	margin-top: 14px;
+		margin-right: 20px;
+  }
+
+  .dangerItem {
+	color: red;
+	text-align: center
+  }
+
+
