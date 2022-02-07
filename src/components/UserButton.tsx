@@ -3,12 +3,13 @@ import logo from '../logo.svg'
 import 'bootstrap/dist/css/bootstrap.css'
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../utils/authContext'
-import UserAvatar from 'react-user-avatar'
+
 
 
 
 const UserButton = (props: any) => {
 
+    const UserAvatar = require('react-user-avatar');
     const {user, signOut} = useContext(AuthContext);
 
     const [showMenu, setShowMenu] = useState(false);
