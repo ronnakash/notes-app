@@ -8,5 +8,6 @@ const defaultContext : IAuthContext = {
     user: undefined
 }
 
-export const AuthContext = createContext(defaultContext);
+const AuthContext = createContext(defaultContext);
 
+export default AuthContext;

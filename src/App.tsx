@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import logo from './logo.svg'
 import 'bootstrap/dist/css/bootstrap.css'
-import { AuthContext } from "./utils/authContext"
+import AuthContext from "./utils/authContext"
 import { CookiesProvider } from 'react-cookie';
 import IUser from "./interfaces/IUser";
 import { useCookies } from "react-cookie";
@@ -25,10 +25,10 @@ const App = () => {
         <NavBar></NavBar>
         <Router>
           <Routes>
-            <Route path ='/' element={<h1>Home Page</h1>} />
-            <Route path ='/login' element={<LoginBox />} />
-            <Route path ='/register' element={<RegisterBox />} />
-            <Route path ='/notes' element={<NotesList />} />
+            <Route path='/' element={<h1>Home Page</h1>} />
+            <Route path='/login' element={<LoginBox />} />
+            <Route path='/register' element={<RegisterBox />} />
+            <Route path='/notes' element={<NotesList />} />
           </Routes>
         </Router>
       </div>

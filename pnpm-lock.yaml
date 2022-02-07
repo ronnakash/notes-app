@@ -37,6 +37,7 @@ specifiers:
   react-user-avatar: ^1.10.0
   styled-components: ^5.3.3
   typescript: ^4.5.5
+  user-avatars: ^1.0.0
   uuid: ^8.3.2
   vue-simple-password-meter: ^0.1.0
   web-vitals: ^2.1.4
@@ -79,6 +80,7 @@ dependencies:
   react-user-avatar: 1.10.0_react-dom@17.0.2+react@17.0.2
   styled-components: 5.3.3_281a4fa50a045c9112baf635f3bc27a7
   typescript: 4.5.5
+  user-avatars: 1.0.0
   uuid: 8.3.2
   vue-simple-password-meter: 0.1.0
   web-vitals: 2.1.4
@@ -11877,6 +11879,10 @@ packages:
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /user-avatars/1.0.0:
+    resolution: {integrity: sha512-gukZRHKDh9vjeDfcURtFt99tzBLpwIFAwrKVb4X78afKnDWdZPS7pIig1PXC7o7RwG1u2VraWqvth1uI/HGRHg==}
     dev: false
 
   /util-deprecate/1.0.2:

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AuthContext } from "./authContext"
+import AuthContext from "./authContext"
 import { CookiesProvider } from 'react-cookie';
 import ISigninForm from "../interfaces/ISigninForm";
 import ISignupForm from "../interfaces/ISignupForm";

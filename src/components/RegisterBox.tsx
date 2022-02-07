@@ -6,7 +6,7 @@ import IUser from '../interfaces/IUser';
 import ISignupForm from '../interfaces/ISignupForm';
 import ISigninForm from '../interfaces/ISigninForm';
 import API from '../utils/requests/API';
-import { AuthContext } from '../utils/authContext';
+import AuthContext from '../utils/authContext';
 
 const RegisterBox = (props : any) => {
     

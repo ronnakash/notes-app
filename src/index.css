@@ -267,6 +267,7 @@ textarea:focus {
   .userButton {
 	  	margin-top: 14px;
 		margin-right: 20px;
+		color:rgb(255, 255, 255);
   }
 
   .dangerItem {
@@ -282,3 +283,35 @@ textarea:focus {
   }
 
 
+  .bigAvatar {
+	color:rgb(255, 255, 255);
+	font-size: 200%;
+	font-weight: 550;
+	text-align: center;
+  }
+
+  .userDisplay {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+  }
+
+  .userDisplayData {
+	display: grid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+  }
+
+  .greyText {
+	color:rgba(0, 0, 0, 0.637);
+  }
+
+  .boldText {
+	font-weight: 550;
+	font-size: 110%;
+  }

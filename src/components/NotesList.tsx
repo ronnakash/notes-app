@@ -6,7 +6,7 @@ import API from '../utils/requests/API'
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
 import IUser from '../interfaces/IUser';
-import { AuthContext } from '../utils/authContext';
+import AuthContext from '../utils/authContext';
 
 
 const NotesList = () => {

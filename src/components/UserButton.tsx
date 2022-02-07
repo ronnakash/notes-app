@@ -2,7 +2,7 @@ import { Navbar, Nav, NavDropdown, Button, DropdownButton, Dropdown} from 'react
 import logo from '../logo.svg'
 import 'bootstrap/dist/css/bootstrap.css'
 import React, { useContext, useState } from 'react'
-import { AuthContext } from '../utils/authContext'
+import AuthContext from '../utils/authContext'
 
 
 
@@ -19,11 +19,13 @@ const UserButton = (props: any) => {
     }
 
     const handleSignOut = () => {
-        signOut();
         setShowMenu(false);
+        signOut();
     }
 
-
+    const capitalizedUsername = () => {
+        return user? user.username.substring(0,1).toUpperCase()+user.username.substring(1,user.username.length) : ''
+    }
     
     if (!user){
         return (
@@ -36,17 +38,26 @@ const UserButton = (props: any) => {
                     <Dropdown.Item eventKey="2" href='/register' >Register</Dropdown.Item>
                 </Dropdown.Menu> 
             </div>
-
         )
     }
     else {
         return (
             <div>
             <div onClick={() => {toggleMenu()}} style={{cursor : 'pointer'}}>
-                <UserAvatar className='userButton' size="40" name={user.username} src={user.picture}/>
+                <UserAvatar className='userButton' size="40" name={capitalizedUsername()} src={user.picture}/>
             </div>
             <Dropdown.Menu align="end" show={showMenu} className='userDrop' >
-            <Dropdown.Item eventKey='3' href='/notes'>Notes</Dropdown.Item>
+                <div className='userDisplay'>
+                    <div>
+                    <UserAvatar className='bigAvatar' size="64" name={capitalizedUsername()} src={user.picture}/>
+                    </div>
+                    <div className='userDisplayData'>
+                        <span className='boldText'>{capitalizedUsername()}</span>
+                        <span className='greyText'>{user.email}</span>
+                    </div>
+                </div>
+                <Dropdown.Divider />
+                <Dropdown.Item eventKey='3' href='/notes'>Notes</Dropdown.Item>
                 <Dropdown.Item eventKey='4' href='/profile' >Profile</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item eventKey='5' onClick={handleSignOut} className='dangerItem' >Sign out</Dropdown.Item>
