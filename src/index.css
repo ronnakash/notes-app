@@ -271,7 +271,14 @@ textarea:focus {
 
   .dangerItem {
 	color: red;
-	text-align: center
+	text-align: center;
+  }
+
+
+  .userDrop {
+	  position: relative;
+	  right: 20px;
+	  top: 50px;
   }
 
 
