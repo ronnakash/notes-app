@@ -11,11 +11,15 @@ import AuthContext from '../utils/authContext';
 const LoginBox = (props : any) => {
     
     let {signIn, signOut, user} = useContext(AuthContext);
+    
+    const handleGoogleResponse = async () => {
+    }
 
         if (!user) {
              return (
                 <div className= 'form-container'>
-                    <SigninForm submitForm={signIn} />
+                    <script src="https://apis.google.com/js/platform.js" async defer></script>
+                    <SigninForm submitForm={signIn}/>
                 </div>
             );
         }

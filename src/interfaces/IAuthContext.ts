@@ -6,5 +6,6 @@ export default interface IAuthContext {
     signIn : (form: ISigninForm) => Promise<void> | undefined
     signOut : () => Promise<void> | undefined 
     register : (form: ISignupForm) => Promise<void> | undefined
+    signInWithGoogle : (googleUser : IUser) => void
     user : IUser | undefined
 }

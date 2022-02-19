@@ -15,6 +15,7 @@ const getMyNotesURL = '/get/usersNotes';
 const userURL = '/User/users';
 const registerURL = '/registerAndLogin';
 const loginURL = '/login';
+const googleLoginURL = '/google/login';
 
 
 /*
@@ -84,6 +85,13 @@ const loginUserRequest = axios.create({
         timeout: 5000
       });
 
+const googleLoginUserRequest = axios.create({
+        method: 'POST',
+        baseURL: serverURL+userURL+googleLoginURL,
+        transformResponse: [responseParser.parseUserFromRequest],
+        timeout: 5000
+      });
+      
 
-export default { getAllNotesRequest, getMyNotesRequest, postNoteRequest, deleteNoteRequest, editNoteRequest, registerUserRequest, loginUserRequest }
+export default { getAllNotesRequest, getMyNotesRequest, postNoteRequest, deleteNoteRequest, editNoteRequest, registerUserRequest, loginUserRequest, googleLoginUserRequest }
 

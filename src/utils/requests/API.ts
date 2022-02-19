@@ -6,15 +6,12 @@ import ISigninForm from '../../interfaces/ISigninForm';
 import IUser from '../../interfaces/IUser';
 
 
-
-
   const getHeader = async (user : IUser | undefined) => {
     //console.log(user)
     let token = user? user.token : null;
     //console.log(token)
     return token? {Authorization: token} : {Authorization: "Bearer"};
   };
-
 
 
 const getMyNotes = async (username : string, user : IUser | undefined) : Promise<INote[]> => {
@@ -87,5 +84,18 @@ const login = async (form : ISigninForm) : Promise<IUser | undefined> => {
     return user;
 };
 
+const googleLoginUser = async (code: string) : Promise<IUser | undefined>=> {
+    let googleResponse;
+    await requests.googleLoginUserRequest
+        .post('', {code})
+        .then(res => {
+            googleResponse = res.data;
+            console.log('googleResponse');
+            console.log(googleResponse);
+        })
+        .catch(error => console.log(error))
+    console.log(googleResponse)
+    return googleResponse;
+};
 
-export default { getMyNotes, postNote, deleteNote, editNote, register, login}
+export default { getMyNotes, postNote, deleteNote, editNote, register, login, googleLoginUser}

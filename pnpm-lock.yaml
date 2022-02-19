@@ -28,6 +28,8 @@ specifiers:
   react-bootstrap: ^2.1.1
   react-cookie: ^4.1.1
   react-dom: ^17.0.2
+  react-google-button: ^0.7.2
+  react-google-login: ^5.2.2
   react-icons: ^4.3.1
   react-is: ^17.0.2
   react-native: ^0.67.2
@@ -36,6 +38,7 @@ specifiers:
   react-scripts: 5.0.0
   react-user-avatar: ^1.10.0
   styled-components: ^5.3.3
+  ts-react-google-login-component: ^1.1.9
   typescript: ^4.5.5
   user-avatars: ^1.0.0
   uuid: ^8.3.2
@@ -71,6 +74,8 @@ dependencies:
   react-bootstrap: 2.1.1_react-dom@17.0.2+react@17.0.2
   react-cookie: 4.1.1_react@17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-google-button: 0.7.2_react@17.0.2
+  react-google-login: 5.2.2_react-dom@17.0.2+react@17.0.2
   react-icons: 4.3.1_react@17.0.2
   react-is: 17.0.2
   react-native: 0.67.2_react@17.0.2
@@ -79,6 +84,7 @@ dependencies:
   react-scripts: 5.0.0_6383164cc8a38965f88fc97a5ad9a468
   react-user-avatar: 1.10.0_react-dom@17.0.2+react@17.0.2
   styled-components: 5.3.3_281a4fa50a045c9112baf635f3bc27a7
+  ts-react-google-login-component: 1.1.9
   typescript: 4.5.5
   user-avatars: 1.0.0
   uuid: 8.3.2
@@ -9981,6 +9987,27 @@ packages:
     resolution: {integrity: sha512-mKR90fX7Pm5seCOfz8q9F+66VCc1PGsWSBxKbITjfKVQHMNF2zudxHnMdJiB1fRCb+XsbQV9sO9DCkgsMQgBIA==}
     dev: false
 
+  /react-google-button/0.7.2_react@17.0.2:
+    resolution: {integrity: sha512-LPIqU2hIlc212kqks8MtKjRstquVkP3SIjxlK5B1nIfg2R7YqSusJAxZUkJA5dv/z6QeSuGyI9ujwV/VWMTyAA==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      prop-types: 15.8.1
+      react: 17.0.2
+    dev: false
+
+  /react-google-login/5.2.2_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-JUngfvaSMcOuV0lFff7+SzJ2qviuNMQdqlsDJkUM145xkGPVIfqWXq9Ui+2Dr6jdJWH5KYdynz9+4CzKjI5u6g==}
+    peerDependencies:
+      react: ^16 || ^17
+      react-dom: ^16 || ^17
+    dependencies:
+      '@types/react': 17.0.38
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /react-icons/4.3.1_react@17.0.2:
     resolution: {integrity: sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==}
     peerDependencies:
@@ -11640,6 +11667,10 @@ packages:
 
   /tryer/1.0.1:
     resolution: {integrity: sha512-c3zayb8/kWWpycWYg87P71E1S1ZL6b6IJxfb5fvsUgsf0S2MVGaDhDXXjDMpdCpfWXqptc+4mXwmiy1ypXqRAA==}
+    dev: false
+
+  /ts-react-google-login-component/1.1.9:
+    resolution: {integrity: sha512-1Qu10q+LrXUvpFChyKfveIWB+iDQSYTvFvcgPDNJUiwSqqlLoZRXDS3TuHjOG/eZhhy3f3YxzidabluKh2/rjw==}
     dev: false
 
   /tsconfig-paths/3.12.0:

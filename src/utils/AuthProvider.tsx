@@ -53,8 +53,12 @@ const useValues = () => {
       setCookie('user', user, cookieOptions);
   };
 
+  const signInWithGoogle = async (googleUser : IUser) => {
+    console.log("signed in with google!")
+    setUser(googleUser);
+  };
 
-  return {signIn, signOut, register, user}
+  return {signIn, signOut, register, user, signInWithGoogle}
 }
 //let values = {signIn, signOut, register, user};
 

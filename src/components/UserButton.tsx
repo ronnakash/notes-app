@@ -23,15 +23,15 @@ const UserButton = (props: any) => {
         signOut();
     }
 
-    const capitalizedUsername = () => {
-        return user? user.username.substring(0,1).toUpperCase()+user.username.substring(1,user.username.length) : ''
+    const userInitials = () => {
+        return (user && user.username)? user.username.substring(0,1).toUpperCase() : 'f'
     }
     
     if (!user){
         return (
             <div>
                 <div onClick={() => {toggleMenu()}} style={{cursor : 'pointer'}}>
-                    <UserAvatar className='userButton' size="40" name="Guest" />
+                    <UserAvatar className='userButton' size="40" name="G" />
                 </div>
                 <Dropdown.Menu align="end" show={showMenu} className='userDrop' >
                     <Dropdown.Item eventKey="1" href='/login' >Sign in</Dropdown.Item>
@@ -44,15 +44,15 @@ const UserButton = (props: any) => {
         return (
             <div>
             <div onClick={() => {toggleMenu()}} style={{cursor : 'pointer'}}>
-                <UserAvatar className='userButton' size="40" name={capitalizedUsername()} src={user.picture}/>
+                <UserAvatar className='userButton' size="40" name={userInitials()} src={user.picture}/>
             </div>
             <Dropdown.Menu align="end" show={showMenu} className='userDrop' >
                 <div className='userDisplay'>
                     <div>
-                    <UserAvatar className='bigAvatar' size="64" name={capitalizedUsername()} src={user.picture}/>
+                    <UserAvatar className='bigAvatar' size="64" name={userInitials()} src={user.picture}/>
                     </div>
                     <div className='userDisplayData'>
-                        <span className='boldText'>{capitalizedUsername()}</span>
+                        <span className='boldText'>{user.username}</span>
                         <span className='greyText'>{user.email}</span>
                     </div>
                 </div>

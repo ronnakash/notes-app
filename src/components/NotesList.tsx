@@ -24,10 +24,10 @@ const NotesList = () => {
 
     const handleFetch = async () => {
         if (!user) {
-
+            return;
         }
         console.log(user);
-        let newNotes = await API.getMyNotes(user?.username? user.username : 'guest', user)
+        let newNotes = await API.getMyNotes(user?.email? user.email : 'guest', user)
         console.log(newNotes)
         setNotes(newNotes);
     }
@@ -39,7 +39,7 @@ const NotesList = () => {
       };
 
     const addNote = async (title : string, body : string) => {
-        let author = user?.username? user.username : 'guest';
+        let author = user?.email? user.email : 'guest';
         let newNote = await API.postNote({author, title, body}, user);
         const newNotes = newNote? [...notes, newNote] : notes;
         setNotes(newNotes);
@@ -75,11 +75,12 @@ const NotesList = () => {
         <div className='notes-list'>
             {notes.map((note: INote) => {
                 return (
-                    <Note key={note.id}
-                    note={note}
-                    handleDeleteNote={deleteNote}
-                    handleEditNote={editNote}
-                    handleChangeNote={changeNote}
+                    <Note 
+                        key={note.id}
+                        note={note}
+                        handleDeleteNote={deleteNote}
+                        handleEditNote={editNote}
+                        handleChangeNote={changeNote}
                     />
                 )
                 })}

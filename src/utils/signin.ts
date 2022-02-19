@@ -63,6 +63,7 @@ const useForm = (callback : Function) : {handleChange : (event : any) => void, h
     setErrors(validateInfo(values));
     setIsSubmitting(true);
     callback(values);
+
   };
 
   return { handleChange, handleSubmit, values, errors };
