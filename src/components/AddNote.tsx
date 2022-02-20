@@ -48,7 +48,7 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
 				value={noteBody}
 				onChange={handleBodyChange}
 			></textarea>
-            <div className='note-footer'>
+            <div className='note-footer2'>
 				<small>
 					{characterLimit+1 - noteBody.length} Remaining
 				</small>

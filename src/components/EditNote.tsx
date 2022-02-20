@@ -55,13 +55,13 @@ const EditNote = (obj : {note : INote, handleChangeNote: Function} ) => {
 				onChange={handleBodyChange}
 			></textarea>
             <div className='note-footer'>
-				<small>
+				<small className='note-footer-cell'>
 					{characterLimit+1 - noteBody.length} Remaining
 				</small>
-                <button className='save' onClick={handleCancelClick}>
+                <button className='save note-footer-cell' onClick={handleCancelClick}>
 					Cancel
 				</button>
-				<button className='save' onClick={handleSaveClick}>
+				<button className='save note-footer-cell' onClick={handleSaveClick}>
 					Save
 				</button>
 			</div>
