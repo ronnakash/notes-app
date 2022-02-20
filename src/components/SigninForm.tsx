@@ -3,22 +3,18 @@ import useForm from '../utils/signin';
 import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline, GoogleLogout  } from 'react-google-login';
 import API from '../utils/requests/API'
 import AuthContext from '../utils/authContext';
+import IUser from '../interfaces/IUser';
 
 
-const SigninForm = (props : {submitForm : (event : any) => void }) => {
+const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoogle : (res: GoogleLoginResponse | GoogleLoginResponseOffline) => void}) => {
   
-  let {signInWithGoogle} = useContext(AuthContext);
 
-  let {submitForm} = props;
+  let {submitForm, signInWithGoogle} = props;
+
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm
   );
 
-  const googleResponse = async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
-    console.log(res);
-    let googleUser = await API.googleLoginUser(res.code?? '');
-    if (googleUser) signInWithGoogle(googleUser);
-  }
 
   return (
     <div className='form-content-right'>
@@ -69,7 +65,7 @@ const SigninForm = (props : {submitForm : (event : any) => void }) => {
           className='googleLoginButton'
           clientId={"888361755327-ad9pvtvsfpkhk09fqtpsqepbgtcapg4r.apps.googleusercontent.com"}
           onFailure={() => {console.log('failed login with google')}}
-          onSuccess={googleResponse}
+          onSuccess={signInWithGoogle}
           onRequest={() => {console.log('requesting google login')}}
           scope='openid profile email'
           responseType='code'

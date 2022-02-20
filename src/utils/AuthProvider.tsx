@@ -6,6 +6,7 @@ import ISignupForm from "../interfaces/ISignupForm";
 import IUser from "../interfaces/IUser";
 import API from "./requests/API";
 import { useCookies } from "react-cookie";
+import { GoogleLoginResponse, GoogleLoginResponseOffline } from "react-google-login";
 
 
 
@@ -37,11 +38,11 @@ const useValues = () => {
 
   const signIn = async (form : ISigninForm) => {
       console.log("login");
-      let user = await API.login(form);
-      console.log(user);
+      let newUser = await API.login(form);
+      console.log(newUser);
       console.log('setting user!')
-      setUser(user)
-      setCookie('user', user, cookieOptions)
+      setUser(newUser)
+      setCookie('user', newUser, cookieOptions)
   };
 
   const register = async (form : ISignupForm) => {
@@ -53,9 +54,12 @@ const useValues = () => {
       setCookie('user', user, cookieOptions);
   };
 
-  const signInWithGoogle = async (googleUser : IUser) => {
-    console.log("signed in with google!")
+  const signInWithGoogle = async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+    console.log(res);
+    let googleUser = await API.googleLoginUser(res.code?? '');
     setUser(googleUser);
+    setCookie('user', googleUser, cookieOptions)
+
   };
 
   return {signIn, signOut, register, user, signInWithGoogle}
@@ -73,7 +77,7 @@ const useValues = () => {
     let auth = useValues();
     let { children } = props;
     return (
-        <AuthContext.Provider value = {auth}> 
+        <AuthContext.Provider value={auth}> 
                 {children}
         </AuthContext.Provider>
         

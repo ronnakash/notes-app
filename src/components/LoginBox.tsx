@@ -10,7 +10,7 @@ import AuthContext from '../utils/authContext';
 
 const LoginBox = (props : any) => {
     
-    let {signIn, signOut, user} = useContext(AuthContext);
+    let {signInWithGoogle, signIn, signOut, user} = useContext(AuthContext);
     
     const handleGoogleResponse = async () => {
     }
@@ -19,7 +19,10 @@ const LoginBox = (props : any) => {
              return (
                 <div className= 'form-container'>
                     <script src="https://apis.google.com/js/platform.js" async defer></script>
-                    <SigninForm submitForm={signIn}/>
+                    <SigninForm 
+                        submitForm={signIn}
+                        signInWithGoogle={signInWithGoogle}
+                        />
                 </div>
             );
         }
