@@ -327,12 +327,17 @@ textarea:focus {
   .about-text{
 	margin-top: 3rem;
 	text-align: center;
-	
   }
 
   .about-header {
 	  margin-top: 5rem;
 	  text-align: center;
-	  font-size: 175%;
+	  font-size: 200%;
   }
+
+  .home-header {
+	margin-top: 5rem;
+	text-align: center;
+	font-size: 437.5%;
+}
 

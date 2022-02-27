@@ -38,11 +38,11 @@ const parseNotesFromRequest = (res : any) => {
     let {token, user} = obj.result;
     if (!token || !user)
       throw new Error('sign in failed');
-    let {_id ,username, email, permissions, } = user;
+    let {_id ,username, email, permissions, picture} = user;
     console.log("parsing")
     console.log(user);
     console.log(token)
-    return new IUser(_id, username, email, 'Bearer ' + token, permissions);
+    return new IUser(_id, username, email, 'Bearer ' + token, permissions, picture);
   }
 
   export default {parseNotesFromRequest, parseNoteFromPostRequest, parseUserFromRequest};

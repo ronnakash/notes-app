@@ -14,7 +14,7 @@ const NavBar = (props: any) => {
         <div className='navContainer'>
           <Navbar className= 'hi' bg='dark' variant='dark'>
             <Navbar.Brand>
-              <img  src={logo} height='40px'/>
+              <img src={logo} height='40px'/>
               NotesApp
             </Navbar.Brand>
             <Nav>
