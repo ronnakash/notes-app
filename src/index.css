@@ -342,3 +342,12 @@ textarea:focus {
   .googleLoginButton {
 	  margin-top: 18px;
   }
+
+  .top-margin {
+	  margin-bottom: 1rem;
+  }
+
+
+  .about-header {
+	  text-align: center;
+  }

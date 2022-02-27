@@ -16,6 +16,7 @@ import ISignupForm from './interfaces/ISignupForm';
 import AuthProvider from './utils/AuthProvider';
 import RegisterBox from './components/RegisterBox';
 import NavBar from './components/NavBar'
+import AboutPage from './components/AboutPage';
 
 const App = () => {
   
@@ -25,6 +26,9 @@ const App = () => {
         <NavBar></NavBar>
         <Router>
           <Routes>
+            <Route path='/about' element={<AboutPage/>}/>
+            <Route path='/terms_of_service' element={<AboutPage/>}/>
+            <Route path='/privacy' element={<AboutPage/>}/>
             <Route path='/' element={<h1>Home Page</h1>} />
             <Route path='/login' element={<LoginBox />} />
             <Route path='/register' element={<RegisterBox />} />
