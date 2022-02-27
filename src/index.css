@@ -83,34 +83,11 @@ textarea:focus {
 }
 
 .note-footer {
-	display: flex;
-	align-items: center;
-	vertical-align: center;
-	justify-content: space-between;
-}
-
-.note-footer > * {
-	flex: 0;
-}
-
-
-
-
-
-.note-footer2 {
+	margin-top: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
-
-
-
-.delete-icon:hover {
-	cursor: pointer;
-}
-
-
-
 
 .notes-list {
 	margin: 1rem;

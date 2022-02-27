@@ -21,20 +21,15 @@ const SavedNote = (obj : {note: INote, handleDeleteNote: Function, handleEditNot
                 <span> {note.body} </span>
             </div>
             <div className='note-footer'>
-                <div>
-                    <span>{note.date}</span>
-                </div>
+                <span>{note.date}</span>
                 <button className='save' onClick={handleEdit}>
-                    Edit
-                </button>
-                <div>
-                    <BsFillTrashFill
-                        className='delete-icon'
-                        size='1.2em'
-                        onClick={()=>handleDeleteNote(note.id)}
-                    />
-                </div>
-
+					Edit
+				</button>
+				<BsFillTrashFill
+					className='delete-icon'
+					size='1.2em'
+                    onClick={()=>handleDeleteNote(note.id)}
+				/>
             </div>
         </div >
     );
