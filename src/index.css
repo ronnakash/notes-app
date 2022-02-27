@@ -324,7 +324,15 @@ textarea:focus {
 	  margin-bottom: 1rem;
   }
 
+  .about-text{
+	margin-top: 3rem;
+	text-align: center;
+	
+  }
 
   .about-header {
+	  margin-top: 5rem;
 	  text-align: center;
+	  font-size: 175%;
   }
+

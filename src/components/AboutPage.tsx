@@ -4,11 +4,14 @@ const AboutPage = (props: any) => {
     
 
     return (
-        <div>
+        <div >
             <div className='about-header'>
-                <h1> About The App </h1>
+                <h1 className='about-header'> About The App </h1>
+                <body className='about-text'>
+                    This is a React app for creating and editing notes.
+                </body>
                 <body>
-                    {"This is a React app for creating and editing notes. The app has a Typescript Nodejs backend and uses MongoDB to store users notes."}
+                    The app has a Typescript Nodejs backend and uses MongoDB to store users notes.
                 </body>
             </div>
 
