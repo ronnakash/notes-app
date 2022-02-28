@@ -4,7 +4,7 @@ const AboutPage = (props: any) => {
     
 
     return (
-        <div >
+        <div>
             <div className='about-header'>
                 <h1 className='about-header'> About The App </h1>
                 <body className='about-text'>
