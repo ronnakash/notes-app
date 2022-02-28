@@ -16,63 +16,46 @@ const AuthProvider = ( props: {children : any}) => {
 const useValues = () => {
 
     const [cookies, setCookie, removeCookie] = useCookies();
-
     let cookieUser = cookies?.user;
     let emptyUser : IUser | undefined;
     const [user, setUser] = useState(cookieUser? cookieUser : emptyUser);
-  
   const cookieOptions = {
       path: '/',
       maxAge: 86400, 
       secure: true
   };
 
+  const setUserAndCookie = (newUser : IUser) => {
+      setUser(newUser);
+      setCookie('user', newUser, cookieOptions)
+  }
+
+  const removeUserAndCookie = () => {
+        setUser(undefined);
+        removeCookie('user');
+  }
 
   const signOut = async () => {
-      console.log('signing out')
-      console.log(user);
-      setUser(undefined);
-      console.log(user);
-      removeCookie('user');
+        removeUserAndCookie();
   };
 
   const signIn = async (form : ISigninForm) => {
-      console.log("login");
       let newUser = await API.login(form);
-      console.log(newUser);
-      console.log('setting user!')
-      setUser(newUser)
-      setCookie('user', newUser, cookieOptions)
+      if (newUser) setUserAndCookie(newUser)
   };
 
   const register = async (form : ISignupForm) => {
-      console.log("register");
-      let user = await API.register(form);
-      console.log(user);
-      console.log('setting user!')
-      setUser(user);
-      setCookie('user', user, cookieOptions);
+      let newUser = await API.register(form);
+      if (newUser) setUserAndCookie(newUser)
   };
 
   const signInWithGoogle = async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
-    console.log(res);
     let googleUser = await API.googleLoginUser(res.code?? '');
-    setUser(googleUser);
-    setCookie('user', googleUser, cookieOptions)
-
+    if (googleUser) setUserAndCookie(googleUser)
   };
 
   return {signIn, signOut, register, user, signInWithGoogle}
 }
-//let values = {signIn, signOut, register, user};
-
-/** */
-
-
-/*
-  const value = useMemo( () => ({user, setUser}), [user, setUser]) 
-*/
-
 
     let auth = useValues();
     let { children } = props;
@@ -80,7 +63,6 @@ const useValues = () => {
         <AuthContext.Provider value={auth}> 
                 {children}
         </AuthContext.Provider>
-        
     );
 };
 
