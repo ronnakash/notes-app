@@ -58,12 +58,14 @@ const EditNote = (obj : {note : INote, handleChangeNote: Function} ) => {
 				<small>
 					{characterLimit+1 - noteBody.length} Remaining
 				</small>
-                <button className='save' onClick={handleCancelClick}>
+				<div>
+				<button className='cancel-button' onClick={handleCancelClick}>
 					Cancel
 				</button>
 				<button className='save' onClick={handleSaveClick}>
 					Save
 				</button>
+				</div>
 			</div>
         </div>
 

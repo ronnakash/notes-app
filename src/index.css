@@ -345,3 +345,12 @@ textarea:focus {
 		cursor: pointer;
 		margin-left: 10px;
 	}
+
+	.cancel-button {
+		background-color: #e1e1e1;
+		border: 1px;
+		border-radius: 15px;
+		padding: 5px 10px 5px 10px;
+		cursor: pointer;
+		margin-right: 10px;
+	}
