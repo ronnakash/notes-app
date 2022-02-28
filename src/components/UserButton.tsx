@@ -43,26 +43,26 @@ const UserButton = (props: any) => {
     else {
         return (
             <div>
-            <div onClick={() => {toggleMenu()}} style={{cursor : 'pointer'}}>
-                <UserAvatar className='userButton' size="40" name={userInitials()} src={user.picture}/>
-            </div>
-            <Dropdown.Menu align="end" show={showMenu} className='userDrop' >
-                <div className='userDisplay'>
-                    <div>
-                    <UserAvatar className='bigAvatar' size="64" name={userInitials()} src={user.picture}/>
-                    </div>
-                    <div className='userDisplayData'>
-                        <span className='boldText'>{user.username}</span>
-                        <span className='greyText'>{user.email}</span>
-                    </div>
+                <div onClick={() => {toggleMenu()}} style={{cursor : 'pointer'}}>
+                    <UserAvatar className='userButton' size="40" name={userInitials()} src={user.picture}/>
                 </div>
-                <Dropdown.Divider />
-                <Dropdown.Item eventKey='3' href='/notes'>Notes</Dropdown.Item>
-                <Dropdown.Item eventKey='4' href='/profile' >Profile</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item eventKey='5' onClick={handleSignOut} className='dangerItem' >Sign out</Dropdown.Item>
-            </Dropdown.Menu> 
-        </div>            
+                <Dropdown.Menu align="end" show={showMenu} className='userDrop' >
+                    <div className='userDisplay'>
+                        <div>
+                        <UserAvatar className='bigAvatar' size="64" name={userInitials()} src={user.picture}/>
+                        </div>
+                        <div className='userDisplayData'>
+                            <span className='boldText'>{user.username}</span>
+                            <span className='greyText'>{user.email}</span>
+                        </div>
+                    </div>
+                    <Dropdown.Divider />
+                    <Dropdown.Item eventKey='3' href='/notes'>Notes</Dropdown.Item>
+                    <Dropdown.Item eventKey='4' href='/profile' >Profile</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item eventKey='5' onClick={handleSignOut} className='dangerItem' >Sign out</Dropdown.Item>
+                </Dropdown.Menu> 
+            </div>            
         )
     }      
 

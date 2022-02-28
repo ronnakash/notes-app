@@ -354,3 +354,26 @@ textarea:focus {
 		cursor: pointer;
 		margin-right: 10px;
 	}
+
+	.black-text {
+		color: #000;
+		font-size: 100%;
+	}
+
+	.center {
+		margin: 20px;
+		margin-top: 30px;
+	}
+
+	.profile-header {
+		margin: 20px;
+		margin-bottom: 30px;
+	}
+
+	.user-profile-display {
+		display: flex;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+	  }

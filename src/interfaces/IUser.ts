@@ -14,4 +14,9 @@ export default class User {
         this.token = token;
         this.picture = picture;
     }
+};
+
+export interface UserData {
+    username?: string;
+    picture?: string;
 }

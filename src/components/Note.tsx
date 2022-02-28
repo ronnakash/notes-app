@@ -5,11 +5,11 @@ import EditNote from './EditNote';
 
 
 
-const Note = (obj : {note: INote,
+const Note = (props : {note: INote,
     handleDeleteNote: Function,
     handleEditNote : Function,
     handleChangeNote : Function }) => {
-    let { note, handleDeleteNote, handleEditNote, handleChangeNote } = obj;
+    let { note, handleDeleteNote, handleEditNote, handleChangeNote } = props;
 
     const savedNote = (
         <SavedNote 

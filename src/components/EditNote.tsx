@@ -3,8 +3,8 @@ import INote from '../interfaces/INote';
 
 //handleAddNote -> handleChangeNote
 
-const EditNote = (obj : {note : INote, handleChangeNote: Function} ) => {
-	let { note, handleChangeNote } = obj;
+const EditNote = (props : {note : INote, handleChangeNote: Function} ) => {
+	let { note, handleChangeNote } = props;
     let { title, body } = note;
 
     const [noteTitle , setNoteTitle] = useState(title);

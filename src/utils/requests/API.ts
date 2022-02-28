@@ -33,7 +33,7 @@ const getMyNotes = async (username : string, user : IUser | undefined) : Promise
 
 
 const postNote = async (noteObj : {author : string, title : string, body : string}, user : IUser | undefined) : Promise<INote | undefined>=> {
-    let note;
+    let note : INote | undefined ;
     let headers = await getHeader(user);
     await requests.postNoteRequest
         .post('', noteObj, {headers: headers})
@@ -56,9 +56,14 @@ const deleteNote = async (id: string, user : IUser | undefined) => {
 
 const editNote = async (note : INote, user : IUser | undefined) => {
     let headers = await getHeader(user);
+    let editedNote;
     await requests.editNoteRequest
         .put('', note, {headers: headers})
+        .then((response : AxiosResponse)=> {
+            editedNote = response.data;
+        })
         .catch(error => console.log(error))
+    return editedNote;
 };
 
 const register = async (form : ISignupForm) : Promise<IUser | undefined> => {
