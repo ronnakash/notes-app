@@ -6,10 +6,10 @@ const TermsPage = () => {
             <div className='about-header'>
                 <h1 className='about-header'> Terms of service </h1>
                 <body className='about-text'>
-                    This is a React app for creating and editing notes.
+                    The app only gets some basic profile information from Google, such as your name, password and image.
                 </body>
                 <body>
-                    The app has a Typescript Nodejs backend and uses MongoDB to store users notes.
+                    We only use the information to keep track of your notes.
                 </body>
             </div>
         </div>
