@@ -325,19 +325,23 @@ textarea:focus {
   }
 
   .about-text{
-	margin-top: 3rem;
+	margin-top: 8rem;
 	text-align: center;
   }
 
   .about-header {
-	  margin-top: 5rem;
+	  margin-top: 10rem;
 	  text-align: center;
 	  font-size: 200%;
   }
 
   .home-header {
-	margin-top: 5rem;
+	margin-top: 10rem;
 	text-align: center;
 	font-size: 437.5%;
 }
 
+	.delete-icon {
+		cursor: pointer;
+		margin-left: 10px;
+	}

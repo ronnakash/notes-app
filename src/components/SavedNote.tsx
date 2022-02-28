@@ -22,6 +22,7 @@ const SavedNote = (obj : {note: INote, handleDeleteNote: Function, handleEditNot
             </div>
             <div className='note-footer'>
                 <span>{note.date}</span>
+                <div>
                 <button className='save' onClick={handleEdit}>
 					Edit
 				</button>
@@ -30,6 +31,7 @@ const SavedNote = (obj : {note: INote, handleDeleteNote: Function, handleEditNot
 					size='1.2em'
                     onClick={()=>handleDeleteNote(note.id)}
 				/>
+                </div>
             </div>
         </div >
     );

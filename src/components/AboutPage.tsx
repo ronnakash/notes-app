@@ -29,8 +29,7 @@ const AboutPage = (props: any) => {
                         Fullstack Software Developer
                     </Card.Subtitle>
                     <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                    I'm a third year computer science student at The Open University of Israel, looking for my first job in the software development field. 
                     </Card.Text>
                     <Card.Link 
                         target="_blank" 
