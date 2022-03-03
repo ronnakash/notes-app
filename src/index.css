@@ -2,7 +2,7 @@
 
 
 .note {
-	background-color: #fcf484;
+	background-color: rgb(252, 244, 131);
 	border-radius: 15px;
 	padding: 1rem;
 	min-height: 400px;
@@ -13,13 +13,13 @@
 }
 
 .note.new {
-	background-color: #7bb1ee;
+	background-color: rgb(124, 177, 238);
 }
 
 textarea {
 	border: none;
 	resize: none;
-	background-color: #7bb1ee;
+	background-color: rgb(123, 177, 238);
 	float: left;
 	width: 100%;
 	height: auto;
@@ -40,14 +40,14 @@ textarea:focus {
 }
 
 .save {
-	background-color: #e1e1e1;
+	background-color: rgb(225, 225, 225);
 	border: 1px;
 	border-radius: 15px;
 	padding: 5px 10px 5px 10px;
 }
 
 .save:hover {
-	background-color: #ededed;
+	background-color: rgb(237, 237, 237);
 	cursor: pointer;
 }
 
@@ -57,14 +57,14 @@ textarea:focus {
 	left: 50%;
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	background-color: #e1e1e1;
+	background-color: rgb(225, 225, 225);
 	border: 1px;
 	border-radius: 15px;
 	padding: 5px 10px 5px 10px;
 }
 
 .signout:hover {
-	background-color: #ededed;
+	background-color: rgb(237, 237, 237);
 	cursor: pointer;
 }
 
@@ -75,10 +75,7 @@ textarea:focus {
 }
 
 .note-body {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin: 10px;
 	font-size: 125%;
 }
 
@@ -182,7 +179,7 @@ textarea:focus {
 	text-align: start;
 	width: 80%;
 	margin-bottom: 1rem;
-	color: #fff;
+	color: rgb(255, 255, 255);
   }
   
   .form-inputs {
@@ -193,14 +190,14 @@ textarea:focus {
   .form-inputs p {
 	font-size: 0.8rem;
 	margin-top: 0.5rem;
-	color: #f00e0e;
+	color: rgb(240, 14, 14);
   }
   
   .form-label {
 	display: inline-block;
 	font-size: 0.8rem;
 	margin-bottom: 6px;
-	color: #fff;
+	color: rgb(255, 255, 255);
   }
   
   .form-input {
@@ -293,18 +290,12 @@ textarea:focus {
   .userDisplay {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin: 10px;
   }
 
   .userDisplayData {
 	display: grid;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin: 10px;
   }
 
   .greyText {
@@ -366,14 +357,12 @@ textarea:focus {
 	}
 
 	.profile-header {
-		margin: 20px;
+		margin: 10px;
+		text-align: center;
 		margin-bottom: 30px;
 	}
 
 	.user-profile-display {
 		display: flex;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		margin-left: 10px;
-		margin-right: 10px;
+		margin: 10px;
 	  }

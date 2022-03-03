@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ISignupForm from '../interfaces/ISignupForm';
 import ISignupFormError from '../interfaces/ISignupFormError';
 
-import useForm from '../utils/signup';
+import useForm from '../utils/hooks/signup';
 
 interface ISignupFormProps {
   submitForm : (event : any) => void

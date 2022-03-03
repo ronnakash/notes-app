@@ -1,17 +1,24 @@
 import { useState, useEffect } from 'react';
-import ISignupForm from '../interfaces/ISignupForm';
-import ISignupFormError from '../interfaces/ISignupFormError'
+import ISignupForm from '../../interfaces/ISignupForm';
+import ISignupFormError from '../../interfaces/ISignupFormError'
+import useForm from './useForm';
 
 
-const useForm = (callback : Function) : {handleChange : (event : any) => void, handleSubmit : (event : any) => void, values : ISignupForm, errors : ISignupFormError} => {
+const useSignUpForm = (callback : (values : ISignupForm) => void ) : {handleChange : (event : any) => void, handleSubmit : (event : any) => void, values : ISignupForm, errors : ISignupFormError} => {
 
+  let emptyValues : ISignupForm = {
+    username: '',
+    email: '',
+    password: '',
+    password2: ''
+  }
 
     let emptyErrors : ISignupFormError = {
         username: undefined,
         email: undefined,
         password: undefined,
         password2: undefined
-    };
+    }; 
 
     function validateInfo(values : ISignupForm) {
         let errors : ISignupFormError = {
@@ -47,40 +54,8 @@ const useForm = (callback : Function) : {handleChange : (event : any) => void, h
         return errors;
       }
 
-  const [values, setValues] = useState({
-    username: '',
-    email: '',
-    password: '',
-    password2: ''
-  });
-  const [errors, setErrors] = useState(emptyErrors);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+      return useForm({callback, validateInfo, emptyValues, emptyErrors});
 
-  const handleChange = (e : any) => {
-    const { name, value } = e.target;
-    setValues({
-      ...values,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e : any) => {
-    e.preventDefault();
-    setErrors(validateInfo(values));
-    setIsSubmitting(true);
-    callback(values);
-  };
-
-  useEffect(
-    () => {
-      if (Object.keys(errors).length === 0 && isSubmitting) {
-        callback(values);
-      }
-    },
-    [errors]
-  );
-
-  return { handleChange, handleSubmit, values, errors };
 };
 
-export default useForm;
+export default useSignUpForm;
