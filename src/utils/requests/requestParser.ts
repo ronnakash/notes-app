@@ -1,6 +1,8 @@
 import INote from '../../interfaces/INote';
 import ISignupForm from '../../interfaces/ISignupForm';
 import ISigninForm from '../../interfaces/ISigninForm';
+import IEditUserForm from '../../interfaces/IEditUserFrom';
+import IUser from '../../interfaces/IUser';
 
 const noteObjToBody = (note : {author: string, title : string, body : string}, headers : any) : any => {
     let {author, title, body} = note;
@@ -43,5 +45,14 @@ const noteToBody = (note : INote) : any => {
     return bodyObj
 }
 
-export default { noteObjToBody, noteToBody, signupFormToBody, signinFormToBody }
+const editUserFormToBody = (form : IEditUserForm, user : IUser | undefined) => {
+    return {
+        id: user?.id,
+        username: (form.username!=='')? form.username : undefined,
+        password: (form.username!=='')? form.username : undefined,
+        //picture: (form.picture!=='')? form.picture : undefined
+    }
+}
+
+export default { noteObjToBody, noteToBody, signupFormToBody, signinFormToBody, editUserFormToBody }
 

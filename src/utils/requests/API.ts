@@ -4,6 +4,7 @@ import requests from './requests'
 import ISignupForm from '../../interfaces/ISignupForm';
 import ISigninForm from '../../interfaces/ISigninForm';
 import IUser from '../../interfaces/IUser';
+import IEditUserForm from '../../interfaces/IEditUserFrom';
 
 
   const getHeader = async (user : IUser | undefined) => {
@@ -103,4 +104,22 @@ const googleLoginUser = async (code: string) : Promise<IUser | undefined>=> {
     return googleResponse;
 };
 
-export default { getMyNotes, postNote, deleteNote, editNote, register, login, googleLoginUser}
+const editProfile = async (form : IEditUserForm, user : IUser | undefined) => {
+    await requests.editUserRequest
+        .post('', {
+            id: user?.id,
+            username: (form.username!=='')? form.username : undefined,
+            password: (form.newPassword!=='')? form.newPassword : undefined,
+            //picture: (form.picture!=='')? form.picture : undefined
+        })
+        .then(res => {
+            console.log(res.data);
+        })
+        .catch(error => console.log(error))
+    if (user)
+        user.username = (form.username!=='') ? form.username : user.username;
+    return user;
+}
+
+
+export default { getMyNotes, postNote, deleteNote, editNote, register, login, googleLoginUser, editProfile }

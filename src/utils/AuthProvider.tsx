@@ -25,7 +25,7 @@ const useValues = () => {
       secure: true
   };
 
-  const setUserAndCookie = (newUser : IUser) => {
+  const setUserAndCookie = (newUser : IUser | undefined) => {
       setUser(newUser);
       setCookie('user', newUser, cookieOptions)
   }
@@ -54,7 +54,7 @@ const useValues = () => {
     if (googleUser) setUserAndCookie(googleUser)
   };
 
-  return {signIn, signOut, register, user, signInWithGoogle}
+  return {signIn, signOut, register, signInWithGoogle, user, updateUser: setUserAndCookie}
 }
 
     let auth = useValues();

@@ -16,6 +16,7 @@ const userURL = '/User/users';
 const registerURL = '/registerAndLogin';
 const loginURL = '/login';
 const googleLoginURL = '/google/login';
+const updateUserURL = '/updateUser';
 
 
 /*
@@ -53,14 +54,14 @@ const postNoteRequest = axios.create({
         //transformRequest: [requestParser.noteObjToBody],
         transformResponse: [responseParser.parseNoteFromPostRequest],
         timeout: 5000,
-    });
+      });
 
   
 const deleteNoteRequest = axios.create({
         method: 'DELETE',
         baseURL: serverURL+noteURL+deleteNoteURL,
         timeout: 5000
-    });
+      });
 
 
 const editNoteRequest = axios.create({
@@ -91,7 +92,15 @@ const googleLoginUserRequest = axios.create({
         transformResponse: [responseParser.parseUserFromRequest],
         timeout: 5000
       });
+
+
+const editUserRequest = axios.create({
+        method: 'POST',
+        baseURL: serverURL+userURL+updateUserURL,
+        //transformRequest: [requestParser.editUserFormToBody],
+        timeout: 5000
+      });
       
 
-export default { getAllNotesRequest, getMyNotesRequest, postNoteRequest, deleteNoteRequest, editNoteRequest, registerUserRequest, loginUserRequest, googleLoginUserRequest }
+export default { getAllNotesRequest, getMyNotesRequest, postNoteRequest, deleteNoteRequest, editNoteRequest, registerUserRequest, loginUserRequest, googleLoginUserRequest, editUserRequest }
 

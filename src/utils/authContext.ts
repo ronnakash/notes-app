@@ -8,7 +8,8 @@ const defaultContext : IAuthContext = {
     signOut: async () => {},
     register: async () => {},
     signInWithGoogle: async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {},
-    user: undefined
+    user: undefined,
+    updateUser : (user : IUser | undefined) => {}
 }
 
 const AuthContext = createContext(defaultContext);

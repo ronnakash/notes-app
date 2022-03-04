@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button, Form, Card, Row, Col, InputGroup } from 'react-bootstrap'
 import IEditUserForm from '../interfaces/IEditUserFrom';
 import IUser from '../interfaces/IUser';
 import useForm from '../utils/hooks/editProfile'
+import API from '../utils/requests/API';
+import AuthContext from '../utils/authContext'
 
-const EditProfileForm = (props : {user : IUser | undefined}) => {
+const EditProfileForm = () => {
 
-  let {user} = props;
+  const {user, updateUser} = useContext(AuthContext);
 
-  const submitForm = () => {
 
+  const submitForm = async () => {
+    const editedUser = await API.editProfile(values, user);
+    updateUser(editedUser);
   }
     
     const [validated, setValidated] = useState(false);

@@ -1,6 +1,6 @@
 
 export default interface IEditUserForm {
-    username: string | undefined;
-    newPassword: string | undefined;
-    confirmPassword: string | undefined;
+    username: string ;
+    newPassword: string ;
+    confirmPassword: string ;
 }

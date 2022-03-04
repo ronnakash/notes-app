@@ -29,7 +29,6 @@ const ProfilePage = () => {
                         </div>
                     </div>
                     <EditProfileForm
-                        user={user}
                     />
             </div>
         </div>
