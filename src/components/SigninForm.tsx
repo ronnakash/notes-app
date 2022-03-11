@@ -4,6 +4,7 @@ import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline, GoogleLog
 import API from '../utils/requests/API'
 import AuthContext from '../utils/authContext';
 import IUser from '../interfaces/IUser';
+import { Button, Form, Card, Row, Col, InputGroup } from 'react-bootstrap'
 
 
 const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoogle : (res: GoogleLoginResponse | GoogleLoginResponseOffline) => void}) => {
@@ -17,66 +18,82 @@ const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoog
 
 
   return (
-    <div className='form-content-right'>
-      <form onSubmit={handleSubmit} className='form' noValidate>
-        <h1>
-          Log into your account by filling out the information below, or use one of your social media accounts.
-        </h1>
-        <div className='form-inputs'>
-          <label className='form-label'>Username</label>
-          <input
-            className='form-input'
-            type='text'
-            name='username'
-            placeholder='Enter your username'
-            value={values.username}
-            onChange={handleChange}
+    <div className='center'>
+      <h1 className='signin-header'>Sign In</h1>
+      <Form noValidate onSubmit={handleSubmit}>
+      <Row className="mb-3">
+          <Form.Group as={Col} md="12" controlId="validationCustomUsername">
+          <Form.Label className='black-text'>Username</Form.Label>
+          <InputGroup hasValidation>
+              <Form.Control
+              type="text"
+              placeholder="Username"
+              aria-describedby="inputGroupPrepend"
+              onChange={handleChange}
+              name='username'
+              value={values.username}
+              isValid={!errors.username && values.username!==''}
+              isInvalid={(errors.username? true : false) && values.username!==''}
+              />
+              <Form.Control.Feedback type="invalid">
+              {errors.username}
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">
+              Username available
+              </Form.Control.Feedback>
+          </InputGroup>
+          </Form.Group>
+      </Row>
+      <Row className="mb-3">
+      <Form.Group as={Col} md="12" controlId="validationCustom04">
+          <Form.Label className='black-text'>Email</Form.Label>
+          <Form.Control
+          type="email" 
+          name='email'
+          placeholder="Confirm Password"
+          onChange={handleChange}
+          value={values.email}
+          isValid={!errors.email && values.email!==''}
+          isInvalid={(errors.email? true : false) && values.email!==''}
           />
-          {errors.username && <p>{errors.username}</p>}
-        </div>
-        <div className='form-inputs'>
-          <label className='form-label'>Email</label>
-          <input
-            className='form-input'
-            type='email'
-            name='email'
-            placeholder='Enter your email'
-            value={values.email}
-            onChange={handleChange}
+          <Form.Control.Feedback type="invalid">
+              {errors.email}
+          </Form.Control.Feedback>
+          </Form.Group>
+      </Row>
+      <Row className="mb-3">
+          <Form.Group as={Col} md="12" controlId="validationCustom03">
+          <Form.Label className='black-text'>Password</Form.Label>
+          <Form.Control 
+          type="password" 
+          name='password'
+          placeholder="New Password"
+          onChange={handleChange}
+          value={values.password}
+          isValid={!errors.password}
+          isInvalid={(errors.password? true : false) && values.password!==''}
           />
-          {errors.email && <p>{errors.email}</p>}
-        </div>
-        <div className='form-inputs'>
-          <label className='form-label'>Password</label>
-          <input
-            className='form-input'
-            type='password'
-            name='password'
-            placeholder='Enter your password'
-            value={values.password}
-            onChange={handleChange}
-          />
-          {errors.password && <p>{errors.password}</p>}
-        </div>
-        <button className='form-input-btn' type='submit'>
-          Sign in
-        </button>
+          <Form.Control.Feedback type="invalid">
+              {errors.password}
+          </Form.Control.Feedback>
+          </Form.Group>
+      </Row>
+      <div className='even'>
+        <Button type="submit" className='button-space'>Submit form</Button>
         <GoogleLogin
-          className='googleLoginButton'
-          clientId={"888361755327-ad9pvtvsfpkhk09fqtpsqepbgtcapg4r.apps.googleusercontent.com"}
-          onFailure={() => {console.log('failed login with google')}}
-          onSuccess={signInWithGoogle}
-          onRequest={() => {console.log('requesting google login')}}
-          scope='openid profile email'
-          responseType='code'
-          prompt='consent'
-        />
-
-        <span className='form-input-login'>
-            Don't have an account? Register <a href='/register'>here</a>
-          </span>
-      </form>
+              className='googleLoginButton'
+              clientId={"888361755327-ad9pvtvsfpkhk09fqtpsqepbgtcapg4r.apps.googleusercontent.com"}
+              onFailure={() => {console.log('failed login with google')}}
+              onSuccess={signInWithGoogle}
+              onRequest={() => {console.log('requesting google login')}}
+              scope='openid profile email'
+              responseType='code'
+              prompt='consent'
+            />
+          </div>
+      </Form>
     </div>
+    
   );
 };
 

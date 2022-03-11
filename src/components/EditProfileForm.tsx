@@ -36,7 +36,7 @@ const EditProfileForm = () => {
                   name='username'
                   value={values.username}
                   isValid={!errors.username && values.username!==''}
-                  isInvalid={errors.username? true : false}
+                  isInvalid={(errors.username? true : false) && values.username!==''}
                   />
                   <Form.Control.Feedback type="invalid">
                   {errors.username}
@@ -56,7 +56,7 @@ const EditProfileForm = () => {
               placeholder="New Password"
               onChange={handleChange}
               value={values.newPassword}
-              isValid={!errors.newPassword && !!values.newPassword}
+              isValid={!errors.newPassword && values.newPassword!==''}
               isInvalid={errors.newPassword? true : false}
                />
               <Form.Control.Feedback type="invalid">
@@ -71,7 +71,7 @@ const EditProfileForm = () => {
               placeholder="Confirm Password"
               onChange={handleChange}
               value={values.confirmPassword}
-              isValid={!errors.confirmPassword && !!values.confirmPassword}
+              isValid={!errors.confirmPassword && values.confirmPassword!==''}
               isInvalid={errors.confirmPassword? true : false}
                />
               <Form.Control.Feedback type="invalid">

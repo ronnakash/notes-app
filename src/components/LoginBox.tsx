@@ -22,7 +22,10 @@ const LoginBox = (props : any) => {
                     <SigninForm 
                         submitForm={signIn}
                         signInWithGoogle={signInWithGoogle}
-                        />
+                    />
+                    <span className='form-input-login'>
+                        Don't have an account? Register <a href='/register'>here</a>
+                    </span>
                 </div>
             );
         }

@@ -244,14 +244,11 @@ textarea:focus {
   .form-input-login {
 	font-size: 0.8rem;
 	margin-top: 10px;
-	color: #fff;
-	width: 80%;
+	color: rgb(0, 0, 0);
 	text-align: center;
   }
   
   .form-input-login a {
-	text-decoration: none;
-	color: #27cdff;
 	font-weight: 600;
   }
 
@@ -362,7 +359,26 @@ textarea:focus {
 		margin-bottom: 30px;
 	}
 
+	.signin-header {
+		margin: 10px;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
 	.user-profile-display {
 		display: flex;
 		margin: 10px;
 	  }
+
+	.even {
+		display: flex;
+		justify-content: space-evenly;
+		min-height: 10em;
+		display: table-cell;
+		vertical-align: middle
+	}
+
+	.button-space {
+		margin-left: 50px;
+		margin-right: 50px;
+	}
