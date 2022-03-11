@@ -1,6 +1,7 @@
 import axios, {AxiosResponse} from 'axios'
 import INote from '../../interfaces/INote';
 import IUser from '../../interfaces/IUser';
+import Swal from 'sweetalert2'
 
 
 
@@ -11,7 +12,7 @@ const parseNotesFromRequest = (res : any) => {
   console.log("res");
   console.log(res)
     let obj = JSON.parse(res);
-    console.log(obj)
+    console.log(obj)   
     let docs = obj.result.models;
     let gotNewNotes : INote[] = [];
     docs.forEach((el: any) => {
@@ -30,19 +31,29 @@ const parseNotesFromRequest = (res : any) => {
     return new INote(author, title, body, _id, createdAt, updatedAt);
   };
 
-  const parseUserFromRequest = (res : any) : IUser => {
-    console.log("res");
+  const parseUserFromRequest = (res : any) : IUser | undefined => {
+    console.log("user login response");
     console.log(res)
     let obj = JSON.parse(res);
     console.log(obj)
-    let {token, user} = obj.result;
-    if (!token || !user)
-      throw new Error('sign in failed');
-    let {_id ,username, email, permissions, picture} = user;
-    console.log("parsing")
-    console.log(user);
-    console.log(token)
-    return new IUser(_id, username, email, 'Bearer ' + token, permissions, picture);
+    if (!obj.result) {
+      console.log('error!!!/n/n/n')
+      Swal.fire({
+        title: 'Error!',
+        text: obj.message || 'Unknown Error while fetching user from server',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+    }
+    else{
+      let {token, user} = obj.result;
+      let {_id ,username, email, permissions, picture} = user;
+      console.log("parsing")
+      console.log(user);
+      console.log(token)
+      return new IUser(_id, username, email, 'Bearer ' + token, permissions, picture);
+    }
+
   }
 
   export default {parseNotesFromRequest, parseNoteFromPostRequest, parseUserFromRequest};

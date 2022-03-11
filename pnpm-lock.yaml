@@ -43,6 +43,7 @@ specifiers:
   react-user-avatar: ^1.10.0
   sb: ^6.4.19
   styled-components: ^5.3.3
+  sweetalert2: ^11.4.4
   trim: ^1.0.1
   ts-react-google-login-component: ^1.1.9
   typescript: ^4.5.5
@@ -95,6 +96,7 @@ dependencies:
   react-user-avatar: 1.10.0_react-dom@17.0.2+react@17.0.2
   sb: 6.4.19_3a6359ff0dae16692fd6f0778ea71593
   styled-components: 5.3.3_281a4fa50a045c9112baf635f3bc27a7
+  sweetalert2: 11.4.4
   trim: 1.0.1
   ts-react-google-login-component: 1.1.9
   typescript: 4.5.5
@@ -13640,6 +13642,10 @@ packages:
       csso: 4.2.0
       picocolors: 1.0.0
       stable: 0.1.8
+    dev: false
+
+  /sweetalert2/11.4.4:
+    resolution: {integrity: sha512-9yYWQuRT1v9JNI/paPTSYV+68MHwe9C+HQ/I2jtfaFzoJgYRftWXOs4JqmDSjT7m2m4r8ebMMn8LcxD1Wq9B/w==}
     dev: false
 
   /symbol-observable/0.2.4:
