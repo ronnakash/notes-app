@@ -15,6 +15,9 @@ const RegisterBox = (props : any) => {
         return (
         <div className= 'form-container'>
             <SignupForm submitForm={register} />
+            <span className='form-input-login'>
+                have an account? Login <a href='/login'>here</a>
+            </span>
         </div>
     );
 

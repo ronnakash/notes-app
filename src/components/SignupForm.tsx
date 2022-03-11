@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import ISignupForm from '../interfaces/ISignupForm';
 import ISignupFormError from '../interfaces/ISignupFormError';
 
@@ -33,67 +34,88 @@ class SignupForm extends Component<ISignupFormState> {
   render() {
     let { handleChange, handleSubmit, values, errors } = this.props;
     return (
-      <div className='form-content-right'>
-        <form onSubmit={handleSubmit} className='form' noValidate>
-          <h1>
-            Get started with us today! Create your account by filling out the
-            information below.
-          </h1>
-          <div className='form-inputs'>
-            <label className='form-label'>Username</label>
-            <input
-              className='form-input'
-              type='text'
-              name='username'
-              placeholder='Enter your username'
-              value={values.username}
-              onChange={handleChange}
+      <div className='center'>
+        <h1 className='signin-header'>Register</h1>
+        <Form noValidate onSubmit={handleSubmit}>
+        <Row className="mb-3">
+            <Form.Group as={Col} md="12" controlId="validationCustomUsername">
+            <Form.Label className='black-text'>Username</Form.Label>
+            <InputGroup hasValidation>
+                <Form.Control
+                type="text"
+                placeholder="Username"
+                aria-describedby="inputGroupPrepend"
+                onChange={handleChange}
+                name='username'
+                value={values.username}
+                isValid={!errors.username && values.username!==''}
+                isInvalid={(errors.username? true : false) && values.username!==''}
+                />
+                <Form.Control.Feedback type="invalid">
+                {errors.username}
+                </Form.Control.Feedback>
+                <Form.Control.Feedback type="valid">
+                Username available
+                </Form.Control.Feedback>
+            </InputGroup>
+            </Form.Group>
+        </Row>
+        <Row className="mb-3">
+        <Form.Group as={Col} md="12" controlId="validationCustom04">
+            <Form.Label className='black-text'>Email</Form.Label>
+            <Form.Control
+            type="email" 
+            name='email'
+            placeholder="Email"
+            onChange={handleChange}
+            value={values.email}
+            isValid={!errors.email && values.email!==''}
+            isInvalid={(errors.email? true : false) && values.email!==''}
             />
-            {errors.username && <p>{errors.username}</p>}
-          </div>
-          <div className='form-inputs'>
-            <label className='form-label'>Email</label>
-            <input
-              className='form-input'
-              type='email'
-              name='email'
-              placeholder='Enter your email'
-              value={values.email}
-              onChange={handleChange}
+            <Form.Control.Feedback type="invalid">
+                {errors.email}
+            </Form.Control.Feedback>
+            </Form.Group>
+        </Row>
+        <Row className="mb-3">
+            <Form.Group as={Col} md="12" controlId="validationCustom03">
+            <Form.Label className='black-text'>Password</Form.Label>
+            <Form.Control 
+            type="password" 
+            name='password'
+            placeholder="Password"
+            onChange={handleChange}
+            value={values.password}
+            isValid={!errors.password}
+            isInvalid={(errors.password? true : false) && values.password!==''}
             />
-            {errors.email && <p>{errors.email}</p>}
-          </div>
-          <div className='form-inputs'>
-            <label className='form-label'>Password</label>
-            <input
-              className='form-input'
-              type='password'
-              name='password'
-              placeholder='Enter your password'
-              value={values.password}
-              onChange={handleChange}
+            <Form.Control.Feedback type="invalid">
+                {errors.password}
+            </Form.Control.Feedback>
+            </Form.Group>
+        </Row>
+        <Row className="mb-3">
+            <Form.Group as={Col} md="12" controlId="validationCustom03">
+            <Form.Label className='black-text'>Password</Form.Label>
+            <Form.Control 
+            type="password" 
+            name='password'
+            placeholder="Confirm Password"
+            onChange={handleChange}
+            value={values.password}
+            isValid={!errors.password}
+            isInvalid={(errors.password? true : false) && values.password!==''}
             />
-            {errors.password && <p>{errors.password}</p>}
+            <Form.Control.Feedback type="invalid">
+                {errors.password}
+            </Form.Control.Feedback>
+            </Form.Group>
+        </Row>
+
+        <div className='even'>
+          <Button type="submit" >Submit form</Button>
           </div>
-          <div className='form-inputs'>
-            <label className='form-label'>Confirm Password</label>
-            <input
-              className='form-input'
-              type='password'
-              name='password2'
-              placeholder='Confirm your password'
-              value={values.password2}
-              onChange={handleChange}
-            />
-            {errors.password2 && <p>{errors.password2}</p>}
-          </div>
-          <button className='form-input-btn' type='submit'>
-            Sign up
-          </button>
-          <span className='form-input-login'>
-            Already have an account? Login <a href='/login'>here</a>
-          </span>
-        </form>
+        </Form>
       </div>
     );
   }

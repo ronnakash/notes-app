@@ -50,7 +50,7 @@ const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoog
           <Form.Control
           type="email" 
           name='email'
-          placeholder="Confirm Password"
+          placeholder="Email"
           onChange={handleChange}
           value={values.email}
           isValid={!errors.email && values.email!==''}
@@ -67,7 +67,7 @@ const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoog
           <Form.Control 
           type="password" 
           name='password'
-          placeholder="New Password"
+          placeholder="Password"
           onChange={handleChange}
           value={values.password}
           isValid={!errors.password}

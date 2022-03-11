@@ -12,9 +12,6 @@ const LoginBox = (props : any) => {
     
     let {signInWithGoogle, signIn, signOut, user} = useContext(AuthContext);
     
-    const handleGoogleResponse = async () => {
-    }
-
         if (!user) {
              return (
                 <div className= 'form-container'>
