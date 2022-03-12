@@ -61,7 +61,7 @@ class SignupForm extends Component<ISignupFormState> {
             </Form.Group>
         </Row>
         <Row className="mb-3">
-        <Form.Group as={Col} md="12" controlId="validationCustom04">
+        <Form.Group as={Col} md="12" controlId="validationCustom01">
             <Form.Label className='black-text'>Email</Form.Label>
             <Form.Control
             type="email" 
@@ -78,36 +78,36 @@ class SignupForm extends Component<ISignupFormState> {
             </Form.Group>
         </Row>
         <Row className="mb-3">
-            <Form.Group as={Col} md="12" controlId="validationCustom03">
+            <Form.Group as={Col} md="12" controlId="validationCustom02">
             <Form.Label className='black-text'>Password</Form.Label>
             <Form.Control 
             type="password" 
-            name='password'
+            name='password1'
             placeholder="Password"
             onChange={handleChange}
-            value={values.password}
-            isValid={!errors.password}
-            isInvalid={(errors.password? true : false) && values.password!==''}
+            value={values.password1}
+            isValid={!errors.password1}
+            isInvalid={(errors.password1? true : false) && values.password1!==''}
             />
             <Form.Control.Feedback type="invalid">
-                {errors.password}
+                {errors.password1}
             </Form.Control.Feedback>
             </Form.Group>
         </Row>
         <Row className="mb-3">
             <Form.Group as={Col} md="12" controlId="validationCustom03">
-            <Form.Label className='black-text'>Password</Form.Label>
+            <Form.Label className='black-text'>Confirm Password</Form.Label>
             <Form.Control 
             type="password" 
-            name='password'
+            name='password2'
             placeholder="Confirm Password"
             onChange={handleChange}
-            value={values.password}
-            isValid={!errors.password}
-            isInvalid={(errors.password? true : false) && values.password!==''}
+            value={values.password2}
+            isValid={!errors.password2}
+            isInvalid={(errors.password2? true : false) && values.password2!==''}
             />
             <Form.Control.Feedback type="invalid">
-                {errors.password}
+                {errors.password2}
             </Form.Control.Feedback>
             </Form.Group>
         </Row>

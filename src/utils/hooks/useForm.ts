@@ -25,7 +25,6 @@ const useForm = <V extends IFormValues, E extends IFormErrors>(formProps : FormP
     const isErrored = () => {
         for (const [key, val] of Object.entries(errors)){
             if (val) {
-                console.log(key)
                 return true;
             }
         }

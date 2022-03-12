@@ -9,14 +9,14 @@ const useSignUpForm = (callback : (values : ISignupForm) => void ) : {handleChan
   let emptyValues : ISignupForm = {
     username: '',
     email: '',
-    password: '',
+    password1: '',
     password2: ''
   }
 
     let emptyErrors : ISignupFormError = {
         username: undefined,
         email: undefined,
-        password: undefined,
+        password1: undefined,
         password2: undefined
     }; 
 
@@ -24,7 +24,7 @@ const useSignUpForm = (callback : (values : ISignupForm) => void ) : {handleChan
         let errors : ISignupFormError = {
             username: undefined,
             email: undefined,
-            password: undefined,
+            password1: undefined,
             password2: undefined
         };
       
@@ -40,15 +40,15 @@ const useSignUpForm = (callback : (values : ISignupForm) => void ) : {handleChan
         } else if (!/\S+@\S+\.\S+/.test(values.email)) {
           errors.email = 'Email address is invalid';
         }
-        if (!values.password) {
-          errors.password = 'Password is required';
-        } else if (values.password.length < 6) {
-          errors.password = 'Password needs to be 6 characters or more';
+        if (!values.password1) {
+          errors.password1 = 'Password is required';
+        } else if (values.password1.length < 6) {
+          errors.password1 = 'Password needs to be 6 characters or more';
         }
       
         if (!values.password2) {
           errors.password2 = 'Password is required';
-        } else if (values.password2 !== values.password) {
+        } else if (values.password2 !== values.password1) {
           errors.password2 = 'Passwords do not match';
         }
         return errors;

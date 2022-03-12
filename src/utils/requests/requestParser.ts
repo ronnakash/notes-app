@@ -16,11 +16,11 @@ const noteObjToBody = (note : {author: string, title : string, body : string}, h
 }
 
 const signupFormToBody = (form : ISignupForm) => {
-    let {username, email, password} = form;
+    let {username, email, password1} = form;
     let bodyObj = {
         username: username,
         email: email,
-        password: password
+        password: password1
     }
     return bodyObj
 }
