@@ -31,17 +31,50 @@ const parseNotesFromRequest = (res : any) => {
     return new INote(author, title, body, _id, createdAt, updatedAt);
   };
 
-  const parseUserFromRequest = (res : any) : IUser | undefined => {
+  const parseUserFromLoginRequest = (res : any) : IUser | undefined => {
+    const user = parseUserFromRequest(res);
     console.log("user login response");
+    return user;
+  }
+
+  const parseUserFromRegisterRequest = (res : any) : IUser | undefined => {
+    const user = parseUserFromRequest(res);
+    console.log("user register response");
+    if (user) {
+      Swal.fire({
+        title: 'Created User',
+        text:  `Created user ${user.username} successfully`,
+        icon: 'success' ,
+        confirmButtonText: 'Ok'
+      })
+    }
+    return user;
+  }
+
+  const parseUserFromUpdateRequest = (res : any) : IUser | undefined => {
+    const user = parseUserFromRequest(res);
+    console.log("user update response");
+    if (user) {
+      Swal.fire({
+        title: 'Updated User',
+        text:  `Updated user ${user.username} successfully`,
+        icon: 'success' ,
+        confirmButtonText: 'Ok'
+      })
+    }
+    return user;
+  }
+
+  const parseUserFromRequest = (res : any) : IUser | undefined => {
     console.log(res)
     let obj = JSON.parse(res);
     console.log(obj)
     if (!obj.result) {
-      console.log('error!!!/n/n/n')
+      console.log('error')
       Swal.fire({
-        title: 'Error!',
-        text: obj.message || 'Unknown Error while fetching user from server',
-        icon: 'error',
+        title: 'Error',
+        text:  obj.message || 'Unknown Server error',
+        icon: 'error' ,
         confirmButtonText: 'Ok'
       })
     }
@@ -53,7 +86,6 @@ const parseNotesFromRequest = (res : any) => {
       console.log(token)
       return new IUser(_id, username, email, 'Bearer ' + token, permissions, picture);
     }
-
   }
 
-  export default {parseNotesFromRequest, parseNoteFromPostRequest, parseUserFromRequest};
+  export default {parseNotesFromRequest, parseNoteFromPostRequest, parseUserFromLoginRequest, parseUserFromRegisterRequest, parseUserFromUpdateRequest};

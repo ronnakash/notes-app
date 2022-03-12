@@ -12,8 +12,10 @@ const EditProfileForm = () => {
 
 
   const submitForm = async () => {
-    const editedUser = await API.editProfile(values, user);
-    updateUser(editedUser);
+    if(user) {
+      const editedUser = await API.editProfile(values, user);
+      updateUser(editedUser);
+    }
   }
     
     const [validated, setValidated] = useState(false);

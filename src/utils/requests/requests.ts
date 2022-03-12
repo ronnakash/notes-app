@@ -75,21 +75,21 @@ const editNoteRequest = axios.create({
 const registerUserRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+userURL+registerURL,
-        transformResponse: [responseParser.parseUserFromRequest],
+        transformResponse: [responseParser.parseUserFromRegisterRequest],
         timeout: 5000
       });
 
 const loginUserRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+userURL+loginURL,
-        transformResponse: [responseParser.parseUserFromRequest],
+        transformResponse: [responseParser.parseUserFromLoginRequest],
         timeout: 5000
       });
 
 const googleLoginUserRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+userURL+googleLoginURL,
-        transformResponse: [responseParser.parseUserFromRequest],
+        transformResponse: [responseParser.parseUserFromLoginRequest],
         timeout: 5000
       });
 
@@ -98,6 +98,7 @@ const editUserRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+userURL+updateUserURL,
         //transformRequest: [requestParser.editUserFormToBody],
+        transformResponse: [responseParser.parseUserFromUpdateRequest],
         timeout: 5000
       });
       

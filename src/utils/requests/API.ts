@@ -5,6 +5,7 @@ import ISignupForm from '../../interfaces/ISignupForm';
 import ISigninForm from '../../interfaces/ISigninForm';
 import IUser from '../../interfaces/IUser';
 import IEditUserForm from '../../interfaces/IEditUserFrom';
+import Swal from 'sweetalert2';
 
 
   const getHeader = async (user : IUser | undefined) => {
@@ -104,7 +105,8 @@ const googleLoginUser = async (code: string) : Promise<IUser | undefined>=> {
     return googleResponse;
 };
 
-const editProfile = async (form : IEditUserForm, user : IUser | undefined) => {
+const editProfile = async (form : IEditUserForm, user : IUser) => {
+    
     await requests.editUserRequest
         .post('', {
             id: user?.id,
@@ -113,11 +115,11 @@ const editProfile = async (form : IEditUserForm, user : IUser | undefined) => {
             //picture: (form.picture!=='')? form.picture : undefined
         })
         .then(res => {
-            console.log(res.data);
+            let updateUser = res.data;            
+            user.username = updateUser.username;
+            user.picture = updateUser.picture;
         })
         .catch(error => console.log(error))
-    if (user)
-        user.username = (form.username!=='') ? form.username : user.username;
     return user;
 }
 
