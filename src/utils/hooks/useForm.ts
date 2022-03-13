@@ -52,10 +52,7 @@ const useForm = <V extends IFormValues, E extends IFormErrors>(formProps : FormP
                 setErrors(validateInfo(values));
                 setIsSubmitting(true);
                 if (!isErrored()) callback(values);
-                else console.log('errors')
             }
-        else
-            console.log('Already submitting')
         setIsSubmitting(false)
     };
   

@@ -5,17 +5,39 @@ import API from '../../utils/requests/API'
 import AuthContext from '../../utils/authContext';
 import IUser from '../../interfaces/IUser';
 import { Button, Form, Card, Row, Col, InputGroup } from 'react-bootstrap'
+import Swal from 'sweetalert2';
 
 
 const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoogle : (res: GoogleLoginResponse | GoogleLoginResponseOffline) => void}) => {
   
-
   let {submitForm, signInWithGoogle} = props;
 
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm
   );
 
+    const failedLogin = () => {
+      Swal.fire({
+        title: 'Login Error',
+        text:  'Faild to log you in with Google. please try again',
+        icon: 'error' ,
+        confirmButtonText: 'Dismiss'
+      })
+    }
+
+    const loginRedirect = () => {
+      Swal.fire({
+        title: 'Google Login',
+        text:  'Finish login in the popup',
+        icon: 'info' ,
+        confirmButtonText: 'Ok'
+      })
+    }
+
+    const googleLogin = (res : GoogleLoginResponse | GoogleLoginResponseOffline) => {
+      Swal.close();
+      signInWithGoogle(res);
+    }
 
   return (
     <div className='center'>
@@ -83,9 +105,9 @@ const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoog
         <GoogleLogin
               className='googleLoginButton'
               clientId={"888361755327-ad9pvtvsfpkhk09fqtpsqepbgtcapg4r.apps.googleusercontent.com"}
-              onFailure={() => {console.log('failed login with google')}}
-              onSuccess={signInWithGoogle}
-              onRequest={() => {console.log('requesting google login')}}
+              onFailure={failedLogin}
+              onSuccess={googleLogin}
+              onRequest={loginRedirect}
               scope='openid profile email'
               responseType='code'
               prompt='consent'

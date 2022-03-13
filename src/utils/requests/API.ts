@@ -9,11 +9,18 @@ import Swal from 'sweetalert2';
 
 
   const getHeader = async (user : IUser | undefined) => {
-    //console.log(user)
     let token = user? user.token : null;
-    //console.log(token)
     return token? {Authorization: token} : {Authorization: "Bearer"};
   };
+
+  const displayError = (error : Error) =>{
+    Swal.fire({
+        title: 'Error!',
+        text:  error.message,
+        icon: 'error' ,
+        confirmButtonText: 'Dismiss'
+    })
+  }
 
 
 const getMyNotes = async (username : string, user : IUser | undefined) : Promise<INote[]> => {
@@ -25,11 +32,9 @@ const getMyNotes = async (username : string, user : IUser | undefined) : Promise
             headers: headers
         })
         .then((response : AxiosResponse)=> {
-            console.log(response.data)
             res = response.data;
         })
-        .catch(error => console.log(error))
-        //console.log(res);
+        .catch(error => displayError(error))
     return res;
 };
 
@@ -42,7 +47,7 @@ const postNote = async (noteObj : {author : string, title : string, body : strin
         .then((response : AxiosResponse)=> {
             note = response.data;
         })
-        .catch(error => console.log(error))
+        .catch(error => displayError(error))
     return note;
 }
 
@@ -53,7 +58,7 @@ const deleteNote = async (id: string, user : IUser | undefined) => {
             data: {_id: id},
             headers: headers
         })
-        .catch(error => console.log(error))
+        .catch(error => displayError(error))
 }
 
 const editNote = async (note : INote, user : IUser | undefined) => {
@@ -64,7 +69,7 @@ const editNote = async (note : INote, user : IUser | undefined) => {
         .then((response : AxiosResponse)=> {
             editedNote = response.data;
         })
-        .catch(error => console.log(error))
+        .catch(error => displayError(error))
     return editedNote;
 };
 
@@ -76,7 +81,7 @@ const register = async (form : ISignupForm) : Promise<IUser | undefined> => {
         .then((response : AxiosResponse)=> {
             user = response.data;
         })
-        .catch(error => console.log(error))
+        .catch(error => displayError(error))
     return user;
 };
 
@@ -87,7 +92,7 @@ const login = async (form : ISigninForm) : Promise<IUser | undefined> => {
         .then((response : AxiosResponse)=> {
             user = response.data;
         })
-        .catch(error => console.log(error))
+        .catch(error => displayError(error))
     return user;
 };
 
@@ -97,29 +102,24 @@ const googleLoginUser = async (code: string) : Promise<IUser | undefined>=> {
         .post('', {code})
         .then(res => {
             googleResponse = res.data;
-            console.log('googleResponse');
-            console.log(googleResponse);
         })
-        .catch(error => console.log(error))
-    console.log(googleResponse)
+        .catch(error => displayError(error))
     return googleResponse;
 };
 
 const editProfile = async (form : IEditUserForm, user : IUser) => {
-    
     await requests.editUserRequest
         .post('', {
             id: user?.id,
             username: (form.username!=='')? form.username : undefined,
             password: (form.newPassword!=='')? form.newPassword : undefined,
-            //picture: (form.picture!=='')? form.picture : undefined
         })
         .then(res => {
             let updateUser = res.data;            
             user.username = updateUser.username;
             user.picture = updateUser.picture;
         })
-        .catch(error => console.log(error))
+        .catch(error => displayError(error))
     return user;
 }
 

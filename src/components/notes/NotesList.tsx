@@ -26,9 +26,7 @@ const NotesList = () => {
         if (!user) {
             return;
         }
-        console.log(user);
         let newNotes = await API.getMyNotes(user?.email? user.email : 'guest', user)
-        console.log(newNotes)
         setNotes(newNotes);
     }
   
