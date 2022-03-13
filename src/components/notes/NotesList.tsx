@@ -1,12 +1,12 @@
 import Note from './Note'
-import INote from '../interfaces/INote';
+import INote from '../../interfaces/INote';
 import AddNote from './AddNote';
 import React, { useContext, useEffect, useState } from 'react';
-import API from '../utils/requests/API'
+import API from '../../utils/requests/API'
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
-import IUser from '../interfaces/IUser';
-import AuthContext from '../utils/authContext';
+import IUser from '../../interfaces/IUser';
+import AuthContext from '../../utils/authContext';
 
 
 const NotesList = () => {

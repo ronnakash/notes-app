@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import INote from '../interfaces/INote';
+import INote from '../../interfaces/INote';
 
 //handleAddNote -> handleChangeNote
 

@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
 import { Button, Form, Card, Row, Col, InputGroup } from 'react-bootstrap'
-import IEditUserForm from '../interfaces/IEditUserFrom';
-import IUser from '../interfaces/IUser';
-import useForm from '../utils/hooks/editProfile'
-import API from '../utils/requests/API';
-import AuthContext from '../utils/authContext'
+import IEditUserForm from '../../interfaces/IEditUserFrom';
+import IUser from '../../interfaces/IUser';
+import useForm from '../../utils/hooks/editProfile'
+import API from '../../utils/requests/API';
+import AuthContext from '../../utils/authContext'
 
 const EditProfileForm = () => {
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
-import ISignupForm from '../interfaces/ISignupForm';
-import ISignupFormError from '../interfaces/ISignupFormError';
+import ISignupForm from '../../interfaces/ISignupForm';
+import ISignupFormError from '../../interfaces/ISignupFormError';
 
-import useForm from '../utils/hooks/signup';
+import useForm from '../../utils/hooks/signup';
 
 interface ISignupFormProps {
   submitForm : (event : any) => void

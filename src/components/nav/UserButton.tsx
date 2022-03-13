@@ -2,7 +2,7 @@ import { Navbar, Nav, NavDropdown, Button, DropdownButton, Dropdown} from 'react
 import logo from '../logo.svg'
 import 'bootstrap/dist/css/bootstrap.css'
 import React, { useContext, useState } from 'react'
-import AuthContext from '../utils/authContext'
+import AuthContext from '../../utils/authContext'
 
 
 

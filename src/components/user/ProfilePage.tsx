@@ -1,4 +1,4 @@
-import AuthContext from '../utils/authContext'
+import AuthContext from '../../utils/authContext'
 import 'bootstrap/dist/css/bootstrap.css'
 import React, { useContext, useState } from 'react'
 import EditProfileForm from './EditProfileForm';

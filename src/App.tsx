@@ -1,8 +1,8 @@
 import './App.css';
-import NotesList from './components/NotesList';
+import NotesList from './components/notes/NotesList';
 import INote from './interfaces/INote';
 import React, { useEffect, useState, useMemo, useContext } from 'react';
-import LoginBox from './components/LoginBox';
+import LoginBox from './components/user/LoginBox';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import logo from './logo.svg'
@@ -14,12 +14,12 @@ import { useCookies } from "react-cookie";
 import ISigninForm from './interfaces/ISigninForm';
 import ISignupForm from './interfaces/ISignupForm';
 import AuthProvider from './utils/AuthProvider';
-import RegisterBox from './components/RegisterBox';
-import NavBar from './components/NavBar'
-import AboutPage from './components/AboutPage';
-import TermsPage from './components/TermsPage';
-import PrivacyPage from './components/PrivacyPage';
-import ProfilePage from './components/ProfilePage';
+import RegisterBox from './components/user/RegisterBox';
+import NavBar from './components/nav/NavBar'
+import AboutPage from './components/about/AboutPage';
+import TermsPage from './components/about/TermsPage';
+import PrivacyPage from './components/about/PrivacyPage';
+import ProfilePage from './components/user/ProfilePage';
 
 
 const App = () => {
