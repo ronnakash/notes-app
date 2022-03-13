@@ -13,11 +13,8 @@ import { Dropdown } from 'react-bootstrap';
 
 const LoginBox = (props : any) => {
     
-    let {signInWithGoogle, signIn, signOut, user} = useContext(AuthContext);
+    let {signInWithGoogle, signIn, user} = useContext(AuthContext);
     const UserAvatar = require('react-user-avatar');
-    const userInitials = () => {
-        return (user && user.username)? user.username.substring(0,1).toUpperCase() : 'f'
-    }
 
     
         if (!user) {
@@ -38,7 +35,6 @@ const LoginBox = (props : any) => {
             <div >
                 <h1 className='home-header'>Hello {user.username}!</h1>
             </div>
-        
         );
 
 }
