@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import INote from '../../interfaces/INote';
+import ColorPicker from './ColorPicker';
 
 //handleAddNote -> handleChangeNote
 
 const EditNote = (props : {note : INote, handleChangeNote: Function} ) => {
 	let { note, handleChangeNote } = props;
-    let { title, body } = note;
+    let { title, body, color } = note;
 
     const [noteTitle , setNoteTitle] = useState(title);
     const [noteBody , setNoteBody] = useState(body);
+	const [noteColor, setNoteColor] = useState(color)
 
 	const characterLimit = 499;
 
@@ -28,43 +30,56 @@ const EditNote = (props : {note : INote, handleChangeNote: Function} ) => {
 		if (noteTitle.trim().length > 0 || noteBody.trim().length > 0) {
             note.title = noteTitle;
             note.body = noteBody;
+			note.color = noteColor;
+			console.log('note color:'+noteColor);
 			handleChangeNote(note, true);
 		}
 	};
 
     const handleCancelClick = () => {
-        note.title = title;
-        note.body = body;
         handleChangeNote(note, false);
     };
 
+	const handleColorChange = (event : any) => {
+		console.log(event)
+		setNoteColor(event.hex)
+	};
+
     return (
-        <div className='note new'>
-                <textarea className='title'
+        <div className='note new' 
+			style={{background: noteColor}}
+		>
+			<textarea className='title'
+				style={{background: noteColor}}
 				rows={1}
 				cols={1}
 				placeholder='Title'
 				value={noteTitle}
 				onChange={handleTitleChange}
-			></textarea>
+			/>
             <textarea className='body'
+				style={{background: noteColor}}
 				rows={8}
 				cols={1}
 				placeholder={'Type to add a body...'}
 				value={noteBody}
 				onChange={handleBodyChange}
-			></textarea>
+			/>
             <div className='note-footer'>
 				<small>
 					{characterLimit+1 - noteBody.length} Remaining
 				</small>
 				<div>
-				<button className='cancel-button' onClick={handleCancelClick}>
-					Cancel
-				</button>
-				<button className='save' onClick={handleSaveClick}>
-					Save
-				</button>
+					<ColorPicker
+						color={noteColor}
+						handleChange={handleColorChange}
+					/>
+					<button className='cancel-button' onClick={handleCancelClick}>
+						Cancel
+					</button>
+					<button className='save' onClick={handleSaveClick}>
+						Save
+					</button>
 				</div>
 			</div>
         </div>

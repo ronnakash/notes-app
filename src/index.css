@@ -2,7 +2,7 @@
 
 
 .note {
-	background-color: rgb(252, 244, 131);
+	background-color: #fcf483;
 	border-radius: 15px;
 	padding: 1rem;
 	min-height: 400px;
@@ -13,13 +13,12 @@
 }
 
 .note.new {
-	background-color: rgb(124, 177, 238);
+	background-color: #7cb1ee;
 }
 
 textarea {
 	border: none;
 	resize: none;
-	background-color: rgb(123, 177, 238);
 	float: left;
 	width: 100%;
 	height: auto;

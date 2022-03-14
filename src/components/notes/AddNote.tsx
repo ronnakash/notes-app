@@ -35,6 +35,7 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
     return (
         <div className='note new'>
                 <textarea className='title'
+				style={{background: '#7cb1ee'}}
 				rows={1}
 				cols={10}
 				placeholder='Title'
@@ -42,6 +43,7 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
 				onChange={handleTitleChange}
 			></textarea>
             <textarea className='body'
+				style={{background: '#7cb1ee'}}
 				rows={8}
 				cols={10}
 				placeholder={'Type to add a body...'}

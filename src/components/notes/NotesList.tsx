@@ -11,7 +11,7 @@ import AuthContext from '../../utils/authContext';
 
 const NotesList = () => {
 
-    let {user, signIn} = useContext(AuthContext);
+    let {user} = useContext(AuthContext);
     let emptyNotes : INote[] = []
   
     const [notes, setNotes] = useState(emptyNotes);

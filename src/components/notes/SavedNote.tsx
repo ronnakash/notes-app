@@ -4,8 +4,8 @@ import INote from '../../interfaces/INote';
 
 
 
-const SavedNote = (obj : {note: INote, handleDeleteNote: Function, handleEditNote: Function}) => {
-    let { note, handleDeleteNote, handleEditNote } = obj
+const SavedNote = (props : {note: INote, handleDeleteNote: Function, handleEditNote: Function}) => {
+    let { note, handleDeleteNote, handleEditNote } = props;
 
     const handleEdit = () => {
         note.editing = true;
@@ -13,7 +13,7 @@ const SavedNote = (obj : {note: INote, handleDeleteNote: Function, handleEditNot
     }
 
     return (
-        <div className='note saved'>
+        <div className='note saved' style={{background: note.color}}>
             <div className='note-title'>
                  <span> {note.title} </span>
             </div>

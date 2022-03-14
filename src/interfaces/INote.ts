@@ -4,16 +4,17 @@ export default class Note {
     author: string;
     title: string;
     body: string;
+    color: string
     date: string;
     editing: boolean
 
-    constructor (author: string, title: string, body: string, id : string, createdAt? : string, updatedAt? : string) {
-        let date = this.dateCreator(createdAt, updatedAt);
+    constructor (author: string, title: string, body: string, id : string, createdAt? : string, updatedAt? : string, color? : string) {
         this.author = author;
         this.title = title;
         this.body = body;
         this.id = id;
-        this.date =  date? date : new Date().toLocaleDateString();
+        this.date =  this.dateCreator(createdAt, updatedAt) || new Date().toLocaleDateString();
+        this.color = color || '#fcf483'
         this.editing = false;
     }
 

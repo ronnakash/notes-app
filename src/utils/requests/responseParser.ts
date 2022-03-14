@@ -16,8 +16,8 @@ const parseNotesFromRequest = (res : any) : INote[] => {
     let docs = obj.models;
     let gotNewNotes : INote[] = [];
     docs.forEach((el: any) => {
-      let { author, title, body, _id, createdAt, updatedAt } = el;
-      let newNote = new INote(author, title, body, _id, createdAt, updatedAt);
+      let { author, title, body, _id, color, createdAt, updatedAt } = el;
+      let newNote = new INote(author, title, body, _id, createdAt, updatedAt, color);
       gotNewNotes.push(newNote);
     });
     if (gotNewNotes === [])
@@ -27,14 +27,14 @@ const parseNotesFromRequest = (res : any) : INote[] => {
 
   const parseNoteFromPostRequest = (res : any) : INote => {
     let obj = JSON.parse(res);
-    let {author, title, body, _id, createdAt, updatedAt} = obj.newNote;
-    return new INote(author, title, body, _id, createdAt, updatedAt);
+    let {author, title, body, _id, createdAt, updatedAt, color} = obj.newNote;
+    return new INote(author, title, body, _id, createdAt, updatedAt, color);
   };
 
   const parseNoteFromUpdateRequest = (res : any) : INote => {
     let obj = JSON.parse(res);
-    let {author, title, body, _id, createdAt, updatedAt} = obj.updated;
-    return new INote(author, title, body, _id, createdAt, updatedAt);
+    let {author, title, body, _id, createdAt, updatedAt, color} = obj.updated;
+    return new INote(author, title, body, _id, createdAt, updatedAt, color);
   };
 
 
