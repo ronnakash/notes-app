@@ -20,6 +20,8 @@ import AboutPage from './components/about/AboutPage';
 import TermsPage from './components/about/TermsPage';
 import PrivacyPage from './components/about/PrivacyPage';
 import ProfilePage from './components/user/ProfilePage';
+import * as dotenv from 'dotenv';
+
 
 
 const App = () => {

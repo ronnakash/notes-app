@@ -47,12 +47,8 @@ const NotesList = () => {
         const newNotes = await Promise.all(
             notes.map( async (note : INote) => {
                 if (note.id === changedNote.id){
-                    note.body = changedNote.body;
-                    note.title = changedNote.title;
-                    if (saved) {
-                        await API.editNote(note, user);
-                    }
-                    note.editing = false;
+                    note = await API.editNote(changedNote, user);
+                    console.log(note);
                 }
                 return note;
             }));    

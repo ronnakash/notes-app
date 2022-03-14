@@ -8,12 +8,12 @@ import Swal from 'sweetalert2'
 let errorNote = new INote('me', 'Default Note', 'This is a note that is shown incase fetching notes from api failed', '1');
 
 
-const parseNotesFromRequest = (res : any) => {
+const parseNotesFromRequest = (res : any) : INote[] => {
   console.log("res");
   console.log(res)
     let obj = JSON.parse(res);
     console.log(obj)   
-    let docs = obj.result.models;
+    let docs = obj.models;
     let gotNewNotes : INote[] = [];
     docs.forEach((el: any) => {
       let { author, title, body, _id, createdAt, updatedAt } = el;
@@ -27,9 +27,16 @@ const parseNotesFromRequest = (res : any) => {
 
   const parseNoteFromPostRequest = (res : any) : INote => {
     let obj = JSON.parse(res);
-    let {author, title, body, _id, createdAt, updatedAt} = obj.result.newNote;
+    let {author, title, body, _id, createdAt, updatedAt} = obj.newNote;
     return new INote(author, title, body, _id, createdAt, updatedAt);
   };
+
+  const parseNoteFromUpdateRequest = (res : any) : INote => {
+    let obj = JSON.parse(res);
+    let {author, title, body, _id, createdAt, updatedAt} = obj.updated;
+    return new INote(author, title, body, _id, createdAt, updatedAt);
+  };
+
 
   const parseUserFromLoginRequest = (res : any) : IUser | undefined => {
     const user = parseUserFromRequest(res);
@@ -69,7 +76,7 @@ const parseNotesFromRequest = (res : any) => {
     console.log(res)
     let obj = JSON.parse(res);
     console.log(obj)
-    if (!obj.result) {
+    if (!obj) {
       console.log('error')
       Swal.fire({
         title: 'Error',
@@ -79,7 +86,7 @@ const parseNotesFromRequest = (res : any) => {
       })
     }
     else{
-      let {token, user} = obj.result;
+      let {token, user} = obj;
       let {_id ,username, email, permissions, picture} = user;
       console.log("parsing")
       console.log(user);
@@ -88,4 +95,4 @@ const parseNotesFromRequest = (res : any) => {
     }
   }
 
-  export default {parseNotesFromRequest, parseNoteFromPostRequest, parseUserFromLoginRequest, parseUserFromRegisterRequest, parseUserFromUpdateRequest};
+  export default {parseNotesFromRequest, parseNoteFromUpdateRequest, parseNoteFromPostRequest, parseUserFromLoginRequest, parseUserFromRegisterRequest, parseUserFromUpdateRequest};

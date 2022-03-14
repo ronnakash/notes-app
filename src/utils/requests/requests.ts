@@ -67,7 +67,7 @@ const deleteNoteRequest = axios.create({
 const editNoteRequest = axios.create({
         method: 'PUT',
         baseURL: serverURL+noteURL+editNoteURL,
-        transformResponse: [responseParser.parseNoteFromPostRequest],
+        transformResponse: [responseParser.parseNoteFromUpdateRequest],
         timeout: 5000
       });
 

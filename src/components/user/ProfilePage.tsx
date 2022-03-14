@@ -8,7 +8,6 @@ const ProfilePage = () => {
     const {user} = useContext(AuthContext);
     const UserAvatar = require('react-user-avatar');
 
-
     const userInitials = () => {
         return (user && user.username)? user.username.substring(0,1).toUpperCase() : 'f'
     }

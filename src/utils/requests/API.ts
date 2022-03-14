@@ -61,15 +61,12 @@ const deleteNote = async (id: string, user : IUser | undefined) => {
         .catch(error => displayError(error))
 }
 
-const editNote = async (note : INote, user : IUser | undefined) => {
+const editNote = async (note : INote, user : IUser | undefined) : Promise<INote> => {
     let headers = await getHeader(user);
-    let editedNote;
-    await requests.editNoteRequest
+    let editedNote : INote;
+    editedNote = (await requests.editNoteRequest
         .put('', note, {headers: headers})
-        .then((response : AxiosResponse)=> {
-            editedNote = response.data;
-        })
-        .catch(error => displayError(error))
+        .catch(error => displayError(error)))?.data;
     return editedNote;
 };
 
