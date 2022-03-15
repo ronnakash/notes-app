@@ -61,7 +61,7 @@ const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoog
               {errors.username}
               </Form.Control.Feedback>
               <Form.Control.Feedback type="valid">
-              Username available
+              
               </Form.Control.Feedback>
           </InputGroup>
           </Form.Group>

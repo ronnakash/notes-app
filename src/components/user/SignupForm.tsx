@@ -55,7 +55,6 @@ class SignupForm extends Component<ISignupFormState> {
                 {errors.username}
                 </Form.Control.Feedback>
                 <Form.Control.Feedback type="valid">
-                Username available
                 </Form.Control.Feedback>
             </InputGroup>
             </Form.Group>
