@@ -20,7 +20,7 @@ const AboutPage = (props: any) => {
                     <Card.Img 
                         className='top-margin' 
                         variant="top" 
-                        src="https://www.gardendesign.com/pictures/images/675x529Max/site_3/helianthus-yellow-flower-pixabay_11863.jpg"/>
+                        src="https://i.imgur.com/7spsp7a.jpg"/>
                     <Card.Title>
                         Ron Nakash
                     </Card.Title>
