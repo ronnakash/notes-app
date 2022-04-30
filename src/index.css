@@ -328,56 +328,68 @@ textarea:focus {
 	font-size: 437.5%;
 }
 
-	.delete-icon {
-		cursor: pointer;
-		margin-left: 10px;
+.delete-icon {
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.cancel-button {
+	background-color: #e1e1e1;
+	border: 1px;
+	border-radius: 15px;
+	padding: 5px 10px 5px 10px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.black-text {
+	color: #000;
+	font-size: 100%;
+}
+
+.center {
+	margin: 20px;
+	margin-top: 30px;
+}
+
+.profile-header {
+	margin: 10px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.signin-header {
+	margin: 10px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.user-profile-display {
+	display: flex;
+	margin: 10px;
 	}
 
-	.cancel-button {
-		background-color: #e1e1e1;
-		border: 1px;
-		border-radius: 15px;
-		padding: 5px 10px 5px 10px;
-		cursor: pointer;
-		margin-right: 10px;
-	}
+.even {
+	display: flex;
+	justify-content: space-evenly;
+	min-height: 10em;
+	display: table-cell;
+	vertical-align: middle
+}
 
-	.black-text {
-		color: #000;
-		font-size: 100%;
-	}
+.button-space {
+	margin-left: 50px;
+	margin-right: 50px;
+}
 
-	.center {
-		margin: 20px;
-		margin-top: 30px;
-	}
+.color-picker {
+	margin-right: 15px;
+	margin-top: 4px;
+}
 
-	.profile-header {
-		margin: 10px;
-		text-align: center;
-		margin-bottom: 30px;
-	}
+.note-footer-items {
+	display: flex;
+	justify-content: space-evenly;
+	vertical-align: middle
 
-	.signin-header {
-		margin: 10px;
-		text-align: center;
-		margin-bottom: 30px;
-	}
-
-	.user-profile-display {
-		display: flex;
-		margin: 10px;
-	  }
-
-	.even {
-		display: flex;
-		justify-content: space-evenly;
-		min-height: 10em;
-		display: table-cell;
-		vertical-align: middle
-	}
-
-	.button-space {
-		margin-left: 50px;
-		margin-right: 50px;
-	}
+}

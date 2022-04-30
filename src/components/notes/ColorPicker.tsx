@@ -11,10 +11,14 @@ class ColorPicker extends Component<IColorPickerProps> {
     render() {
         let { handleChange, color } = this.props;
         return (
-            <SketchPicker
-                color={color}
-                onChange = {handleChange}
-            />
+            <div style={{background: '#fffff'}}>
+                <input type="color" 
+                    value={color} 
+                    onChange={handleChange} 
+                    className='color-picker'
+                />
+            </div>
+
         );
     }
 }

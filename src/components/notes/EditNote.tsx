@@ -42,7 +42,7 @@ const EditNote = (props : {note : INote, handleChangeNote: Function} ) => {
 
 	const handleColorChange = (event : any) => {
 		console.log(event)
-		setNoteColor(event.hex)
+		setNoteColor(event.target.value);
 	};
 
     return (
@@ -69,7 +69,7 @@ const EditNote = (props : {note : INote, handleChangeNote: Function} ) => {
 				<small>
 					{characterLimit+1 - noteBody.length} Remaining
 				</small>
-				<div>
+				<div className='note-footer-items'>
 					<ColorPicker
 						color={noteColor}
 						handleChange={handleColorChange}
