@@ -6,7 +6,7 @@ import requestParser from './requestParser';
 
 
 const noteURL = '/User/notes';
-const serverURL = 'http://localhost:4000';
+const serverURL = 'https://server-three-ivory.vercel.app';
 const getAllNotesURL = '/Admin/get/allNotes';
 const postNoteURL = '/post/note';
 const deleteNoteURL = '/delete/deleteNote';
