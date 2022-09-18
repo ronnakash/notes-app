@@ -43,7 +43,7 @@ const postNote = async (noteObj : {author : string, title : string, body : strin
     let note : INote | undefined ;
     let headers = await getHeader(user);
     await requests.postNoteRequest
-        .post('', noteObj, {headers: headers})
+        .put('', noteObj, {headers: headers})
         .then((response : AxiosResponse)=> {
             note = response.data;
         })
@@ -65,7 +65,7 @@ const editNote = async (note : INote, user : IUser | undefined) : Promise<INote>
     let headers = await getHeader(user);
     let editedNote : INote;
     editedNote = (await requests.editNoteRequest
-        .put('', note, {headers: headers})
+        .post('', note, {headers: headers})
         .catch(error => displayError(error)))?.data;
     return editedNote;
 };

@@ -12,7 +12,7 @@ const NavBar = (props: any) => {
 
     return (
         <div className='navContainer'>
-          <Navbar className= 'hi' bg='dark' variant='dark'>
+          <Navbar className='hi' bg='dark' variant='dark'>
             <Navbar.Brand>
               <img src={logo} height='40px'/>
               NotesApp

@@ -7,12 +7,6 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import logo from './logo.svg'
 import 'bootstrap/dist/css/bootstrap.css'
-import AuthContext from "./utils/authContext"
-import { CookiesProvider } from 'react-cookie';
-import IUser from "./interfaces/IUser";
-import { useCookies } from "react-cookie";
-import ISigninForm from './interfaces/ISigninForm';
-import ISignupForm from './interfaces/ISignupForm';
 import AuthProvider from './utils/AuthProvider';
 import RegisterBox from './components/user/RegisterBox';
 import NavBar from './components/nav/NavBar'
@@ -28,7 +22,7 @@ const App = () => {
   
   return (
     <AuthProvider>
-      <div className="App">
+      <div className="app-container">
         <NavBar></NavBar>
         <Router>
           <Routes>

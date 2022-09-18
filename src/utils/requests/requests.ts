@@ -5,32 +5,23 @@ import requestParser from './requestParser';
 
 
 
-const noteURL = '/User/notes';
-const serverURL = 'https://server-three-ivory.vercel.app';
+const noteURL = '/notes';
+// const serverURL = 'https://node-server-ronnakash.vercel.app';
+const serverURL = 'http://localhost:5000';
+// const serverURL = 'http://18.130.221.18:80';
 const getAllNotesURL = '/Admin/get/allNotes';
-const postNoteURL = '/post/note';
-const deleteNoteURL = '/delete/deleteNote';
-const editNoteURL = '/put/updateNote';
-const getMyNotesURL = '/get/usersNotes';
-const userURL = '/User/users';
+const postNoteURL = '';
+const deleteNoteURL = '';
+const editNoteURL = '';
+const getMyNotesURL = '/my';
+const userURL = '/auth';
 const registerURL = '/registerAndLogin';
 const loginURL = '/login';
-const googleLoginURL = '/google/login';
+const googleLoginURL = '/google';
 const updateUserURL = '/updateUser';
 
 
-/*
-let getToken = async () => {
-  if (firebase.auth.currentUser){
-    let token = "Bearer" + (await firebase.auth.currentUser?.getIdToken(true).catch(e=> ""));
-    return token;
-  }
-  return "";
-}
 
-
-let fbToken = (await getToken()) || JWTtoken;
-*/
 
 
 const getAllNotesRequest = axios.create({
@@ -49,7 +40,7 @@ const getMyNotesRequest = axios.create({
 
 
 const postNoteRequest = axios.create({
-        method: 'POST',
+        method: 'PUT',
         baseURL: serverURL+noteURL+postNoteURL, 
         //transformRequest: [requestParser.noteObjToBody],
         transformResponse: [responseParser.parseNoteFromPostRequest],
@@ -65,7 +56,7 @@ const deleteNoteRequest = axios.create({
 
 
 const editNoteRequest = axios.create({
-        method: 'PUT',
+        method: 'POST',
         baseURL: serverURL+noteURL+editNoteURL,
         transformResponse: [responseParser.parseNoteFromUpdateRequest],
         timeout: 5000

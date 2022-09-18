@@ -20,7 +20,7 @@ const parseNotesFromRequest = (res : any) : INote[] => {
       let newNote = new INote(author, title, body, _id, createdAt, updatedAt, color);
       gotNewNotes.push(newNote);
     });
-    if (gotNewNotes === [])
+    if (gotNewNotes.length===0)
       gotNewNotes = [errorNote];
     return gotNewNotes;
   };

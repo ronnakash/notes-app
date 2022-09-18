@@ -17,12 +17,13 @@ const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoog
   );
 
     const failedLogin = () => {
-      Swal.fire({
-        title: 'Login Error',
-        text:  'Faild to log you in with Google. please try again',
-        icon: 'error' ,
-        confirmButtonText: 'Dismiss'
-      })
+      // Swal.fire({
+      //   title: 'Login Error',
+      //   text:  'Faild to log you in with Google. please try again',
+      //   icon: 'error' ,
+      //   confirmButtonText: 'Dismiss'
+      // })
+      console.log("Google login error")
     }
 
     const loginRedirect = () => {
