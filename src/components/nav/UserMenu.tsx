@@ -3,20 +3,22 @@ import React, { CSSProperties, useContext, useState, useEffect } from 'react'
 import { Navbar, Nav, NavDropdown, Button, DropdownButton, Dropdown} from 'react-bootstrap'
 
 
-const UserMenu = (props: {showMenu : boolean, setShowMenu : Function}) => {
+const UserMenu = (props: {showMenu : boolean, setShowMenu : Function, baseStyle : CSSProperties}) => {
 
     const {user, signOut} = useContext(AuthContext);
 
-    var baseStyle : CSSProperties = {
-        position: 'absolute',
-        left: `${window.innerWidth - 190}px`,
-        top: '50px',
-    }
-    
-    const [style, setStyle] = useState(baseStyle);
+    // const [left, setLeft] = useState(window.innerWidth-190);
+
+    // var baseStyle : CSSProperties = {
+    //     position: 'absolute',
+    //     // right: `${20}px`,
+    //     left: `${window.innerWidth-190}px`,
+    //     top: '50px',
+    // }
+
 
     const UserAvatar = require('react-user-avatar');
-    let {showMenu, setShowMenu} = props;
+    let {showMenu, setShowMenu, baseStyle} = props;
 
 
 
@@ -26,10 +28,10 @@ const UserMenu = (props: {showMenu : boolean, setShowMenu : Function}) => {
     }
 
 
-    const handleResize = () => {
-        baseStyle.left = `${window.innerWidth - 190}px`;
-        setStyle(baseStyle);
-    }
+    // const handleResize = () => {
+    //     baseStyle.left = `${window.innerWidth-190}px`;
+    //     setStyle(baseStyle);
+    // }
 
     const userInitials = () => {
         return (user && user.username)? user.username.substring(0,1).toUpperCase() : 'f'
@@ -37,18 +39,18 @@ const UserMenu = (props: {showMenu : boolean, setShowMenu : Function}) => {
 
     // const cleanup : = (ret : any) => {window.removeEventListener('resize', handleResize)};
 
-    useEffect(() => { 
-        window.addEventListener('resize', handleResize)
-        handleResize();
-    },[])
+    // useEffect(() => { 
+    //     window.addEventListener('resize', handleResize)
+    //     handleResize();
+    // },[])
 
     return(
         user==null?
-            <Dropdown.Menu align="end" show={showMenu} style={ style } >
+            <Dropdown.Menu align="end" show={showMenu} style={ baseStyle } >
                 <Dropdown.Item eventKey="1" href='/login' >Sign in</Dropdown.Item>
                 <Dropdown.Item eventKey="2" href='/register' >Register</Dropdown.Item>
             </Dropdown.Menu> :
-            <Dropdown.Menu align="end" show={showMenu} style={ style } >
+            <Dropdown.Menu align="end" show={showMenu} style={ baseStyle } >
                 <div className='userDisplay'>
                     <div>
                     <UserAvatar className='bigAvatar' size="64" name={userInitials()} src={user.picture}/>
