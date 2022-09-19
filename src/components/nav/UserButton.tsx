@@ -20,34 +20,31 @@ const UserButton = (props: any) => {
         setShowMenu(!showMenu);
     }
 
+    const offset = () => {return user? 300 : 190}
 
     const userInitials = () => {
         return (user && user.username)? user.username.substring(0,1).toUpperCase() : 'G'
     }
     
-    console.log(window.innerWidth);
-
     var baseStyle : CSSProperties = {
         position: 'absolute',
         // right: `${20}px`,
-        left: `${window.innerWidth-190}px`,
+        left: `${window.innerWidth-offset()}px`,
         top: '50px',
     }
 
     const [style, setStyle] = useState(baseStyle);
 
     const handleResize = () => {
-        const temp = showMenu;
-        baseStyle.left = `${window.innerWidth-190}px`;
+        baseStyle.left = `${window.innerWidth-offset()}px`;
         setStyle(baseStyle);
-        console.log('hrub')
-        setShowMenu(false)
+        setShowMenu(false);
     }
 
     useEffect(() => { 
         window.addEventListener('resize', handleResize)
         handleResize();
-    },[])
+    },[user])
 
     return (
         <div>
