@@ -29,7 +29,7 @@ const NavBar = (props: any) => {
               </NavDropdown>
             </Nav>
           </Navbar>
-          <UserButton></UserButton>
+          <UserButton/>
         </div>
     )
 

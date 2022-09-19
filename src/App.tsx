@@ -23,7 +23,7 @@ const App = () => {
   return (
     <AuthProvider>
       <div className="app-container">
-        <NavBar></NavBar>
+        <NavBar/>
         <Router>
           <Routes>
             {/* <Route path='/about' element={<AboutPage/>}/> */}

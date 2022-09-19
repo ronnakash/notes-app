@@ -273,7 +273,7 @@ textarea:focus {
 
 
   .userDrop {
-	  position: relative;
+	  position: absolute;
 	  right: 20px;
 	  top: 50px;
   }
