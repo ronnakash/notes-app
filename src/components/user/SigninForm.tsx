@@ -105,7 +105,7 @@ const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoog
         <Button type="submit" className='button-space'>Submit form</Button>
         <GoogleLogin
               className='googleLoginButton'
-              clientId={process.env.GOOGLE_CLIENT_ID? process.env.GOOGLE_CLIENT_ID : ""}
+              clientId={process.env.GOOGLE_CLIENT_ID? process.env.GOOGLE_CLIENT_ID : "888361755327-ad9pvtvsfpkhk09fqtpsqepbgtcapg4r.apps.googleusercontent.com"}
               onFailure={failedLogin}
               onSuccess={googleLogin}
               onRequest={loginRedirect}
