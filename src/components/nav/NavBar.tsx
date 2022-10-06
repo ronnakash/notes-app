@@ -14,7 +14,7 @@ const NavBar = (props: any) => {
         <div className='navContainer'>
           <Navbar className='hi' bg='dark' variant='dark'>
             <Navbar.Brand>
-              <img src={logo} height='40px'/>
+              <img src={logo} alt='logo' height='40px'/>
               NotesApp
             </Navbar.Brand>
             <Nav>
@@ -23,7 +23,7 @@ const NavBar = (props: any) => {
               <Nav.Link href={user? '/profile' : '/login'}>Login</Nav.Link>
               <Nav.Link href='/register'>Register</Nav.Link>
               <NavDropdown title='About'>
-                {/* <NavDropdown.Item href='/about'>About the app</NavDropdown.Item> */}
+                <NavDropdown.Item href='/about'>About the app</NavDropdown.Item>
                 <NavDropdown.Item href='/privacy'>Privacy policy</NavDropdown.Item>
                 <NavDropdown.Item href='/terms_of_service'>Terms of service</NavDropdown.Item>
               </NavDropdown>

@@ -1,4 +1,5 @@
 import {Card} from 'react-bootstrap'
+import {BsGithub} from 'react-icons/bs'
 
 const AboutPage = (props: any) => {
     
@@ -7,39 +8,56 @@ const AboutPage = (props: any) => {
         <div>
             <div className='about-header'>
                 <h1 className='about-header'> About The App </h1>
-                <body className='about-text'>
+                {/* <body className='about-text'>
                     This is a React app for creating and editing notes.
                 </body>
                 <body>
                     The app has a Typescript Nodejs backend and uses MongoDB to store users notes.
-                </body>
+                </body> */}
             </div>
 
-            <Card className='form-container' style={{ width: '36rem', height:'36rem'}}>
+            <Card className='form-container' style={{ width: '36rem', height:'20rem'}}>
                 <Card.Body>
-                    <Card.Img 
-                        className='top-margin' 
-                        variant="top" 
-                        src="https://i.imgur.com/7spsp7a.jpg"/>
-                    <Card.Title>
+                    {/* <Card.Title>
                         Ron Nakash
+                    </Card.Title> */}
+
+                    <Card.Title 
+                        className="mb-2 ">
+                        Backend Server
                     </Card.Title>
-                    <Card.Subtitle 
-                        className="mb-2 text-muted">
-                        Fullstack Software Developer
-                    </Card.Subtitle>
                     <Card.Text>
-                    I'm a third year computer science student at The Open University of Israel, looking for my first job in the software development field. 
+                        NestJS server written in Typescript. The server uses a MongoDB database to store user information and notes.
                     </Card.Text>
+
+                    <Card.Title 
+                        className="mb-2 ">
+                        Frontend
+                    </Card.Title>
+                    <Card.Text>
+                        React frontend web application writtend in Typescript. 
+                        App allows logged in users to create, view and edit notes. App supports login with Google
+                    </Card.Text>
+
+
+                    <Card.Subtitle 
+                        className="mb-2"
+                        style={{marginTop: "30px"}}>
+                        Links
+                    </Card.Subtitle>
+
+
                     <Card.Link 
                         target="_blank" 
-                        href="https://github.com/ronnakash">
-                        GitHub Link
+                        href="https://github.com/ronnakash/Server">
+                        <BsGithub/>
+                        Backend
                     </Card.Link>
                     <Card.Link 
                         target="_blank" 
-                        href="https://www.linkedin.com/in/ron-nakash-402912223/">
-                        Linkedin Link
+                        href="https://github.com/ronnakash/notes-app">
+                        <BsGithub/>
+                        Frontend
                     </Card.Link>
                 </Card.Body>
             </Card>
