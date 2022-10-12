@@ -15,6 +15,7 @@ import TermsPage from './components/about/TermsPage';
 import PrivacyPage from './components/about/PrivacyPage';
 import ProfilePage from './components/user/ProfilePage';
 import * as dotenv from 'dotenv';
+import HomePage from './components/HomePage';
 
 
 
@@ -30,7 +31,7 @@ const App = () => {
             <Route path='/profile' element={<ProfilePage/>}/>
             <Route path='/terms_of_service' element={<TermsPage/>}/>
             <Route path='/privacy' element={<PrivacyPage/>}/>
-            <Route path='/' element={<h1 className='home-header'>Home Page</h1>} />
+            <Route path='/' element={<HomePage/>} />
             <Route path='/login' element={<LoginBox/>} />
             <Route path='/register' element={<RegisterBox/>} />
             <Route path='/notes' element={<NotesList/>} />
