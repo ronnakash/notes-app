@@ -89,7 +89,9 @@ const EditProfileForm = () => {
               feedbackType="invalid"
               />
           </Form.Group>
-          <Button type="submit">Submit form</Button>
+          <div className="centered">
+            <Button type="submit">Submit form</Button>
+          </div>
         </Form>
 
     );

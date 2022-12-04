@@ -111,7 +111,7 @@ class SignupForm extends Component<ISignupFormState> {
             </Form.Group>
         </Row>
 
-        <div className='even'>
+        <div className='centered'>
           <Button type="submit" >Submit form</Button>
           </div>
         </Form>
