@@ -90,7 +90,7 @@ const EditProfileForm = () => {
               />
           </Form.Group>
           <div className="centered">
-            <Button type="submit">Submit form</Button>
+            <Button type="submit">Save Changes</Button>
           </div>
         </Form>
 
