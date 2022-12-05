@@ -5,9 +5,6 @@ import Swal from 'sweetalert2'
 
 
 
-let errorNote = new INote('me', 'Default Note', 'This is a note that is shown incase fetching notes from api failed', '1');
-
-
 const parseNotesFromRequest = (res : any) : INote[] => {
   console.log("res");
   console.log(res)
@@ -20,8 +17,6 @@ const parseNotesFromRequest = (res : any) : INote[] => {
       let newNote = new INote(author, title, body, _id, createdAt, updatedAt, color);
       gotNewNotes.push(newNote);
     });
-    if (gotNewNotes.length===0)
-      gotNewNotes = [errorNote];
     return gotNewNotes;
   };
 

@@ -21,9 +21,11 @@ const SavedNote = (props : {note: INote, handleDeleteNote: Function, handleEditN
                 <span> {note.body} </span>
             </div>
             <div className='note-footer'>
-                <span>{note.date}</span>
+                <span className= {note.date.updated? 'boldTextsmall' : ''}>
+                    {note.date.updated? note.date.updatedAt : note.date.createdAt}
+                </span>
                 <div>
-                <button className='save' onClick={handleEdit}>
+                <button className='save boldTextBig' onClick={handleEdit}>
 					Edit
 				</button>
 				<BsFillTrashFill

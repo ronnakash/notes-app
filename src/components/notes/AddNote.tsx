@@ -54,7 +54,7 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
 				<small>
 					{characterLimit+1 - noteBody.length} Remaining
 				</small>
-				<button className='save' onClick={handleSaveClick}>
+				<button className='save boldTextBig' onClick={handleSaveClick}>
 					Save
 				</button>
 			</div>

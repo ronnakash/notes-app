@@ -74,10 +74,10 @@ const EditNote = (props : {note : INote, handleChangeNote: Function} ) => {
 						color={noteColor}
 						handleChange={handleColorChange}
 					/>
-					<button className='cancel-button' onClick={handleCancelClick}>
+					<button className='cancel-button boldTextBig' onClick={handleCancelClick}>
 						Cancel
 					</button>
-					<button className='save' onClick={handleSaveClick}>
+					<button className='save boldTextBig' onClick={handleSaveClick}>
 						Save
 					</button>
 				</div>
