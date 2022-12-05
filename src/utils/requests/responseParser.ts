@@ -40,13 +40,13 @@ const parseNotesFromRequest = (res : any) : INote[] => {
 
   const parseUserFromLoginRequest = (res : any) : IUser | undefined => {
     const user = parseUserFromRequest(res);
-    console.log("user login response");
+    // console.log("user login response");
     return user;
   }
 
   const parseUserFromRegisterRequest = (res : any) : IUser | undefined => {
     const user = parseUserFromRequest(res);
-    console.log("user register response");
+    // console.log("user register response");
     if (user) {
       Swal.fire({
         title: 'Created User',
@@ -76,7 +76,8 @@ const parseNotesFromRequest = (res : any) : INote[] => {
     console.log(res)
     let obj = JSON.parse(res);
     console.log(obj)
-    if (!obj) {
+    let {token, user} = obj;
+    if (!token || !user) {
       console.log('error')
       Swal.fire({
         title: 'Error',
@@ -86,7 +87,6 @@ const parseNotesFromRequest = (res : any) : INote[] => {
       })
     }
     else{
-      let {token, user} = obj;
       let {_id ,username, email, permissions, picture} = user;
       console.log("parsing")
       console.log(user);

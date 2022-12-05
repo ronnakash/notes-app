@@ -26,3 +26,4 @@ push.sh
 sshKey*
 .env
 .vercel
+.vscode

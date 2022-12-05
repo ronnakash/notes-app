@@ -41,17 +41,20 @@ const useValues = () => {
 
   const signIn = async (form : ISigninForm) => {
       let newUser = await API.login(form);
-      if (newUser) setUserAndCookie(newUser)
+      if (newUser) 
+        setUserAndCookie(newUser)
   };
 
   const register = async (form : ISignupForm) => {
       let newUser = await API.register(form);
-      if (newUser) setUserAndCookie(newUser)
+      if (newUser) 
+        setUserAndCookie(newUser)
   };
 
   const signInWithGoogle = async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
     let googleUser = await API.googleLoginUser(res.code?? '');
-    if (googleUser) setUserAndCookie(googleUser)
+    if (googleUser) 
+        setUserAndCookie(googleUser)
   };
 
   return {signIn, signOut, register, signInWithGoogle, user, updateUser: setUserAndCookie}
