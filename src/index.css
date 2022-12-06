@@ -408,6 +408,10 @@ textarea:focus {
 
 }
 
+.button-size {
+	width: 115px;
+}
+
 .centered {
 	display: flex;
 	align-items: center;

@@ -102,7 +102,7 @@ const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoog
           </Form.Group>
       </Row>
       <div className='even'>
-        <Button type="submit" className='button-space'>Login</Button>
+        <Button type="submit" className='button-size button-space'>Login</Button>
         <GoogleLogin
               className='googleLoginButton'
               clientId={process.env.GOOGLE_CLIENT_ID? process.env.GOOGLE_CLIENT_ID : "888361755327-ad9pvtvsfpkhk09fqtpsqepbgtcapg4r.apps.googleusercontent.com"}

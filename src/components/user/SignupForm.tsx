@@ -112,7 +112,7 @@ class SignupForm extends Component<ISignupFormState> {
         </Row>
 
         <div className='centered'>
-          <Button type="submit" >Register</Button>
+          <Button type="submit" className="button-size" >Register</Button>
           </div>
         </Form>
       </div>

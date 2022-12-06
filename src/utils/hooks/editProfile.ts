@@ -25,12 +25,12 @@ const useEditUserForm = (callback : (values : IEditUserForm) => void, user : IUs
             newPassword: undefined,
             confirmPassword: undefined
         }
-        if (!values.username && !values.newPassword && !values.confirmPassword){
-            errors.username = `Can${"'"}t send empty form`;
-            errors.newPassword = `Can${"'"}t send empty form`;
-            errors.confirmPassword = `Can${"'"}t send empty form`;
-            return errors;
-        }
+        // if (!values.username && !values.newPassword && !values.confirmPassword){
+        //     errors.username = `Can${"'"}t send empty form`;
+        //     errors.newPassword = `Can${"'"}t send empty form`;
+        //     errors.confirmPassword = `Can${"'"}t send empty form`;
+        //     return errors;
+        // }
         if (values.username === user?.username)
             errors.username = `Can${"'"}t change username to current one. Leave empty to not change it `;
         if (!values.confirmPassword && values.newPassword)
