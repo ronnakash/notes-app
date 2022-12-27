@@ -14,6 +14,8 @@ import Swal from 'sweetalert2';
   };
 
   const displayError = (error : Error) =>{
+    console.log("displaying error: ");
+    console.log(error);
     Swal.fire({
         title: 'Error!',
         text:  error.message,
@@ -105,18 +107,22 @@ const googleLoginUser = async (code: string) : Promise<IUser | undefined>=> {
 };
 
 const editProfile = async (form : IEditUserForm, user : IUser) => {
+    let headers = await getHeader(user);
     await requests.editUserRequest
         .post('', {
             id: user?.id,
             username: (form.username!=='')? form.username : undefined,
             password: (form.newPassword!=='')? form.newPassword : undefined,
-        })
+        }, {headers: headers})
         .then(res => {
             let updateUser = res.data;            
+            console.log(res)
             user.username = updateUser.username;
             user.picture = updateUser.picture;
         })
-        .catch(error => displayError(error))
+        .catch(error => {
+            console.log(error)
+            displayError(error)})
     return user;
 }
 

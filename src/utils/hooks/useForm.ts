@@ -32,6 +32,8 @@ const useForm = <V extends IFormValues, E extends IFormErrors>(formProps : FormP
     const handleChange = (e : any) => {
         e.preventDefault();
         const { name, value } = e.target;
+        // console.log(name)
+        // console.log(value)
         setValues({
             ...values,
             [name]: value

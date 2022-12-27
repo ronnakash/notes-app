@@ -15,7 +15,8 @@ const postNoteURL = '';
 const deleteNoteURL = '';
 const editNoteURL = '';
 const getMyNotesURL = '/my';
-const userURL = '/auth';
+const authURL = '/auth';
+const userURL = '/users';
 const registerURL = '/registerAndLogin';
 const loginURL = '/login';
 const googleLoginURL = '/google';
@@ -66,21 +67,21 @@ const editNoteRequest = axios.create({
 
 const registerUserRequest = axios.create({
         method: 'POST',
-        baseURL: serverURL+userURL+registerURL,
+        baseURL: serverURL+authURL+registerURL,
         transformResponse: [responseParser.parseUserFromRegisterRequest],
         timeout: 5000
       });
 
 const loginUserRequest = axios.create({
         method: 'POST',
-        baseURL: serverURL+userURL+loginURL,
+        baseURL: serverURL+authURL+loginURL,
         transformResponse: [responseParser.parseUserFromLoginRequest],
         timeout: 5000
       });
 
 const googleLoginUserRequest = axios.create({
         method: 'POST',
-        baseURL: serverURL+userURL+googleLoginURL,
+        baseURL: serverURL+authURL+googleLoginURL,
         transformResponse: [responseParser.parseUserFromLoginRequest],
         timeout: 5000
       });
@@ -88,7 +89,7 @@ const googleLoginUserRequest = axios.create({
 
 const editUserRequest = axios.create({
         method: 'POST',
-        baseURL: serverURL+userURL+updateUserURL,
+        baseURL: serverURL+userURL,
         //transformRequest: [requestParser.editUserFormToBody],
         transformResponse: [responseParser.parseUserFromUpdateRequest],
         timeout: 5000

@@ -18,18 +18,18 @@ const EditProfileForm = () => {
     }
   }
     
-    const [validated, setValidated] = useState(false);
+    // const [validated, setValidated] = useState(false);
 
     const { handleChange, handleSubmit, values, errors, isErrored } = useForm(
       submitForm, user
     );
 
     return (
-        <Form noValidate onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <Row className="mb-3">
               <Form.Group as={Col} md="12" controlId="validationCustomUsername">
               <Form.Label className='black-text'>Username</Form.Label>
-              <InputGroup hasValidation>
+              <InputGroup hasValidation={true}>
                   <Form.Control
                   type="text"
                   placeholder="Username"
@@ -81,16 +81,18 @@ const EditProfileForm = () => {
               </Form.Control.Feedback>
               </Form.Group>
           </Row>
-          <Form.Group className="mb-3">
-              <Form.Check
-              required
+          <Row className="mb-3">
+            <Form.Check
+              required={true}
               label="Confirm changes"
-              feedback="You must confirm changes before submitting."
-              feedbackType="invalid"
+              name='confirmChange'
+              // onChange={handleChange}
+              // feedback="You must confirm changes before submitting."
+              // feedbackType="invalid"
               />
-          </Form.Group>
+          </Row>
           <div className="centered">
-            <Button type="submit" className="button-size" >Save Changes</Button>
+            <Button type="submit" >Save Changes</Button>
           </div>
         </Form>
 

@@ -54,8 +54,12 @@ const parseNotesFromRequest = (res : any) : INote[] => {
   }
 
   const parseUserFromUpdateRequest = (res : any) : IUser | undefined => {
-    const user = parseUserFromRequest(res);
+    console.log(res)
+    let obj = JSON.parse(res);
+    console.log(obj)
+    let {user} = obj;
     console.log("user update response");
+    console.log(user);
     if (user) {
       Swal.fire({
         title: 'Updated User',
@@ -72,21 +76,16 @@ const parseNotesFromRequest = (res : any) : INote[] => {
     let obj = JSON.parse(res);
     console.log(obj)
     let {token, user} = obj;
-    if (!token || !user) {
-      console.log('error')
-      Swal.fire({
-        title: 'Error',
-        text:  obj.message || 'Unknown Server error',
-        icon: 'error' ,
-        confirmButtonText: 'Ok'
-      })
-    }
-    else{
+    if (token && user) {
       let {_id ,username, email, permissions, picture} = user;
       console.log("parsing")
       console.log(user);
       console.log(token)
       return new IUser(_id, username, email, 'Bearer ' + token, permissions, picture);
+    }
+    else {
+      if (obj.message.startsWith('E11000 duplicate key error collection'))
+        throw new Error("New username is already in use. Please try a different one")
     }
   }
 

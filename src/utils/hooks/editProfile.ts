@@ -9,7 +9,8 @@ const useEditUserForm = (callback : (values : IEditUserForm) => void, user : IUs
     let emptyValues : IEditUserForm = {
         username: '',
         newPassword: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        // confirmChange: false
     };
     
     let emptyErrors : IEditUserErrors = {
@@ -20,19 +21,15 @@ const useEditUserForm = (callback : (values : IEditUserForm) => void, user : IUs
 
 
     function validateInfo(values : IEditUserForm) {
-        let errors : IEditUserErrors = {
-            username: undefined,
-            newPassword: undefined,
-            confirmPassword: undefined
-        }
+        let errors : IEditUserErrors = emptyErrors;
         // if (!values.username && !values.newPassword && !values.confirmPassword){
-        //     errors.username = `Can${"'"}t send empty form`;
-        //     errors.newPassword = `Can${"'"}t send empty form`;
-        //     errors.confirmPassword = `Can${"'"}t send empty form`;
+        //     errors.username = `Can\'t send empty form`;
+        //     errors.newPassword = `Can\'t send empty form`;
+        //     errors.confirmPassword = `Can\'t send empty form`;
         //     return errors;
         // }
         if (values.username === user?.username)
-            errors.username = `Can${"'"}t change username to current one. Leave empty to not change it `;
+            errors.username = `Can\'t change username to current one. Leave empty to not change it `;
         if (!values.confirmPassword && values.newPassword)
             errors.confirmPassword = `Confirm your password`
         if (!values.newPassword && values.confirmPassword)
@@ -44,7 +41,11 @@ const useEditUserForm = (callback : (values : IEditUserForm) => void, user : IUs
         return errors;
     }
 
-
+    let form = useForm({callback, validateInfo, emptyValues, emptyErrors});
+    let isErroredBase = form.isErrored;
+    form.isErrored = () => {
+        return isErroredBase()
+    };
     return useForm({callback, validateInfo, emptyValues, emptyErrors});
 
 }
