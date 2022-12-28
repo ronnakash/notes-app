@@ -11,21 +11,12 @@ const HomePage = () => {
                     NotesApp
                 </h1>
             </div>
-            <div>
-                {/* <div>
+            <div className="home-page">
+                <div>
                     Web application to create and manage notes
                 </div>
                 <div>
-                    <p>
-                        Portfolio
-                    </p>
-                    <p>
-                        Backend Repository
-                    </p>
-                    <p>
-                        Frontend Repository
-                    </p>
-                </div> */}
+                </div>
             </div>
         </div>
     )

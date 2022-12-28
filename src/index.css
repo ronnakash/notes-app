@@ -4,6 +4,11 @@
 	min-width: 550px;
 }
 
+.home-page {
+	text-align: center;
+	font-size: 125%;
+}
+
 .note {
 	background-color: #fcf483;
 	border-radius: 15px;

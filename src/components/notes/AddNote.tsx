@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import AuthContext from '../../utils/authContext';
+import { useContext, useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 
 const AddNote = (obj : {handleAddNote: Function} ) => {
 	let { handleAddNote } = obj
+    let {user} = useContext(AuthContext);
 
     const [noteTitle , setNoteTitle] = useState('');
     const [noteBody , setNoteBody] = useState('');
@@ -21,12 +24,33 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
         setNoteTitle(event.target.value);
     };
 
+	const loginRedirect = () => {
+		console.log('redirected')
+	}
 
 	const handleSaveClick = () => {
-		if (noteTitle.trim().length > 0 || noteBody.trim().length > 0) {
+		if (!user) {
+			//display not logged in error
+			Swal.fire({
+				title: 'You aren\'t logged in',
+				text:  'Can\'t post a note without logging in first',
+				icon: 'error' ,
+				confirmButtonText: 'Dismiss'
+			  }).then(loginRedirect);
+		}
+		else if (noteTitle.trim().length == 0 && noteBody.trim().length == 0) {
+			//display empty note error
+			Swal.fire({
+				title: 'Your note is empty',
+				text:  'Cannot post an empty note',
+				icon: 'error' ,
+				confirmButtonText: 'Dismiss'
+			  })
+		}
+		else {
 			handleAddNote(noteTitle, noteBody);
 			setNoteTitle('');
-            setNoteBody('');
+			setNoteBody('');	
 		}
 	};
 
