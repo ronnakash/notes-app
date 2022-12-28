@@ -59,6 +59,8 @@ const useValues = () => {
 
 const loginRedirect = () => {
     console.log('redirected')
+    console.log(window.location)
+    window.location.replace(window.location.origin + '/login')
 }
 
   return {signIn, signOut, register, signInWithGoogle, user, updateUser: setUserAndCookie, loginRedirect}
