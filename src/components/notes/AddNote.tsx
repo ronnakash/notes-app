@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 const AddNote = (obj : {handleAddNote: Function} ) => {
 	let { handleAddNote } = obj
-    let {user} = useContext(AuthContext);
+    let {user, loginRedirect} = useContext(AuthContext);
 
     const [noteTitle , setNoteTitle] = useState('');
     const [noteBody , setNoteBody] = useState('');
@@ -24,9 +24,6 @@ const AddNote = (obj : {handleAddNote: Function} ) => {
         setNoteTitle(event.target.value);
     };
 
-	const loginRedirect = () => {
-		console.log('redirected')
-	}
 
 	const handleSaveClick = () => {
 		if (!user) {

@@ -11,4 +11,5 @@ export default interface IAuthContext {
     signInWithGoogle : (res: GoogleLoginResponse | GoogleLoginResponseOffline) => Promise<void>
     user : IUser | undefined
     updateUser : (user : IUser | undefined) => void 
+    loginRedirect : () => void
 }

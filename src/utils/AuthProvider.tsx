@@ -57,7 +57,11 @@ const useValues = () => {
         setUserAndCookie(googleUser)
   };
 
-  return {signIn, signOut, register, signInWithGoogle, user, updateUser: setUserAndCookie}
+const loginRedirect = () => {
+    console.log('redirected')
+}
+
+  return {signIn, signOut, register, signInWithGoogle, user, updateUser: setUserAndCookie, loginRedirect}
 }
 
     let auth = useValues();
