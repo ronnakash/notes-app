@@ -27,11 +27,11 @@ const App = () => {
         <NavBar/>
         <Router>
           <Routes>
+            <Route path='/' element={<HomePage/>} />
             <Route path='/about' element={<AboutPage/>}/>
             <Route path='/profile' element={<ProfilePage/>}/>
             <Route path='/terms_of_service' element={<TermsPage/>}/>
             <Route path='/privacy' element={<PrivacyPage/>}/>
-            <Route path='/' element={<HomePage/>} />
             <Route path='/login' element={<LoginBox/>} />
             <Route path='/register' element={<RegisterBox/>} />
             <Route path='/notes' element={<NotesList/>} />

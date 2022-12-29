@@ -5,11 +5,11 @@ import { GoogleLoginResponse, GoogleLoginResponseOffline } from "react-google-lo
 
 
 export default interface IAuthContext {
-    signIn : (form: ISigninForm) => Promise<void> | undefined
-    signOut : () => Promise<void> | undefined 
-    register : (form: ISignupForm) => Promise<void> | undefined
+    signIn : (form: ISigninForm) => Promise<void>
+    signOut : () => Promise<void>  
+    register : (form: ISignupForm) => Promise<void>
     signInWithGoogle : (res: GoogleLoginResponse | GoogleLoginResponseOffline) => Promise<void>
     user : IUser | undefined
     updateUser : (user : IUser | undefined) => void 
-    loginRedirect : () => void
+    loginRedirect : () => Promise<void>
 }

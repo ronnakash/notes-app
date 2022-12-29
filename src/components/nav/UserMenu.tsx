@@ -1,11 +1,11 @@
 import AuthContext from '../../utils/authContext'
-import React, { CSSProperties, useContext, useState, useEffect } from 'react'
-import { Navbar, Nav, NavDropdown, Button, DropdownButton, Dropdown} from 'react-bootstrap'
+import { CSSProperties, useContext } from 'react'
+import {Dropdown} from 'react-bootstrap'
 
 
 const UserMenu = (props: {showMenu : boolean, setShowMenu : Function, baseStyle : CSSProperties}) => {
 
-    const {user, signOut} = useContext(AuthContext);
+    const {user, signOut, loginRedirect} = useContext(AuthContext);
 
     // const [left, setLeft] = useState(window.innerWidth-190);
 
@@ -25,6 +25,7 @@ const UserMenu = (props: {showMenu : boolean, setShowMenu : Function, baseStyle 
     const handleSignOut = () => {
         setShowMenu(false);
         signOut();
+        loginRedirect();
     }
 
 

@@ -10,7 +10,7 @@ const defaultContext : IAuthContext = {
     signInWithGoogle: async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {},
     user: undefined,
     updateUser : (user : IUser | undefined) => {},
-    loginRedirect: () => {}
+    loginRedirect: async () => {}
 	}
 
 

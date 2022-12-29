@@ -22,8 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-push.sh
 sshKey*
 .env
 .vercel
 .vscode
+
+# bash scripts
+*.sh

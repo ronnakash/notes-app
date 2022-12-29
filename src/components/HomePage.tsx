@@ -1,24 +1,16 @@
-
+import AuthContext from '../utils/authContext'
+import { useContext } from 'react'
+import LoginBox from './user/LoginBox';
+import NotesList from './notes/NotesList';
 
 
 const HomePage = () => {
+    const {user, signOut, loginRedirect} = useContext(AuthContext);
 
     return (
-
-        <div>
-            <div className="about-header">
-                <h1 className="about-header">
-                    NotesApp
-                </h1>
-            </div>
-            <div className="home-page">
-                <div>
-                    Web application to create and manage notes
-                </div>
-                <div>
-                </div>
-            </div>
-        </div>
+        user? 
+            <NotesList/> :
+            <LoginBox/>
     )
 
 }

@@ -20,7 +20,8 @@ const NavBar = (props: any) => {
             <Nav>
               <Nav.Link href='/'>Home</Nav.Link>
               <Nav.Link href='/notes'>Notes</Nav.Link>
-              <Nav.Link href={user? '/profile' : '/login'}>Login</Nav.Link>
+              {/* <Nav.Link href={user? '/profile' : '/login'}>Login</Nav.Link> */}
+              <Nav.Link href='/login'>Login</Nav.Link>
               <Nav.Link href='/register'>Register</Nav.Link>
               <NavDropdown title='About'>
                 <NavDropdown.Item href='/about'>About the app</NavDropdown.Item>
