@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { GoogleLoginResponse, GoogleLoginResponseOffline } from "react-google-login";
-import IAuthContext from '../interfaces/IAuthContext'
-import IUser from "../interfaces/IUser";
+import IAuthContext from '../interfaces/AuthContext'
+import IUser from "../interfaces/User";
 
 const defaultContext : IAuthContext = {
     signIn: async () => {},

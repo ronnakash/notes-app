@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Button, Form, Card, Row, Col, InputGroup } from 'react-bootstrap'
-import IEditUserForm from '../../interfaces/IEditUserFrom';
-import IUser from '../../interfaces/IUser';
+import IEditUserForm from '../../interfaces/EditUserFrom';
+import IUser from '../../interfaces/User';
 import useForm from '../../utils/hooks/editProfile'
 import API from '../../utils/requests/API';
 import AuthContext from '../../utils/authContext'

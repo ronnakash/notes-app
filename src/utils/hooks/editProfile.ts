@@ -1,6 +1,6 @@
-import IEditUserErrors from "../../interfaces/IEditUserFormErrors";
-import IEditUserForm from "../../interfaces/IEditUserFrom";
-import IUser from "../../interfaces/IUser";
+import IEditUserErrors from "../../interfaces/EditUserFormErrors";
+import IEditUserForm from "../../interfaces/EditUserFrom";
+import IUser from "../../interfaces/User";
 import useForm from "./useForm";
 
 

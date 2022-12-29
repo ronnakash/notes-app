@@ -1,6 +1,6 @@
 import axios, {AxiosResponse} from 'axios'
-import INote from '../../interfaces/INote';
-import IUser from '../../interfaces/IUser';
+import INote from '../../interfaces/Note';
+import IUser from '../../interfaces/User';
 import Swal from 'sweetalert2'
 
 

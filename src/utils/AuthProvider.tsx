@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import AuthContext from "./authContext"
-import { CookiesProvider } from 'react-cookie';
-import ISigninForm from "../interfaces/ISigninForm";
-import ISignupForm from "../interfaces/ISignupForm";
-import IUser from "../interfaces/IUser";
+import ISigninForm from "../interfaces/SigninForm";
+import ISignupForm from "../interfaces/SignupForm";
+import IUser from "../interfaces/User";
 import API from "./requests/API";
 import { useCookies } from "react-cookie";
 import { GoogleLoginResponse, GoogleLoginResponseOffline } from "react-google-login";
@@ -47,8 +46,11 @@ const useValues = () => {
 
   const register = async (form : ISignupForm) => {
       let newUser = await API.register(form);
-      if (newUser) 
-        setUserAndCookie(newUser)
+      if (newUser) {
+
+          window.location.replace(window.location.origin + '/login')
+      }
+      // setUserAndCookie(newUser)
   };
 
   const signInWithGoogle = async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
@@ -57,9 +59,15 @@ const useValues = () => {
         setUserAndCookie(googleUser)
   };
 
+  const homeRedirect = async () => {
+    // console.log('redirected')
+    // console.log(window.location)
+    window.location.replace(window.location.origin)
+}
+
 const loginRedirect = async () => {
     // console.log('redirected')
-    console.log(window.location)
+    // console.log(window.location)
     if (window.location.href != window.location.origin)
       window.location.replace(window.location.origin + '/login')
 }

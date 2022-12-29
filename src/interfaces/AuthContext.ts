@@ -1,6 +1,6 @@
-import ISigninForm from "../interfaces/ISigninForm";
-import ISignupForm from "../interfaces/ISignupForm";
-import IUser from "../interfaces/IUser";
+import ISigninForm from "./SigninForm";
+import ISignupForm from "./SignupForm";
+import IUser from "./User";
 import { GoogleLoginResponse, GoogleLoginResponseOffline } from "react-google-login";
 
 

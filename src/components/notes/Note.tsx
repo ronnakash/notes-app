@@ -1,5 +1,5 @@
 import { BsFillTrashFill } from 'react-icons/bs';
-import INote from '../../interfaces/INote';
+import INote from '../../interfaces/Note';
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
 

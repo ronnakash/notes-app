@@ -1,10 +1,10 @@
 import { AxiosResponse } from 'axios';
-import INote from '../../interfaces/INote';
+import INote from '../../interfaces/Note';
 import requests from './requests'
-import ISignupForm from '../../interfaces/ISignupForm';
-import ISigninForm from '../../interfaces/ISigninForm';
-import IUser from '../../interfaces/IUser';
-import IEditUserForm from '../../interfaces/IEditUserFrom';
+import ISignupForm from '../../interfaces/SignupForm';
+import ISigninForm from '../../interfaces/SigninForm';
+import IUser from '../../interfaces/User';
+import IEditUserForm from '../../interfaces/EditUserFrom';
 import Swal from 'sweetalert2';
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
-import ISignupForm from '../../interfaces/ISignupForm';
-import ISignupFormError from '../../interfaces/ISignupFormError';
+import ISignupForm from '../../interfaces/SignupForm';
+import ISignupFormError from '../../interfaces/SignupFormError';
 
 import useForm from '../../utils/hooks/signup';
 

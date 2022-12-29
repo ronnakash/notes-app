@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import IFormErrors from '../../interfaces/IFormErrors';
-import IFormValues from '../../interfaces/IFormValues';
+import IFormErrors from '../../interfaces/FormErrors';
+import IFormValues from '../../interfaces/FormValues';
 
 interface FormProps <V extends IFormValues, E extends IFormErrors> {
     callback : (values : V) => void;

@@ -1,11 +1,11 @@
 import Note from './Note'
-import INote from '../../interfaces/INote';
+import INote from '../../interfaces/Note';
 import AddNote from './AddNote';
 import React, { useContext, useEffect, useState } from 'react';
 import API from '../../utils/requests/API'
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
-import IUser from '../../interfaces/IUser';
+import IUser from '../../interfaces/User';
 import AuthContext from '../../utils/authContext';
 
 

@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from 'axios'
-import INote from '../../interfaces/INote';
+import INote from '../../interfaces/Note';
 import responseParser from './responseParser'
 import requestParser from './requestParser';
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import ISigninForm from '../../interfaces/ISigninForm';
-import ISigninFormError from '../../interfaces/ISigninFormError'
+import ISigninForm from '../../interfaces/SigninForm';
+import ISigninFormError from '../../interfaces/SigninFormError'
 import useForm from './useForm';
 
 const useSignInForm = (callback : (values : ISigninForm) => void ) : {handleChange : (event : any) => void, handleSubmit : (event : any) => void, values : ISigninForm, errors : ISigninFormError} => {

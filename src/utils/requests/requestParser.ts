@@ -1,8 +1,8 @@
-import INote from '../../interfaces/INote';
-import ISignupForm from '../../interfaces/ISignupForm';
-import ISigninForm from '../../interfaces/ISigninForm';
-import IEditUserForm from '../../interfaces/IEditUserFrom';
-import IUser from '../../interfaces/IUser';
+import INote from '../../interfaces/Note';
+import ISignupForm from '../../interfaces/SignupForm';
+import ISigninForm from '../../interfaces/SigninForm';
+import IEditUserForm from '../../interfaces/EditUserFrom';
+import IUser from '../../interfaces/User';
 
 const noteObjToBody = (note : {author: string, title : string, body : string}, headers : any) : any => {
     let {author, title, body} = note;

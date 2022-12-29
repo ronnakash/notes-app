@@ -1,4 +1,4 @@
-import IFormValues from "./IFormValues";
+import IFormValues from "./FormValues";
 
 export default interface ISigninForm extends IFormValues {
     username: string;

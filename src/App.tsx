@@ -1,6 +1,6 @@
 import './App.css';
 import NotesList from './components/notes/NotesList';
-import INote from './interfaces/INote';
+import INote from './interfaces/Note';
 import React, { useEffect, useState, useMemo, useContext } from 'react';
 import LoginBox from './components/user/LoginBox';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
