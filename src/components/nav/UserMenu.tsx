@@ -5,7 +5,7 @@ import {Dropdown} from 'react-bootstrap'
 
 const UserMenu = (props: {showMenu : boolean, setShowMenu : Function, baseStyle : CSSProperties}) => {
 
-    const {user, signOut, loginRedirect} = useContext(AuthContext);
+    const {user, signOut, homeRedirect} = useContext(AuthContext);
 
     // const [left, setLeft] = useState(window.innerWidth-190);
 
@@ -25,7 +25,7 @@ const UserMenu = (props: {showMenu : boolean, setShowMenu : Function, baseStyle 
     const handleSignOut = () => {
         setShowMenu(false);
         signOut();
-        loginRedirect();
+        homeRedirect();
     }
 
 

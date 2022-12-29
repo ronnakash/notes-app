@@ -3,7 +3,7 @@ export interface UserData {
     picture: string | undefined;
 }
 
-export default class User implements UserData{
+export default class User implements UserData {
     id: string;
     username: string;
     email: string;

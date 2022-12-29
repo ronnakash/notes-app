@@ -12,4 +12,5 @@ export default interface AuthContext {
     user : User | undefined
     updateUser : (user : User | undefined) => void 
     loginRedirect : () => Promise<void>
+    homeRedirect : () => Promise<void>
 }

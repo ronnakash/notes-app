@@ -17,7 +17,7 @@ const editNoteURL = '';
 const getMyNotesURL = '/my';
 const authURL = '/auth';
 const userURL = '/users';
-const registerURL = '/registerAndLogin';
+const registerURL = '/register';
 const loginURL = '/login';
 const googleLoginURL = '/google';
 const updateUserURL = '/updateUser';
@@ -66,7 +66,7 @@ const editNoteRequest = axios.create({
 
 
 const registerUserRequest = axios.create({
-        method: 'POST',
+        method: 'PUT',
         baseURL: serverURL+authURL+registerURL,
         transformResponse: [responseParser.parseUserFromRegisterRequest],
         timeout: 5000

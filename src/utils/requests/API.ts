@@ -1,14 +1,14 @@
 import { AxiosResponse } from 'axios';
 import INote from '../../interfaces/Note';
 import requests from './requests'
-import ISignupForm from '../../interfaces/SignupForm';
-import ISigninForm from '../../interfaces/SigninForm';
-import IUser from '../../interfaces/User';
-import IEditUserForm from '../../interfaces/EditUserFrom';
+import SignupForm from '../../interfaces/SignupForm';
+import SigninForm from '../../interfaces/SigninForm';
+import User from '../../interfaces/User';
+import EditUserForm from '../../interfaces/EditUserFrom';
 import Swal from 'sweetalert2';
 
 
-  const getHeader = async (user : IUser | undefined) => {
+  const getHeader = async (user : User | undefined) => {
     let token = user? user.token : null;
     return token? {Authorization: token} : {Authorization: "Bearer"};
   };
@@ -25,7 +25,7 @@ import Swal from 'sweetalert2';
   }
 
 
-const getMyNotes = async (username : string, user : IUser | undefined) : Promise<INote[]> => {
+const getMyNotes = async (username : string, user : User | undefined) : Promise<INote[]> => {
     let res : INote[] = [];
     let headers = await getHeader(user);
     await requests.getMyNotesRequest
@@ -41,7 +41,7 @@ const getMyNotes = async (username : string, user : IUser | undefined) : Promise
 };
 
 
-const postNote = async (noteObj : {author : string, title : string, body : string}, user : IUser | undefined) : Promise<INote | undefined>=> {
+const postNote = async (noteObj : {author : string, title : string, body : string}, user : User | undefined) : Promise<INote | undefined>=> {
     let note : INote | undefined ;
     let headers = await getHeader(user);
     await requests.postNoteRequest
@@ -53,7 +53,7 @@ const postNote = async (noteObj : {author : string, title : string, body : strin
     return note;
 }
 
-const deleteNote = async (id: string, user : IUser | undefined) => {
+const deleteNote = async (id: string, user : User | undefined) => {
     let headers = await getHeader(user);
     await requests.deleteNoteRequest
         .delete('', {
@@ -63,7 +63,7 @@ const deleteNote = async (id: string, user : IUser | undefined) => {
         .catch(error => displayError(error))
 }
 
-const editNote = async (note : INote, user : IUser | undefined) : Promise<INote> => {
+const editNote = async (note : INote, user : User | undefined) : Promise<INote> => {
     let headers = await getHeader(user);
     let editedNote : INote;
     editedNote = (await requests.editNoteRequest
@@ -72,11 +72,16 @@ const editNote = async (note : INote, user : IUser | undefined) : Promise<INote>
     return editedNote;
 };
 
-const register = async (form : ISignupForm) : Promise<IUser | undefined> => {
+const register = async (form : SignupForm) : Promise<User | undefined> => {
     let user;
     let headers = await getHeader(user);
+    const registerForm : SigninForm = {
+        username: form.username,
+        email: form.email,
+        password: form.password1
+    };
     await requests.registerUserRequest
-        .post('', form, {headers: headers})
+        .put('', registerForm, {headers: headers})
         .then((response : AxiosResponse)=> {
             user = response.data;
         })
@@ -84,7 +89,7 @@ const register = async (form : ISignupForm) : Promise<IUser | undefined> => {
     return user;
 };
 
-const login = async (form : ISigninForm) : Promise<IUser | undefined> => {
+const login = async (form : SigninForm) : Promise<User | undefined> => {
     let user;
     await requests.loginUserRequest
         .post('', form)
@@ -95,7 +100,7 @@ const login = async (form : ISigninForm) : Promise<IUser | undefined> => {
     return user;
 };
 
-const googleLoginUser = async (code: string) : Promise<IUser | undefined>=> {
+const googleLoginUser = async (code: string) : Promise<User | undefined>=> {
     let googleResponse;
     await requests.googleLoginUserRequest
         .post('', {code})
@@ -106,7 +111,7 @@ const googleLoginUser = async (code: string) : Promise<IUser | undefined>=> {
     return googleResponse;
 };
 
-const editProfile = async (form : IEditUserForm, user : IUser) => {
+const editProfile = async (form : EditUserForm, user : User) => {
     let headers = await getHeader(user);
     await requests.editUserRequest
         .post('', {

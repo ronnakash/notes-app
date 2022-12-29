@@ -41,14 +41,14 @@ const useValues = () => {
   const signIn = async (form : ISigninForm) => {
       let newUser = await API.login(form);
       if (newUser) 
-        setUserAndCookie(newUser)
+        setUserAndCookie(newUser);
   };
 
   const register = async (form : ISignupForm) => {
       let newUser = await API.register(form);
       if (newUser) {
 
-          window.location.replace(window.location.origin + '/login')
+          window.location.replace(window.location.origin + '/login');
       }
       // setUserAndCookie(newUser)
   };
@@ -61,18 +61,20 @@ const useValues = () => {
 
   const homeRedirect = async () => {
     // console.log('redirected')
-    // console.log(window.location)
-    window.location.replace(window.location.origin)
+    console.log(window.location);
+    if (window.location.href != (window.location.origin+'/'))
+        window.location.replace(window.location.origin);
+    else
+      console.log('no redirect');
 }
 
 const loginRedirect = async () => {
     // console.log('redirected')
-    // console.log(window.location)
-    if (window.location.href != window.location.origin)
-      window.location.replace(window.location.origin + '/login')
+    console.log(window.location);
+    window.location.replace(window.location.origin + '/login');
 }
 
-  return {signIn, signOut, register, signInWithGoogle, user, updateUser: setUserAndCookie, loginRedirect}
+  return {signIn, signOut, register, signInWithGoogle, user, updateUser: setUserAndCookie, loginRedirect, homeRedirect}
 }
 
     let auth = useValues();
