@@ -1,6 +1,6 @@
-import IFormErrors from "./FormErrors";
+import FormErrors from "./FormErrors";
 
-export default interface ISigninForm extends IFormErrors {
+export default interface SigninForm extends FormErrors {
     username: string | undefined;
     email: string | undefined;
     password: string | undefined;

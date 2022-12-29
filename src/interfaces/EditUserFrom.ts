@@ -1,5 +1,5 @@
 
-export default interface IEditUserForm {
+export default interface EditUserForm {
     username: string ;
     newPassword: string ;
     confirmPassword: string ;

@@ -1,4 +1,9 @@
-export default class User {
+export interface UserData {
+    username?: string;
+    picture: string | undefined;
+}
+
+export default class User implements UserData{
     id: string;
     username: string;
     email: string;
@@ -15,8 +20,3 @@ export default class User {
         this.picture = picture;
     }
 };
-
-export interface UserData {
-    username?: string;
-    picture?: string;
-}

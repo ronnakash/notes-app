@@ -1,13 +1,6 @@
-import { useContext, useState } from 'react';
-import SignupForm from './SignupForm';
+import { useContext } from 'react';
 import SigninForm from './SigninForm';
-import INote from '../../interfaces/Note';
-import IUser from '../../interfaces/User';
-import ISignupForm from '../../interfaces/SignupForm';
-import ISigninForm from '../../interfaces/SigninForm';
-import API from '../../utils/requests/API';
 import AuthContext from '../../utils/authContext';
-import { Dropdown } from 'react-bootstrap';
 
 
 

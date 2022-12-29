@@ -1,15 +1,15 @@
-import ISigninForm from "./SigninForm";
-import ISignupForm from "./SignupForm";
-import IUser from "./User";
+import SigninForm from "./SigninForm";
+import SignupForm from "./SignupForm";
+import User from "./User";
 import { GoogleLoginResponse, GoogleLoginResponseOffline } from "react-google-login";
 
 
-export default interface IAuthContext {
-    signIn : (form: ISigninForm) => Promise<void>
+export default interface AuthContext {
+    signIn : (form: SigninForm) => Promise<void>
     signOut : () => Promise<void>  
-    register : (form: ISignupForm) => Promise<void>
+    register : (form: SignupForm) => Promise<void>
     signInWithGoogle : (res: GoogleLoginResponse | GoogleLoginResponseOffline) => Promise<void>
-    user : IUser | undefined
-    updateUser : (user : IUser | undefined) => void 
+    user : User | undefined
+    updateUser : (user : User | undefined) => void 
     loginRedirect : () => Promise<void>
 }

@@ -1,6 +1,6 @@
-import IFormValues from "./FormValues";
+import FormValues from "./FormValues";
 
-export default interface ISigninForm extends IFormValues {
+export default interface SigninForm extends FormValues {
     username: string;
     email: string;
     password: string;

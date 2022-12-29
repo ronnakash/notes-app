@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
-import ISignupForm from '../../interfaces/SignupForm';
-import ISignupFormError from '../../interfaces/SignupFormError';
+import SignupFormValues from '../../interfaces/SignupForm';
+import SignupFormError from '../../interfaces/SignupFormError';
 
 import useForm from '../../utils/hooks/signup';
 
-interface ISignupFormProps {
+interface SignupFormProps {
   submitForm : (event : any) => void
 };
 
-interface ISignupFormState {
+interface SignupFormState {
   handleChange : (event: any) => void
   handleSubmit : (event: any) => void
-  values : ISignupForm
-  errors : ISignupFormError
+  values : SignupFormValues
+  errors : SignupFormError
 }
 
 const withHooksHOC = (Component: any) => {
-  return (props: ISignupFormProps) => {
+  return (props: SignupFormProps) => {
     let { handleChange, handleSubmit, values, errors } = useForm(props.submitForm);
 
     return <Component handleChange={handleChange}
@@ -29,7 +29,7 @@ const withHooksHOC = (Component: any) => {
 };
 
 
-class SignupForm extends Component<ISignupFormState> {
+class SignupForm extends Component<SignupFormState> {
 
   render() {
     let { handleChange, handleSubmit, values, errors } = this.props;

@@ -5,7 +5,7 @@ import NotesList from './notes/NotesList';
 
 
 const HomePage = () => {
-    const {user, signOut, loginRedirect} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     return (
         user? 

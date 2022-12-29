@@ -1,3 +1,3 @@
-export default interface IFormErrors extends Object{
+export default interface FormErrors extends Object{
 
 }

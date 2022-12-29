@@ -1,3 +1,3 @@
-export default interface IFormValues {
+export default interface FormValues {
     
 }
