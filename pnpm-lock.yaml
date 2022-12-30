@@ -53,7 +53,7 @@ specifiers:
   typescript: ^4.8.3
   user-avatars: ^1.0.0
   uuid: ^8.3.2
-  vercel: ^28.7.2
+  vercel: ^28.10.1
   vue-simple-password-meter: ^0.1.0
   web-vitals: ^2.1.4
   webpack: ^5.67.0
@@ -111,7 +111,7 @@ dependencies:
   typescript: 4.8.3
   user-avatars: 1.0.0
   uuid: 8.3.2
-  vercel: 28.7.2
+  vercel: 28.10.1
   vue-simple-password-meter: 0.1.0
   web-vitals: 2.1.4
   webpack: 5.67.0
@@ -2030,7 +2030,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 27.4.6
       '@jest/types': 27.4.2
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
       jest-mock: 27.4.6
     dev: false
 
@@ -2040,7 +2040,7 @@ packages:
     dependencies:
       '@jest/types': 27.4.2
       '@sinonjs/fake-timers': 8.1.0
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
       jest-message-util: 27.4.6
       jest-mock: 27.4.6
       jest-util: 27.4.2
@@ -3294,7 +3294,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
     dev: false
 
   /@types/responselike/1.0.0:
@@ -3521,20 +3521,20 @@ packages:
       eslint-visitor-keys: 3.2.0
     dev: false
 
-  /@vercel/build-utils/5.7.0:
-    resolution: {integrity: sha512-hOcb7HxYza5LtZLcmh9VkShV3hLaLlZarLBqQmMR/oTlvgIybeW6LjrPpFiu2hCCf9VbkdBR1OFmDh8EydFswQ==}
+  /@vercel/build-utils/5.7.2:
+    resolution: {integrity: sha512-4ac8nRGlBzXtl7uJi4qRdfDiE+tVh4I17NIxGV6KmV2DzVAdzeaemBhukBgy1T7e7W40zvLMvlH0kgAK2EmQOQ==}
     dev: false
 
-  /@vercel/go/2.2.19:
-    resolution: {integrity: sha512-wB9JfHBpsKVZwczydGGPxXuij/OHV4Ww/CsED0X7shZZ+hNt58MAKwphfl/Lz/VDemOBPSchZAhKDAACQPROog==}
+  /@vercel/go/2.2.21:
+    resolution: {integrity: sha512-BnnT7GkC0eF42dyI/VZvGATPzbvRuQplQamgVszuQGKMhOBBhXrpYTc1V/lmHrCUn1RSGe3nRL399kf/sYmXUw==}
     dev: false
 
-  /@vercel/hydrogen/0.0.33:
-    resolution: {integrity: sha512-2lQpnEPVXkl34aWO8LZfclSVLz8bpKl+e0CHa+e/A30Zw8WvG0XWtUyL7xyNkAxFi3UFogqLK0JwdYT4gc65UA==}
+  /@vercel/hydrogen/0.0.35:
+    resolution: {integrity: sha512-qKE8iwqBLx+kZgsE1hHjf3A/KjyBvAJUAogaKOwdR5EAbxta70LwA3qtWR/NjcnSJTleEeaLX4CGodvLqLI5LQ==}
     dev: false
 
-  /@vercel/next/3.3.2:
-    resolution: {integrity: sha512-J44LvZK6NKFCv+MgsUekz2jAAVn0Eqekr0KDigEcXjs9T1rIM54qyWXIsUiCJuPBgTVoL1Ejh9OzWACwvXKJpw==}
+  /@vercel/next/3.3.5:
+    resolution: {integrity: sha512-/eXbxK48ay2C7LaWgzo+xJlXbKaFdOM9ajBRLf/yY/FjutP3qvIhO4VVbUEKVKQkYwVkUxTD6BXX5aSkV3OySg==}
     dev: false
 
   /@vercel/nft/0.22.1:
@@ -3561,12 +3561,12 @@ packages:
     resolution: {integrity: sha512-dgcLXug0IqUeRsywf0G8IrhUFcgw+GYj+EZB4JneglKSofFBh3Xy/t7KfBUxLlKnoq6kyGYJvTmAVB1YBt11qw==}
     dev: false
 
-  /@vercel/node/2.7.1:
-    resolution: {integrity: sha512-TaNZKXvZvKzwz+ALf4/od64wniOpSwaYcGzQXs9onkzonOdO4C1biGBaIHpnqdlAxbaFRMvqQQbqjfJHJavPhQ==}
+  /@vercel/node/2.8.2:
+    resolution: {integrity: sha512-quZzNkn3MhOJ/Z5ugOgmLUXXWq/AMqXsByJPHte/TgnLM+skSpLaOYsB3rT2VUYbx9u3+T6bXQWv8YqJsgjZIQ==}
     dependencies:
       '@edge-runtime/vm': 2.0.0
       '@types/node': 14.18.33
-      '@vercel/build-utils': 5.7.0
+      '@vercel/build-utils': 5.7.2
       '@vercel/node-bridge': 3.1.2
       '@vercel/static-config': 2.0.6
       edge-runtime: 2.0.0
@@ -3579,12 +3579,12 @@ packages:
       - encoding
     dev: false
 
-  /@vercel/python/3.1.29:
-    resolution: {integrity: sha512-1afGZ0Bt3gT24mAuvObUAt/cand694l4Q72dTp6HCZLLQZoSiiOf5r3F4j2CO8gd4gg0xEBJrJfFAC7BhCLJpQ==}
+  /@vercel/python/3.1.31:
+    resolution: {integrity: sha512-xyHnOc6FiM9FDGOntA1ZaYrfymPB75iDjg7QLNECtPr02kc3zTIetdrzhCQJZ3q30yoXvT2Gq8D9rt98xdK6Zg==}
     dev: false
 
-  /@vercel/redwood/1.0.39:
-    resolution: {integrity: sha512-AcLmi84YNf0r696DybeJnPqp/AlrN2tqz3M7+1wdZjNA76l50wECmk+9P0Fe4v7FfhdclqxKiZxjlwXGY9KmIA==}
+  /@vercel/redwood/1.0.41:
+    resolution: {integrity: sha512-nxh2mCnzWjJtPiXFqadvO9MO08wEYIJeDAh/6Q/2NQOiE+gPD2LSzWtNZDd9TX9afeymaROqb0UuZsQw3fsrSg==}
     dependencies:
       '@vercel/nft': 0.22.1
       '@vercel/routing-utils': 2.1.3
@@ -3594,8 +3594,8 @@ packages:
       - supports-color
     dev: false
 
-  /@vercel/remix/1.1.1:
-    resolution: {integrity: sha512-RzMPwZicRmC/Pcb3kkVsNMJHy1+LCoglTKb8pRVReujYG3vqUqgThZ6dn1Ev/sc/P1iVUF4+kDxMXNFAzkHH9Q==}
+  /@vercel/remix/1.1.3:
+    resolution: {integrity: sha512-YMID/XI2TpFHXvZYTn++UCQt4yhdo20jrw1GBpjY8Xss+UXPSA9jCOk0JCgHOllWnXqVTowQdJ9LzJTwerSVsA==}
     dependencies:
       '@vercel/nft': 0.22.1
     transitivePeerDependencies:
@@ -3611,12 +3611,12 @@ packages:
       ajv: 6.12.6
     dev: false
 
-  /@vercel/ruby/1.3.45:
-    resolution: {integrity: sha512-DcL1wZVifZI9WzMvZrM6QkhWrJ5JDufiQLcB5DZri5BXm/uHfVIhbEyrorGiCNnnQGQuQlI5YPweMRg2Pe1qaw==}
+  /@vercel/ruby/1.3.47:
+    resolution: {integrity: sha512-g1xI9NHMHpJ9v4bW84b1wGlTe+3s8omBirIeR17vjbq9K0GE7VULaPV3gdb5bOe/W+8q1UYa67SjfjMQDKrG9Q==}
     dev: false
 
-  /@vercel/static-build/1.0.42:
-    resolution: {integrity: sha512-YVRYr6dxG7XPKAVOPyCfx1xid60O+FLU1pPU1SrBUYcshbOXIn2eAXBUFR4k0HbyzzSRHHyE8CylSyhxOjZ2Ig==}
+  /@vercel/static-build/1.0.44:
+    resolution: {integrity: sha512-A9+kBGwLTDf9afmoHS084/zkdop+7CWM31cvwzi5xkqksSxX25On/qikxbca/Vre9XGax9PgF1bkPnUn336Rvw==}
     dev: false
 
   /@vercel/static-config/2.0.6:
@@ -3985,7 +3985,7 @@ packages:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
     dependencies:
-      debug: 4.3.3
+      debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -8491,7 +8491,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       agent-base: 6.0.2
-      debug: 4.3.3
+      debug: 4.3.4
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -9163,7 +9163,7 @@ packages:
       '@jest/environment': 27.4.6
       '@jest/test-result': 27.4.6
       '@jest/types': 27.5.0
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
       chalk: 4.1.2
       co: 4.6.0
       dedent: 0.7.0
@@ -9286,7 +9286,7 @@ packages:
       '@jest/environment': 27.4.6
       '@jest/fake-timers': 27.4.6
       '@jest/types': 27.5.0
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
       jest-mock: 27.4.6
       jest-util: 27.4.2
       jsdom: 16.7.0
@@ -9304,7 +9304,7 @@ packages:
       '@jest/environment': 27.4.6
       '@jest/fake-timers': 27.4.6
       '@jest/types': 27.5.0
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
       jest-mock: 27.4.6
       jest-util: 27.4.2
     dev: false
@@ -9370,7 +9370,7 @@ packages:
       '@jest/source-map': 27.4.0
       '@jest/test-result': 27.4.6
       '@jest/types': 27.5.0
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
       chalk: 4.1.2
       co: 4.6.0
       expect: 27.4.6
@@ -9425,7 +9425,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.4.2
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
     dev: false
 
   /jest-pnp-resolver/1.2.2_jest-resolve@27.4.6:
@@ -9544,7 +9544,7 @@ packages:
     resolution: {integrity: sha512-S5wqyz0DXnNJPd/xfIzZ5Xnp1HrJWBczg8mMfMpN78OJ5eDxXyf+Ygld9wX1DnUWbIbhM1YDY95NjR4CBXkb2g==}
     engines: {node: '>= 10.14.2'}
     dependencies:
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
       graceful-fs: 4.2.9
     dev: false
 
@@ -9591,7 +9591,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       '@jest/types': 26.6.2
-      '@types/node': 16.11.21
+      '@types/node': 16.11.47
       chalk: 4.1.2
       graceful-fs: 4.2.9
       is-ci: 2.0.0
@@ -15469,22 +15469,22 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /vercel/28.7.2:
-    resolution: {integrity: sha512-ak5T5N84se8uA59RoodTBxTnRZ8hml717fjEyKDdnQAaweejZyYcruv8nE/Qny+51gAshDnBtP1cdtN4U/eq3Q==}
+  /vercel/28.10.1:
+    resolution: {integrity: sha512-fT4tGztbZGWDzdH35LZ77KrMAUxCoPFEajtePLfnRp0qFvlDbBujQ8bd/SkCEonYI3eJ2yar/4+fwr1ScBTjXA==}
     engines: {node: '>= 14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@vercel/build-utils': 5.7.0
-      '@vercel/go': 2.2.19
-      '@vercel/hydrogen': 0.0.33
-      '@vercel/next': 3.3.2
-      '@vercel/node': 2.7.1
-      '@vercel/python': 3.1.29
-      '@vercel/redwood': 1.0.39
-      '@vercel/remix': 1.1.1
-      '@vercel/ruby': 1.3.45
-      '@vercel/static-build': 1.0.42
+      '@vercel/build-utils': 5.7.2
+      '@vercel/go': 2.2.21
+      '@vercel/hydrogen': 0.0.35
+      '@vercel/next': 3.3.5
+      '@vercel/node': 2.8.2
+      '@vercel/python': 3.1.31
+      '@vercel/redwood': 1.0.41
+      '@vercel/remix': 1.1.3
+      '@vercel/ruby': 1.3.47
+      '@vercel/static-build': 1.0.44
       update-notifier: 5.1.0
     transitivePeerDependencies:
       - encoding

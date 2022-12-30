@@ -50,12 +50,12 @@ const useValues = () => {
       if (newUser) {
         Swal.fire({
             title: 'Created User',
-            text:  `Created user ${user.username} successfully.\nClick ok to be redirected to the login screen`,
+            text:  `Created user ${newUser.username} successfully.\nClick ok to be redirected to the login screen`,
             icon: 'success' ,
             confirmButtonText: 'Ok'
           }).then(homeRedirect)
       }
-      setUserAndCookie(newUser)
+    //   setUserAndCookie(newUser)
   };
 
   const signInWithGoogle = async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
