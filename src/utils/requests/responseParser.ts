@@ -42,14 +42,6 @@ const parseNotesFromRequest = (res : any) : INote[] => {
   const parseUserFromRegisterRequest = (res : any) : IUser | undefined => {
     const user = parseUserFromRequest(res);
     // console.log("user register response");
-    if (user) {
-      Swal.fire({
-        title: 'Created User',
-        text:  `Created user ${user.username} successfully`,
-        icon: 'success' ,
-        confirmButtonText: 'Ok'
-      })
-    }
     return user;
   }
 
@@ -85,7 +77,7 @@ const parseNotesFromRequest = (res : any) : INote[] => {
     }
     else {
       if (obj.message.startsWith('E11000 duplicate key error collection'))
-        throw new Error("New username is already in use. Please try a different one")
+        throw new Error("Email is already in use. Please try a different one")
     }
   }
 

@@ -6,6 +6,7 @@ import IUser from "../interfaces/User";
 import API from "./requests/API";
 import { useCookies } from "react-cookie";
 import { GoogleLoginResponse, GoogleLoginResponseOffline } from "react-google-login";
+import Swal from "sweetalert2";
 
 
 
@@ -47,10 +48,14 @@ const useValues = () => {
   const register = async (form : ISignupForm) => {
       let newUser = await API.register(form);
       if (newUser) {
-
-          window.location.replace(window.location.origin + '/login');
+        Swal.fire({
+            title: 'Created User',
+            text:  `Created user ${user.username} successfully.\nClick ok to be redirected to the login screen`,
+            icon: 'success' ,
+            confirmButtonText: 'Ok'
+          }).then(homeRedirect)
       }
-      // setUserAndCookie(newUser)
+      setUserAndCookie(newUser)
   };
 
   const signInWithGoogle = async (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
@@ -70,8 +75,11 @@ const useValues = () => {
 
 const loginRedirect = async () => {
     // console.log('redirected')
-    console.log(window.location);
-    window.location.replace(window.location.origin + '/login');
+    if (!user)
+        window.location.replace(window.location.origin);
+    else 
+        window.location.replace(window.location.origin + '/login');
+
 }
 
   return {signIn, signOut, register, signInWithGoogle, user, updateUser: setUserAndCookie, loginRedirect, homeRedirect}
