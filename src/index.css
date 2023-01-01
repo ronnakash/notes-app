@@ -318,6 +318,12 @@ textarea:focus {
 	color: #000000;
   }
 
+  .boldTextHeader {
+	font-weight: 700;
+	font-size: 200%;
+	color: #000000;
+  }
+
   .boldTextsmall {
 	font-weight: 700;
 	color: #000000;

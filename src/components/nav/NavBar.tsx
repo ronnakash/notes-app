@@ -13,12 +13,12 @@ const NavBar = (props: any) => {
     return (
         <div className='navContainer'>
           <Navbar bg='dark' variant='dark'>
-            <Navbar.Brand>
+            <Navbar.Brand href='/'>
               <img src={logo} alt='logo' height='40px'/>
               NotesApp
             </Navbar.Brand>
             <Nav>
-              <Nav.Link href='/'>Home</Nav.Link>
+              {/* <Nav.Link href='/'>Home</Nav.Link> */}
               <Nav.Link href='/notes'>Notes</Nav.Link>
               {/* <Nav.Link href={user? '/profile' : '/login'}>Login</Nav.Link> */}
               <Nav.Link href='/login'>{user? 'Profile' : 'Login'}</Nav.Link>

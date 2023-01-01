@@ -12,8 +12,6 @@ const EditProfile = () => {
         return (user && user.username)? user.username.substring(0,1).toUpperCase() : 'f'
     }
 
-
-
     return (
         <div className="form-container">
             <div className='center'>
