@@ -17,17 +17,15 @@ const EditProfile = () => {
     return (
         <div className="form-container">
             <div className='center'>
-                <h1 className='profile-header'>Edit Profile</h1>
                 <div className='user-profile-display'>
                     <div>
-                    <UserAvatar className='bigAvatar' size="64" name={userInitials()} src={user?.picture}/>
+                    <UserAvatar className='bigAvatar' size="128" name={userInitials()} src={user?.picture}/>
                     </div>
                     <div className='userDisplayData'>
                         <span className='boldText'>{user?.username}</span>
                         <span className='greyText'>{user?.email}</span>
                     </div>
                 </div>
-                <EditProfileForm/>
             </div>
         </div>
         
