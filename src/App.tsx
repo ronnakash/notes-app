@@ -13,7 +13,7 @@ import NavBar from './components/nav/NavBar'
 import AboutPage from './components/about/AboutPage';
 import TermsPage from './components/about/TermsPage';
 import PrivacyPage from './components/about/PrivacyPage';
-import ProfilePage from './components/user/ProfilePage';
+import ProfilePage from './components/user/EditProfile';
 import * as dotenv from 'dotenv';
 import HomePage from './components/HomePage';
 
