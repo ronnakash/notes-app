@@ -80,6 +80,26 @@ const EditProfileForm = () => {
               </Form.Group>
           </Row>
           <Row className="mb-3">
+              <Form.Group as={Col} md="12" controlId="validationCustomPicture">
+                  <Form.Label className='black-text'>Picture</Form.Label>
+                  <InputGroup hasValidation={true}>
+                      <Form.Control
+                      type="text"
+                      placeholder="Picture URL"
+                      aria-describedby="inputGroupPrepend"
+                      onChange={handleChange}
+                      name='picUrl'
+                      value={values.picUrl}
+                      isValid={!errors.picUrl && values.picUrl!==''}
+                      isInvalid={(errors.picUrl? true : false) && values.picUrl!==''}
+                      />
+                      <Form.Control.Feedback type="invalid">
+                          {errors.picUrl}
+                      </Form.Control.Feedback>
+                  </InputGroup>
+              </Form.Group>
+          </Row>
+          <Row className="mb-3">
             <Form.Check
               required={true}
               label="Confirm changes"

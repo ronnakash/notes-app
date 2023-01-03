@@ -11,6 +11,7 @@ import PrivacyPage from './components/about/PrivacyPage';
 import EditProfile from './components/user/EditProfile';
 import HomePage from './components/HomePage';
 import LoginPage from './components/user/LoginPage';
+import ProfilePage from './components/user/ProfilePage';
 
 
 
@@ -28,6 +29,8 @@ const App = () => {
             <Route path='/terms_of_service' element={<TermsPage/>}/>
             <Route path='/privacy' element={<PrivacyPage/>}/>
             <Route path='/login' element={<LoginPage/>} />
+            <Route path='/profile' element={<ProfilePage/>} />
+            <Route path='/edit_user' element={<EditProfile/>} />
             <Route path='/register' element={<RegisterBox/>} />
             <Route path='/notes' element={<NotesList/>} />
           </Routes>

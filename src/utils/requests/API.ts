@@ -118,6 +118,7 @@ const editProfile = async (form : EditUserForm, user : User) => {
             id: user?.id,
             username: (form.username!=='')? form.username : undefined,
             password: (form.newPassword!=='')? form.newPassword : undefined,
+            picture: (form.picUrl!=='')? form.picUrl : undefined, 
         }, {headers: headers})
         .then(res => {
             let updateUser = res.data;            

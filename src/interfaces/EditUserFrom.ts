@@ -4,4 +4,5 @@ export default interface EditUserForm {
     newPassword: string ;
     confirmPassword: string ;
     // confirmChange: boolean
+    picUrl: string ;
 }

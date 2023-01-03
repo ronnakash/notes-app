@@ -307,6 +307,12 @@ textarea:focus {
 	color:rgba(0, 0, 0, 0.637);
   }
 
+  .greyTextHeader {
+	color:rgba(0, 0, 0, 0.637);
+	font-size: 170%;
+  }
+  
+
   .boldText {
 	font-weight: 550;
 	font-size: 110%;
