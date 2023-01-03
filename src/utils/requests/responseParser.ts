@@ -49,18 +49,18 @@ const parseNotesFromRequest = (res : any) : INote[] => {
     console.log(res)
     let obj = JSON.parse(res);
     console.log(obj)
-    let {user} = obj;
+    let {updated} = obj;
     console.log("user update response");
-    console.log(user);
-    if (user) {
+    console.log(updated);
+    if (updated) {
       Swal.fire({
         title: 'Updated User',
-        text:  `Updated user ${user.username} successfully`,
+        text:  `Updated user ${updated.username} successfully`,
         icon: 'success' ,
         confirmButtonText: 'Ok'
       })
     }
-    return user;
+    return updated;
   }
 
   const parseUserFromRequest = (res : any) : IUser | undefined => {

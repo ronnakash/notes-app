@@ -50,7 +50,7 @@ const useEditUserForm = (callback : (values : IEditUserForm) => void, user : IUs
             errors.newPassword = `Passwords mismatch!`;
             errors.confirmPassword = `Passwords mismatch`;
         }
-        if (!isValidUrl(values.picUrl))
+        if (values.picUrl != "" && !isValidUrl(values.picUrl))
             errors.picUrl = 'Please enter a valid URL';
         return errors;
     }

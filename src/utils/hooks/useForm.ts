@@ -23,6 +23,7 @@ const useForm = <V extends IFormValues, E extends IFormErrors>(formProps : FormP
     const isErrored = () => {
         for (const [key, val] of Object.entries(errors)){
             if (val) {
+                console.log("error:", key, val)
                 return true;
             }
         }
@@ -46,12 +47,14 @@ const useForm = <V extends IFormValues, E extends IFormErrors>(formProps : FormP
     
   
     const handleSubmit = (e : any) => {
+        console.log("submitting")
         e.preventDefault();
         if (!isSubmitting)
             {
                 setErrors(validateInfo(values));
                 setIsSubmitting(true);
                 if (!isErrored()) callback(values);
+                else console.log("Error")
             }
         setIsSubmitting(false)
     };

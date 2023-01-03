@@ -10,9 +10,14 @@ const EditProfileForm = () => {
 
 
   const submitForm = async () => {
+    console.log("clicked");
     if(user) {
-      const editedUser = await API.editProfile(values, user);
-      updateUser(editedUser);
+      let editedUser = await API.editProfile(values, user);
+      console.log(editedUser);
+      if (editedUser){
+        // editedUser.token  = user.token;
+        updateUser(editedUser);
+      }
     }
   }
     

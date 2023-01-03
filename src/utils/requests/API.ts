@@ -113,6 +113,7 @@ const googleLoginUser = async (code: string) : Promise<User | undefined>=> {
 
 const editProfile = async (form : EditUserForm, user : User) => {
     let headers = await getHeader(user);
+    let updateUser;
     await requests.editUserRequest
         .post('', {
             id: user?.id,
@@ -121,7 +122,7 @@ const editProfile = async (form : EditUserForm, user : User) => {
             picture: (form.picUrl!=='')? form.picUrl : undefined, 
         }, {headers: headers})
         .then(res => {
-            let updateUser = res.data;            
+            updateUser = res.data;            
             console.log(res)
             user.username = updateUser.username;
             user.picture = updateUser.picture;
