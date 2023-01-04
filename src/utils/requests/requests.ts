@@ -30,14 +30,14 @@ const getAllNotesRequest = axios.create({
         method: 'GET',
         baseURL: serverURL+noteURL+getAllNotesURL, 
         transformResponse: [responseParser.parseNotesFromRequest],
-        timeout: 5000
+        timeout: 10000
     });
 
 const getMyNotesRequest = axios.create({
       method: 'GET',
       baseURL: serverURL+noteURL+getMyNotesURL, 
       transformResponse: [responseParser.parseNotesFromRequest],
-      timeout: 5000
+      timeout: 10000
   });
 
 
@@ -46,14 +46,14 @@ const postNoteRequest = axios.create({
         baseURL: serverURL+noteURL+postNoteURL, 
         //transformRequest: [requestParser.noteObjToBody],
         transformResponse: [responseParser.parseNoteFromPostRequest],
-        timeout: 5000,
+        timeout: 10000,
       });
 
   
 const deleteNoteRequest = axios.create({
         method: 'DELETE',
         baseURL: serverURL+noteURL+deleteNoteURL,
-        timeout: 5000
+        timeout: 10000
       });
 
 
@@ -61,7 +61,7 @@ const editNoteRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+noteURL+editNoteURL,
         transformResponse: [responseParser.parseNoteFromUpdateRequest],
-        timeout: 5000
+        timeout: 10000
       });
 
 
@@ -69,21 +69,21 @@ const registerUserRequest = axios.create({
         method: 'PUT',
         baseURL: serverURL+authURL+registerURL,
         transformResponse: [responseParser.parseUserFromRegisterRequest],
-        timeout: 5000
+        timeout: 10000
       });
 
 const loginUserRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+authURL+loginURL,
         transformResponse: [responseParser.parseUserFromLoginRequest],
-        timeout: 5000
+        timeout: 10000
       });
 
 const googleLoginUserRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+authURL+googleLoginURL,
         transformResponse: [responseParser.parseUserFromLoginRequest],
-        timeout: 5000
+        timeout: 10000
       });
 
 
@@ -92,7 +92,7 @@ const editUserRequest = axios.create({
         baseURL: serverURL+userURL,
         //transformRequest: [requestParser.editUserFormToBody],
         transformResponse: [responseParser.parseUserFromUpdateRequest],
-        timeout: 5000
+        timeout: 10000
       });
       
 
