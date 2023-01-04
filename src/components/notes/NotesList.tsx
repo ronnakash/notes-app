@@ -7,6 +7,7 @@ import SavedNote from './SavedNote';
 import EditNote from './EditNote';
 import IUser from '../../interfaces/User';
 import AuthContext from '../../utils/authContext';
+import Swal from 'sweetalert2';
 
 
 const NotesList = () => {
@@ -31,9 +32,22 @@ const NotesList = () => {
     }
   
     const deleteNote = (id: string) => {
-      API.deleteNote(id, user);
-          const newNotes = notes.filter((note) => note.id !== id);
-          setNotes(newNotes);
+        //warning message
+        Swal.fire({
+            title: 'Are you sure you want to delete this note?',
+            showDenyButton: true,
+            // showCancelButton: true,
+            denyButtonText: `delete`,
+            confirmButtonText: `Don't delete`,
+          }).then((result) => {
+            if (!result.isConfirmed) {
+                API.deleteNote(id, user);
+                const newNotes = notes.filter((note) => note.id !== id);
+                setNotes(newNotes);
+            }
+          })
+          
+      
       };
 
     const addNote = async (title : string, body : string) => {

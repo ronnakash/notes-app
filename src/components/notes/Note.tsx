@@ -1,14 +1,15 @@
 import { BsFillTrashFill } from 'react-icons/bs';
-import INote from '../../interfaces/Note';
+import Note from '../../interfaces/Note';
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';
 
-
-
-const Note = (props : {note: INote,
+interface NoteProps {
+    note: Note,
     handleDeleteNote: Function,
     handleEditNote : Function,
-    handleChangeNote : Function }) => {
+    handleChangeNote : Function }
+
+const NoteBase = (props : NoteProps) => {
     let { note, handleDeleteNote, handleEditNote, handleChangeNote } = props;
 
     const savedNote = (
@@ -25,14 +26,12 @@ const Note = (props : {note: INote,
         handleChangeNote = {handleChangeNote}
     />
     )
-
-    const thisNote = note.editing? editNote : savedNote
-
+    
     return (
         <div className='notes-container'>
-            {thisNote}
+            {note.editing? editNote : savedNote}
         </div >
     );
 }
 
-export default Note
+export default NoteBase
