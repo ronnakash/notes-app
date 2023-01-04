@@ -29,7 +29,8 @@ const EditProfile = () => {
                         <span className='greyTextHeader'>{user?.email}</span>
                     </div>
                 </div>
-                <div className='centered'>
+            </div>
+            <div className='centered centered-vertical' >
                     <a type="button" href="edit_user" role="button"
                         className="btn btn-primary button-size button-space"
                         >
@@ -41,7 +42,6 @@ const EditProfile = () => {
                             Logout
                     </a>
                 </div>
-            </div>
         </div>
         
 
