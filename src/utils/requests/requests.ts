@@ -6,9 +6,9 @@ import requestParser from './requestParser';
 
 
 const noteURL = '/notes';
-// const serverURL = 'https://node-server-ronnakash.vercel.app';
+const serverURL = 'https://node-server-ronnakash.vercel.app';
 // const serverURL = 'https://node-server-jet.vercel.app';
-const serverURL = 'http://localhost:5000';
+// const serverURL = 'http://localhost:5000';
 // const serverURL = 'http://18.130.221.18:80';
 const getAllNotesURL = '/Admin/get/allNotes';
 const postNoteURL = '';
