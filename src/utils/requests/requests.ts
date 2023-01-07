@@ -10,7 +10,7 @@ const serverURL = 'https://node-server-ronnakash.vercel.app';
 // const serverURL = 'https://node-server-jet.vercel.app';
 // const serverURL = 'http://localhost:5000';
 // const serverURL = 'http://18.130.221.18:80';
-const getAllNotesURL = '/Admin/get/allNotes';
+// const getAllNotesURL = '/Admin/get/allNotes';
 const postNoteURL = '';
 const deleteNoteURL = '';
 const editNoteURL = '';
@@ -26,12 +26,12 @@ const updateUserURL = '/updateUser';
 
 
 
-const getAllNotesRequest = axios.create({
-        method: 'GET',
-        baseURL: serverURL+noteURL+getAllNotesURL, 
-        transformResponse: [responseParser.parseNotesFromRequest],
-        timeout: 10000
-    });
+// const getAllNotesRequest = axios.create({
+//         method: 'GET',
+//         baseURL: serverURL+noteURL+getAllNotesURL, 
+//         transformResponse: [responseParser.parseNotesFromRequest],
+//         timeout: 10000
+//     });
 
 const getMyNotesRequest = axios.create({
       method: 'GET',
@@ -96,5 +96,5 @@ const editUserRequest = axios.create({
       });
       
 
-export default { getAllNotesRequest, getMyNotesRequest, postNoteRequest, deleteNoteRequest, editNoteRequest, registerUserRequest, loginUserRequest, googleLoginUserRequest, editUserRequest }
+export default { getMyNotesRequest, postNoteRequest, deleteNoteRequest, editNoteRequest, registerUserRequest, loginUserRequest, googleLoginUserRequest, editUserRequest }
 
