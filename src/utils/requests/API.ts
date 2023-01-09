@@ -16,12 +16,12 @@ import Swal from 'sweetalert2';
   const displayError = (error : Error) =>{
     console.log("displaying error: ");
     console.log(error);
-    Swal.fire({
-        title: 'Error!',
-        text:  error.message,
-        icon: 'error' ,
-        confirmButtonText: 'Dismiss'
-    })
+    // Swal.fire({
+    //     title: 'Error!',
+    //     text:  error.message,
+    //     icon: 'error' ,
+    //     confirmButtonText: 'Dismiss'
+    // })
   }
 
 
