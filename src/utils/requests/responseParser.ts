@@ -22,7 +22,7 @@ const parseNotesFromRequest = (res : any) : INote[] => {
 
   const parseNoteFromPostRequest = (res : any) : INote => {
     let obj = JSON.parse(res);
-    let {author, title, body, _id, createdAt, updatedAt, color} = obj.newNote;
+    let {author, title, body, _id, createdAt, updatedAt, color} = obj.model;
     return new INote(author, title, body, _id, createdAt, updatedAt, color);
   };
 

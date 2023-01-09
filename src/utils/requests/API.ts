@@ -57,7 +57,7 @@ const deleteNote = async (id: string, user : User | undefined) => {
     let headers = await getHeader(user);
     await requests.deleteNoteRequest
         .delete('', {
-            data: {_id: id},
+            data: {_id: id, author: user?.email},
             headers: headers
         })
         .catch(error => displayError(error))
