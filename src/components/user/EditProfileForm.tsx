@@ -10,10 +10,8 @@ const EditProfileForm = (props : {}) => {
 
 
   const submitForm = async () => {
-    console.log("clicked");
     if(user) {
       let editedUser = await API.editProfile(values, user);
-      console.log(editedUser);
       if (editedUser){
         // editedUser.token  = user.token;
         updateUser(editedUser);

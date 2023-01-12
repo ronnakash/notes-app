@@ -35,7 +35,6 @@ const EditNote = (props : EditNoteProps ) => {
             note.title = noteTitle;
             note.body = noteBody;
 			note.color = noteColor;
-			console.log('note color:'+noteColor);
 			handleChangeNote(note);
 		}
 	};
@@ -45,7 +44,6 @@ const EditNote = (props : EditNoteProps ) => {
     };
 
 	const handleColorChange = (event : any) => {
-		console.log(event)
 		setNoteColor(event.target.value);
 	};
 

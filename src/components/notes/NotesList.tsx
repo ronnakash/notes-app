@@ -60,10 +60,8 @@ const NotesList = () => {
     const changeNote = async (changedNote : INote) : Promise<void> => {
         const newNotes = await Promise.all(
             notes.map( async (note : INote) => {
-                if (note.id === changedNote.id){
+                if (note.id === changedNote.id)
                     note = await API.editNote(changedNote, user);
-                    console.log(note);
-                }
                 return note;
             }));    
         setNotes(newNotes);

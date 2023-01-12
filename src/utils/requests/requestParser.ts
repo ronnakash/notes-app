@@ -11,7 +11,6 @@ const noteObjToBody = (note : {author: string, title : string, body : string}, h
         title: title,
         body: body
     }
-    console.log('body obj' + JSON.stringify(bodyObj));
     return bodyObj
 }
 

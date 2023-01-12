@@ -22,7 +22,6 @@ const SigninForm = (props : SigninFormProps) => {
         icon: 'error' ,
         confirmButtonText: 'Dismiss'
       })
-      console.log("Google login error")
     }
 
     const loginRedirect = () => {

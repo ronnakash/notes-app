@@ -13,7 +13,7 @@ import EditUserForm from '../../interfaces/EditUserFrom';
   };
 
   const displayError = (error : Error) =>{
-    console.log("displaying error: ");
+    console.log("error: ");
     console.log(error);
     // Swal.fire({
     //     title: 'Error!',
@@ -122,12 +122,10 @@ const editProfile = async (form : EditUserForm, user : User) => {
         }, {headers: headers})
         .then(res => {
             updateUser = res.data;            
-            console.log(res)
             user.username = updateUser.username;
             user.picture = updateUser.picture;
         })
         .catch(error => {
-            console.log(error)
             displayError(error)})
     return user;
 }

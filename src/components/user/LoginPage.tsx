@@ -7,7 +7,6 @@ import ProfilePage from './ProfilePage';
 const LoginPage = (props : {}) => {
     
     let {user} = useContext(AuthContext);
-    const UserAvatar = require('react-user-avatar');
 
     return user? <ProfilePage/> : <LoginBox/>;   
 

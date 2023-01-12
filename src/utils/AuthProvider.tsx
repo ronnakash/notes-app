@@ -65,16 +65,11 @@ const useValues = () => {
   };
 
   const homeRedirect = async () => {
-    // console.log('redirected')
-    console.log(window.location);
     if (window.location.href != (window.location.origin+'/'))
         window.location.replace(window.location.origin);
-    else
-      console.log('no redirect');
 }
 
 const loginRedirect = async () => {
-    // console.log('redirected')
     if (!user)
         window.location.replace(window.location.origin);
     else 

@@ -22,10 +22,8 @@ const useForm = <V extends IFormValues, E extends IFormErrors>(formProps : FormP
 
     const isErrored = () => {
         for (const [key, val] of Object.entries(errors)){
-            if (val) {
-                console.log("error:", key, val)
+            if (val) 
                 return true;
-            }
         }
         return false
     }
@@ -33,8 +31,6 @@ const useForm = <V extends IFormValues, E extends IFormErrors>(formProps : FormP
     const handleChange = (e : any) => {
         e.preventDefault();
         const { name, value } = e.target;
-        // console.log(name)
-        // console.log(value)
         setValues({
             ...values,
             [name]: value
@@ -47,7 +43,6 @@ const useForm = <V extends IFormValues, E extends IFormErrors>(formProps : FormP
     
   
     const handleSubmit = (e : any) => {
-        console.log("submitting")
         e.preventDefault();
         if (!isSubmitting)
             {
