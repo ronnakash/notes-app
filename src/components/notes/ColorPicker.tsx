@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import { SketchPicker } from 'react-color';
+import {Component} from 'react';
 
 interface IColorPickerProps {
     handleChange : (event : any) => void;

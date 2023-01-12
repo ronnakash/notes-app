@@ -1,4 +1,3 @@
-import { BsFillTrashFill } from 'react-icons/bs';
 import Note from '../../interfaces/Note';
 import SavedNote from './SavedNote';
 import EditNote from './EditNote';

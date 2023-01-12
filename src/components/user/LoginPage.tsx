@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import AuthContext from '../../utils/authContext';
 import LoginBox from './LoginBox';
-import EditProfile from './EditProfile';
 import ProfilePage from './ProfilePage';
 
 

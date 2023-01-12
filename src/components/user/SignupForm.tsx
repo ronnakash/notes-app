@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import SignupFormValues from '../../interfaces/SignupForm';
 import SignupFormError from '../../interfaces/SignupFormError';

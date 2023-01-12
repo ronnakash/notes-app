@@ -1,7 +1,6 @@
 import AuthContext from '../../utils/authContext'
 import 'bootstrap/dist/css/bootstrap.css'
 import { useContext } from 'react'
-import EditProfileForm from './EditProfileForm';
 
 const EditProfile = () => {
 
@@ -22,7 +21,7 @@ const EditProfile = () => {
             <div className='center'>
                 <div className='user-profile-display'>
                     <div>
-                    <UserAvatar className='bigAvatar' size="128" name={userInitials()} src={user?.picture}/>
+                        <UserAvatar className='bigAvatar' size="128" name={userInitials()} src={user?.picture}/>
                     </div>
                     <div className='userDisplayData'>
                         <span className='boldTextHeader'>{user?.username}</span>
@@ -31,17 +30,17 @@ const EditProfile = () => {
                 </div>
             </div>
             <div className='centered centered-vertical' >
-                    <a type="button" href="edit_user" role="button"
-                        className="btn btn-primary button-size button-space"
-                        >
-                            Edit profile
-                    </a>
-                    <a type="button" role="button" onClick={logout}
-                        className="btn btn-danger button-size button-space"
-                        >
-                            Logout
-                    </a>
-                </div>
+                <a type="button" href="edit_user" role="button"
+                    className="btn btn-primary button-size button-space"
+                    >
+                        Edit profile
+                </a>
+                <a type="button" role="button" onClick={logout}
+                    className="btn btn-danger button-size button-space"
+                    >
+                        Logout
+                </a>
+            </div>
         </div>
         
 

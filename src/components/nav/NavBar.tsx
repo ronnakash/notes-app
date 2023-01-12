@@ -1,7 +1,7 @@
-import { Navbar, Nav, NavDropdown, Button, DropdownButton, Dropdown  } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import logo from '../../logo.svg'
 import 'bootstrap/dist/css/bootstrap.css'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import UserButton from './UserButton'
 import AuthContext from '../../utils/authContext'
 

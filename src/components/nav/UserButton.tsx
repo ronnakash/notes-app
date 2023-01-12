@@ -1,7 +1,5 @@
-import { Navbar, Nav, NavDropdown, Button, DropdownButton, Dropdown} from 'react-bootstrap'
-import logo from '../logo.svg'
 import 'bootstrap/dist/css/bootstrap.css'
-import React, { CSSProperties, useContext, useState, useEffect } from 'react'
+import { CSSProperties, useContext, useState, useEffect } from 'react'
 import AuthContext from '../../utils/authContext'
 import UserMenu from './UserMenu'
 

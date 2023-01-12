@@ -5,7 +5,6 @@ import SignupForm from '../../interfaces/SignupForm';
 import SigninForm from '../../interfaces/SigninForm';
 import User from '../../interfaces/User';
 import EditUserForm from '../../interfaces/EditUserFrom';
-import Swal from 'sweetalert2';
 
 
   const getHeader = async (user : User | undefined) => {

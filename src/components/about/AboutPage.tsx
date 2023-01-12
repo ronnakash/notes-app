@@ -16,7 +16,7 @@ const AboutPage = (props: any) => {
                 </body> */}
             </div>
 
-            <Card className='form-container' style={{ width: '36rem', height:'20rem'}}>
+            <Card className='form-container-small' style={{ width: '36rem', height:'20rem'}}>
                 <Card.Body>
                     {/* <Card.Title>
                         Ron Nakash

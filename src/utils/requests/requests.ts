@@ -7,10 +7,7 @@ import requestParser from './requestParser';
 
 const noteURL = '/notes';
 const serverURL = 'https://node-server-ronnakash.vercel.app';
-// const serverURL = 'https://node-server-jet.vercel.app';
 // const serverURL = 'http://localhost:5000';
-// const serverURL = 'http://18.130.221.18:80';
-// const getAllNotesURL = '/Admin/get/allNotes';
 const postNoteURL = '';
 const deleteNoteURL = '';
 const editNoteURL = '';
@@ -22,16 +19,6 @@ const loginURL = '/login';
 const googleLoginURL = '/google';
 const updateUserURL = '/updateUser';
 
-
-
-
-
-// const getAllNotesRequest = axios.create({
-//         method: 'GET',
-//         baseURL: serverURL+noteURL+getAllNotesURL, 
-//         transformResponse: [responseParser.parseNotesFromRequest],
-//         timeout: 10000
-//     });
 
 const getMyNotesRequest = axios.create({
       method: 'GET',
@@ -72,6 +59,7 @@ const registerUserRequest = axios.create({
         timeout: 10000
       });
 
+
 const loginUserRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+authURL+loginURL,
@@ -79,6 +67,7 @@ const loginUserRequest = axios.create({
         timeout: 10000
       });
 
+      
 const googleLoginUserRequest = axios.create({
         method: 'POST',
         baseURL: serverURL+authURL+googleLoginURL,

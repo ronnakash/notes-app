@@ -1,10 +1,6 @@
-import React, { useContext } from 'react';
 import useForm from '../../utils/hooks/signin';
 import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline, GoogleLogout  } from 'react-google-login';
-import API from '../../utils/requests/API'
-import AuthContext from '../../utils/authContext';
-import User from '../../interfaces/User';
-import { Button, Form, Card, Row, Col, InputGroup } from 'react-bootstrap'
+import { Button, Form, Row, Col, InputGroup } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 
 
