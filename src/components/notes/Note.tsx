@@ -4,9 +4,9 @@ import EditNote from './EditNote';
 
 interface NoteProps {
     note: Note,
-    handleDeleteNote: Function,
-    handleEditNote : Function,
-    handleChangeNote : Function }
+    handleDeleteNote: (id: string) => Promise<void>,
+    handleEditNote : (toEdit : Note) => Promise<void>,
+    handleChangeNote : (changedNote : Note) => Promise<void> }
 
 const NoteBase = (props : NoteProps) => {
     let { note, handleDeleteNote, handleEditNote, handleChangeNote } = props;

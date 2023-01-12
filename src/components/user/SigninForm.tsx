@@ -3,8 +3,11 @@ import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline, GoogleLog
 import { Button, Form, Row, Col, InputGroup } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 
+interface SigninFormProps {submitForm : (event : any) => void, 
+  signInWithGoogle : (res: GoogleLoginResponse | GoogleLoginResponseOffline) => void
+}
 
-const SigninForm = (props : {submitForm : (event : any) => void , signInWithGoogle : (res: GoogleLoginResponse | GoogleLoginResponseOffline) => void}) => {
+const SigninForm = (props : SigninFormProps) => {
   
   let {submitForm, signInWithGoogle} = props;
 

@@ -1,10 +1,14 @@
 import { BsFillTrashFill } from 'react-icons/bs';
-import INote from '../../interfaces/Note';
+import Note from '../../interfaces/Note';
 
 
+interface SavedNoteProps {
+    note: Note, 
+    handleDeleteNote: (id: string) => Promise<void>,
+    handleEditNote : (toEdit : Note) => Promise<void>
+}
 
-
-const SavedNote = (props : {note: INote, handleDeleteNote: Function, handleEditNote: Function}) => {
+const SavedNote = (props : SavedNoteProps) => {
     let { note, handleDeleteNote, handleEditNote } = props;
 
     const handleEdit = () => {

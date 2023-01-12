@@ -6,7 +6,7 @@ import UserButton from './UserButton'
 import AuthContext from '../../utils/authContext'
 
 
-const NavBar = (props: any) => {
+const NavBar = (props: {}) => {
 
   const {user} = useContext(AuthContext);
 

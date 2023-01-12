@@ -2,7 +2,7 @@ import AuthContext from '../../utils/authContext'
 import 'bootstrap/dist/css/bootstrap.css'
 import { useContext } from 'react'
 
-const EditProfile = () => {
+const EditProfile = (props : {}) => {
 
     const {user, signOut, homeRedirect} = useContext(AuthContext);
     const UserAvatar = require('react-user-avatar');

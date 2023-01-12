@@ -4,13 +4,10 @@ import AuthContext from '../../utils/authContext'
 import UserMenu from './UserMenu'
 
 
-
-
-
-const UserButton = (props: any) => {
+const UserButton = (props: {}) => {
 
     const UserAvatar = require('react-user-avatar');
-    const {user, signOut} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
 
     const [showMenu, setShowMenu] = useState(false);
 
@@ -26,7 +23,6 @@ const UserButton = (props: any) => {
     
     var baseStyle : CSSProperties = {
         position: 'absolute',
-        // right: `${20}px`,
         left: `${window.innerWidth-offset()}px`,
         top: '50px',
     }

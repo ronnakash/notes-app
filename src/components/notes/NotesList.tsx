@@ -31,7 +31,7 @@ const NotesList = () => {
         setNotes(newNotes);
     }
   
-    const deleteNote = (id: string) => {
+    const deleteNote = async (id: string) : Promise<void> => {
         //warning message
         Swal.fire({
             title: 'Are you sure you want to delete this note?',
@@ -50,14 +50,14 @@ const NotesList = () => {
       
       };
 
-    const addNote = async (title : string, body : string) => {
+    const addNote = async (title : string, body : string) : Promise<void> => {
         let author = user?.email? user.email : 'guest';
         let newNote = await API.postNote({author, title, body}, user);
         const newNotes = newNote? [...notes, newNote] : notes;
         setNotes(newNotes);
       };
 
-    const changeNote = async (changedNote : INote, saved : boolean) => {
+    const changeNote = async (changedNote : INote) : Promise<void> => {
         const newNotes = await Promise.all(
             notes.map( async (note : INote) => {
                 if (note.id === changedNote.id){
@@ -69,7 +69,7 @@ const NotesList = () => {
         setNotes(newNotes);
     };
 
-    const editNote = (toEdit : INote) => {
+    const editNote = async (toEdit : INote) : Promise<void> => {
         const newNotes = notes.map((note : INote) => {
             if (toEdit.id === note.id)
                 note.editing = true;

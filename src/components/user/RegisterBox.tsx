@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import SignupForm from './SignupForm';
 import AuthContext from '../../utils/authContext';
 
-const RegisterBox = (props : any) => {
+const RegisterBox = (props : {}) => {
     
     let {register} = useContext(AuthContext);
 

@@ -1,7 +1,6 @@
-const TermsPage = () => {
+const TermsPage = (props: {}) => {
 
     return (
-
         <div>
             <div className='about-header'>
                 <h1 className='about-header'> Terms of service </h1>

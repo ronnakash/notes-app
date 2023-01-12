@@ -4,7 +4,7 @@ import LoginBox from './user/LoginBox';
 import NotesList from './notes/NotesList';
 
 
-const HomePage = () => {
+const HomePage = (props : {}) => {
     const {user} = useContext(AuthContext);
 
     return (

@@ -2,24 +2,17 @@ import AuthContext from '../../utils/authContext'
 import { CSSProperties, useContext } from 'react'
 import {Dropdown} from 'react-bootstrap'
 
+interface UserMenuProps {
+    showMenu : boolean,
+    setShowMenu : Function, 
+    baseStyle : CSSProperties
+}
 
-const UserMenu = (props: {showMenu : boolean, setShowMenu : Function, baseStyle : CSSProperties}) => {
+const UserMenu = (props: UserMenuProps) => {
 
     const {user, signOut, homeRedirect} = useContext(AuthContext);
-
-    // const [left, setLeft] = useState(window.innerWidth-190);
-
-    // var baseStyle : CSSProperties = {
-    //     position: 'absolute',
-    //     // right: `${20}px`,
-    //     left: `${window.innerWidth-190}px`,
-    //     top: '50px',
-    // }
-
-
     const UserAvatar = require('react-user-avatar');
     let {showMenu, setShowMenu, baseStyle} = props;
-
 
 
     const handleSignOut = () => {
@@ -29,21 +22,10 @@ const UserMenu = (props: {showMenu : boolean, setShowMenu : Function, baseStyle 
     }
 
 
-    // const handleResize = () => {
-    //     baseStyle.left = `${window.innerWidth-190}px`;
-    //     setStyle(baseStyle);
-    // }
-
     const userInitials = () => {
         return (user && user.username)? user.username.substring(0,1).toUpperCase() : 'f'
     }
 
-    // const cleanup : = (ret : any) => {window.removeEventListener('resize', handleResize)};
-
-    // useEffect(() => { 
-    //     window.addEventListener('resize', handleResize)
-    //     handleResize();
-    // },[])
 
     return(
         user==null?

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { useContext } from 'react'
 import EditProfileForm from './EditProfileForm';
 
-const EditProfile = () => {
+const EditProfile = (props : {}) => {
 
     const {user} = useContext(AuthContext);
     const UserAvatar = require('react-user-avatar');

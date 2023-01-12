@@ -4,7 +4,7 @@ import useForm from '../../utils/hooks/editProfile'
 import API from '../../utils/requests/API';
 import AuthContext from '../../utils/authContext'
 
-const EditProfileForm = () => {
+const EditProfileForm = (props : {}) => {
 
   const {user, updateUser} = useContext(AuthContext);
 

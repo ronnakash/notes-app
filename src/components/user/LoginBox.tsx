@@ -4,7 +4,7 @@ import AuthContext from '../../utils/authContext';
 
 
 
-const LoginBox = (props : any) => {
+const LoginBox = (props : {}) => {
     
     let {signInWithGoogle, signIn} = useContext(AuthContext);
     const UserAvatar = require('react-user-avatar');

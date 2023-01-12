@@ -2,9 +2,13 @@ import { useState } from 'react';
 import INote from '../../interfaces/Note';
 import ColorPicker from './ColorPicker';
 
-//handleAddNote -> handleChangeNote
+interface EditNoteProps {
+	note : INote, 
+	handleChangeNote: (changedNote : INote) => Promise<void>
+}
 
-const EditNote = (props : {note : INote, handleChangeNote: Function} ) => {
+
+const EditNote = (props : EditNoteProps ) => {
 	let { note, handleChangeNote } = props;
     let { title, body, color } = note;
 
@@ -32,12 +36,12 @@ const EditNote = (props : {note : INote, handleChangeNote: Function} ) => {
             note.body = noteBody;
 			note.color = noteColor;
 			console.log('note color:'+noteColor);
-			handleChangeNote(note, true);
+			handleChangeNote(note);
 		}
 	};
 
     const handleCancelClick = () => {
-        handleChangeNote(note, false);
+        handleChangeNote(note);
     };
 
 	const handleColorChange = (event : any) => {

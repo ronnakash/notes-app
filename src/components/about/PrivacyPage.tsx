@@ -1,9 +1,8 @@
 
 
-const PrivacyPage = () => {
+const PrivacyPage = (props: {}) => {
 
     return (
-
         <div>
             <div className='about-header'>
                 <h1 className='about-header'> Privacy Policy </h1>

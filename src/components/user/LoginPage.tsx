@@ -4,7 +4,7 @@ import LoginBox from './LoginBox';
 import ProfilePage from './ProfilePage';
 
 
-const LoginPage = (props : any) => {
+const LoginPage = (props : {}) => {
     
     let {user} = useContext(AuthContext);
     const UserAvatar = require('react-user-avatar');
