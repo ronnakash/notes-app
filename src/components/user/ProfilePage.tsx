@@ -17,7 +17,7 @@ const EditProfile = (props : {}) => {
     }
 
     return (
-        <div className="form-container">
+        <div className="form-container-large">
             <div className='center'>
                 <div className='user-profile-display'>
                     <div>
